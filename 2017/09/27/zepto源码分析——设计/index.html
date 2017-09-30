@@ -5,7 +5,7 @@
   
 
 
-<html class="theme-next pisces use-motion" lang="zh-cn">
+<html class="theme-next pisces use-motion" lang="zh-Hans">
 <head>
   <meta charset="UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -76,8 +76,8 @@
 <meta property="og:url" content="http://yoursite.com/./2017/09/27/zepto源码分析——设计/index.html">
 <meta property="og:site_name" content="不得不错的博客">
 <meta property="og:description" content="zepto对象zepto或是jQuery的设计思想几乎是一致的，通过选择器获取一个DOM对象，然后对这个对象进行操作。我们来看zepto对象是什么样子。进入Zepto文档界面，打开控制台，使用$取一个元素，将它打印出来。">
-<meta property="og:locale" content="zh-cn">
-<meta property="og:updated_time" content="2017-09-30T12:48:46.221Z">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2017-09-30T13:11:47.919Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="zepto源码分析——设计">
 <meta name="twitter:description" content="zepto对象zepto或是jQuery的设计思想几乎是一致的，通过选择器获取一个DOM对象，然后对这个对象进行操作。我们来看zepto对象是什么样子。进入Zepto文档界面，打开控制台，使用$取一个元素，将它打印出来。">
@@ -96,7 +96,7 @@
     motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn"}},
     duoshuo: {
       userId: '0',
-      author: 'Author'
+      author: '博主'
     },
     algolia: {
       applicationID: '',
@@ -137,7 +137,7 @@
 
 </head>
 
-<body itemscope itemtype="http://schema.org/WebPage" lang="zh-cn">
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
 
   
   
@@ -185,7 +185,7 @@
             
               <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
             
-            Startseite
+            首页
           </a>
         </li>
       
@@ -195,7 +195,7 @@
             
               <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
             
-            Tags
+            标签
           </a>
         </li>
       
@@ -205,7 +205,7 @@
             
               <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
             
-            Kategorien
+            分类
           </a>
         </li>
       
@@ -215,7 +215,7 @@
             
               <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
             
-            Archiv
+            归档
           </a>
         </li>
       
@@ -228,7 +228,7 @@
             
               <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
             
-            Suche
+            搜索
           </a>
         </li>
       
@@ -248,7 +248,7 @@
     </span>
     <div class="local-search-input-wrapper">
       <input autocomplete="off"
-             placeholder="Searching..." spellcheck="false"
+             placeholder="搜索..." spellcheck="false"
              type="text" id="local-search-input">
     </div>
   </div>
@@ -313,9 +313,9 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Veröffentlicht am</span>
+                <span class="post-meta-item-text">发表于</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-09-27T11:51:00+08:00">
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-09-27T11:51:00+08:00">
                 2017-09-27
               </time>
             
@@ -334,7 +334,7 @@
                 <i class="fa fa-folder-o"></i>
               </span>
               
-                <span class="post-meta-item-text">in</span>
+                <span class="post-meta-item-text">分类于</span>
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
@@ -376,17 +376,23 @@
 
       
         <h3 id="zepto对象"><a href="#zepto对象" class="headerlink" title="zepto对象"></a>zepto对象</h3><p>zepto或是jQuery的设计思想几乎是一致的，通过选择器获取一个DOM对象，然后对这个对象进行操作。<br>我们来看zepto对象是什么样子。<br>进入Zepto文档界面，打开控制台，使用$取一个元素，将它打印出来。<br><a id="more"></a><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&lt;h3 id=&quot;download&quot;&gt;下载 Zepto&lt;/h3&gt;</div></pre></td></tr></table></figure></p>
-<p>这个元素用的是id呀，就它了<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">let ele = $(&apos;#download&apos;)</div><div class="line">ele</div><div class="line">[h3#download, selector: &quot;#download&quot;]</div><div class="line">Array.isArray(ele)</div><div class="line">true</div></pre></td></tr></table></figure></p>
-<p>看起来是一个数组对象，但实际上并不是,isArray()不要骗人啊~<br>我们知道JavaScript中数组是Array对象的实例，那么ele是么？<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">ele.__proto__.constructor === Array;</div><div class="line">false</div><div class="line">ele instanceof Array</div><div class="line">false</div></pre></td></tr></table></figure></p>
-<p>instanceof 运算符用来测试一个对象在其原型链中是否存在一个构造函数的 prototype 属性。</p>
-<h2 id="显而易见，ele并不是Array构建出来的，用Array构建出来也没那么多方法用啊，除非大规模重写Array的proto对象，那不是太惨了。"><a href="#显而易见，ele并不是Array构建出来的，用Array构建出来也没那么多方法用啊，除非大规模重写Array的proto对象，那不是太惨了。" class="headerlink" title="显而易见，ele并不是Array构建出来的，用Array构建出来也没那么多方法用啊，除非大规模重写Array的proto对象，那不是太惨了。"></a>显而易见，ele并不是Array构建出来的，用Array构建出来也没那么多方法用啊，除非大规模重写Array的<strong>proto</strong>对象，那不是太惨了。</h2><h4 id="那么是谁构建了这个类数组对象？"><a href="#那么是谁构建了这个类数组对象？" class="headerlink" title="那么是谁构建了这个类数组对象？"></a>那么是谁构建了这个类数组对象？</h4><p>我们先来看看$</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">$</div><div class="line">ƒ (selector, context)&#123;</div><div class="line">    return zepto.init(selector, context)</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p>$是一个函数<br>来看看源码</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">var Zepto = (function() &#123;</div><div class="line">&#125;)()</div><div class="line"></div><div class="line">window.Zepto = Zepto</div><div class="line">window.$ === undefined &amp;&amp; (window.$ = Zepto)</div></pre></td></tr></table></figure>
-<p>$被挂载到window上，要知道在浏览器中所有JavaScript 全局对象、函数以及变量均自动成为window 对象的成员，所以$是全局对象，且是Zepto函数，很明显Zepto函数是一个构造函数。</p>
-<hr>
-<p>源代码解析部分请配合源代码和搜索食用</p>
-<hr>
+<p>这个元素用的是id呀，就它了</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">let ele = $(&apos;#download&apos;)</div><div class="line">ele</div><div class="line">[h3#download, selector: &quot;#download&quot;]</div><div class="line">Array.isArray(ele)</div><div class="line">true</div></pre></td></tr></table></figure>
+<p>看起来是一个数组对象，但实际上并不是,isArray()不要骗人啊~<br>我们知道JavaScript中数组是Array对象的实例，那么ele是么？</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">ele.__proto__.constructor === Array;</div><div class="line">false</div><div class="line">ele instanceof Array</div><div class="line">false</div></pre></td></tr></table></figure>
+<p>instanceof 运算符用来测试一个对象在其原型链中是否存在一个构造函数的 prototype 属性。<br>显而易见，ele并不是Array构建出来的，用Array构建出来也没那么多方法用啊，除非大规模重写Array的<strong>proto</strong>对象，那不是太惨了。</p>
+<h4 id="那么是谁构建了这个类数组对象？"><a href="#那么是谁构建了这个类数组对象？" class="headerlink" title="那么是谁构建了这个类数组对象？"></a>那么是谁构建了这个类数组对象？</h4><p>我们先来看看$</p>
+<pre><code>$
+ƒ (selector, context){
+    return zepto.init(selector, context)
+</code></pre><p>$是一个函数<br>来看看源码</p>
+<pre><code>var Zepto = (function() {
+})()
+
+window.Zepto = Zepto
+window.$ === undefined &amp;&amp; (window.$ = Zepto)
+</code></pre><p>$被挂载到window上，要知道在浏览器中所有JavaScript 全局对象、函数以及变量均自动成为window 对象的成员，所以$是全局对象，且是Zepto函数，很明显Zepto函数是一个构造函数。</p>
+<p><strong> 源代码解析部分请配合源代码和搜索食用 </strong></p>
 <h4 id="zepto-init"><a href="#zepto-init" class="headerlink" title="zepto.init"></a>zepto.init</h4><p>前面已经知道$是一个函数，参数为(selector,context)，返回一个函数，我们先来看看返回的函数是什么样子。<br>搜索到zepto.init，可以看到英文注释：</p>
 <blockquote>
 <pre><code>`$.zepto.init` is Zepto&apos;s counterpart to jQuery&apos;s `$.fn.init` and takes a CSS selector and an optional context (and handles various special cases).
@@ -400,11 +406,18 @@
 <li>生成一个dom元素  </li>
 </ul>
 <p>详情分析请看源代码解析部分。<br>加载函数部分比较好理解，我们先来看看是如何构建zepto对象的。</p>
-<h4 id="构建zepto对象"><a href="#构建zepto对象" class="headerlink" title="构建zepto对象"></a>构建zepto对象</h4><h2 id="当selector是选择器时，查找dom。"><a href="#当selector是选择器时，查找dom。" class="headerlink" title="当selector是选择器时，查找dom。"></a>当selector是选择器时，查找dom。</h2><p>zepto.qsa()方法用来选择dom，使用字符串匹配后分别使用各种get方法进行选择dom，最后特殊情况使用querySelectorAll和querySelector。因为它俩的速度要慢得多</p>
+<h4 id="构建zepto对象"><a href="#构建zepto对象" class="headerlink" title="构建zepto对象"></a>构建zepto对象</h4><p>当selector是选择器时，查找dom。</p>
+<p>zepto.qsa()方法用来选择dom，使用字符串匹配后分别使用各种get方法进行选择dom，最后特殊情况使用querySelectorAll和querySelector。因为它俩的速度要慢得多</p>
 <hr>
 <p>找到dom后把dom与selector传给zepto.Z这个构造函数。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">zepto.Z = function(dom, selector) &#123;</div><div class="line">    dom = dom || []</div><div class="line">    dom.__proto__ = $.fn</div><div class="line">    dom.selector = selector || &apos;&apos;</div><div class="line">    return dom</div><div class="line">&#125;</div><div class="line">zepto.Z.prototype = $.fn</div></pre></td></tr></table></figure>
-<p>可以看到dom的隐式原型被指向$.fn,zepto.Z.prototype也被指向$.fn，因为隐式原型与显式原型的关系，实际上只要一个生效就生效了。<br>$.fn中定义了zepto类数组对象所有方法，通过原型链这些方法就可以共享啦。</p>
+<pre><code>zepto.Z = function(dom, selector) {
+    dom = dom || []
+    dom.__proto__ = $.fn
+    dom.selector = selector || &apos;&apos;
+    return dom
+}
+zepto.Z.prototype = $.fn
+</code></pre><p>可以看到dom的隐式原型被指向$.fn,zepto.Z.prototype也被指向$.fn，因为隐式原型与显式原型的关系，实际上只要一个生效就生效了。<br>$.fn中定义了zepto类数组对象所有方法，通过原型链这些方法就可以共享啦。</p>
 
       
     </div>
@@ -419,7 +432,7 @@
         <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
   <div>坚持原创技术分享，您的支持将鼓励我继续创作！</div>
   <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
-    <span>Donate</span>
+    <span>打赏</span>
   </button>
   <div id="QR" style="display: none;">
 
@@ -427,8 +440,8 @@
 
     
       <div id="alipay" style="display: inline-block">
-        <img id="alipay_qr" src="/images/alipay.jpg" alt="不得不错 Alipay"/>
-        <p>Alipay</p>
+        <img id="alipay_qr" src="/images/alipay.jpg" alt="不得不错 支付宝"/>
+        <p>支付宝</p>
       </div>
     
 
@@ -557,10 +570,10 @@ var jiathis_config={
       
         <ul class="sidebar-nav motion-element">
           <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
-            Inhaltsverzeichnis
+            文章目录
           </li>
           <li class="sidebar-nav-overview" data-target="site-overview">
-            Übersicht
+            站点概览
           </li>
         </ul>
       
@@ -580,7 +593,7 @@ var jiathis_config={
               <a href="/archives/">
             
                 <span class="site-state-item-count">3</span>
-                <span class="site-state-item-name">Artikel</span>
+                <span class="site-state-item-name">日志</span>
               </a>
             </div>
           
@@ -591,7 +604,7 @@ var jiathis_config={
             <div class="site-state-item site-state-categories">
               <a href="/categories/index.html">
                 <span class="site-state-item-count">1</span>
-                <span class="site-state-item-name">Kategorien</span>
+                <span class="site-state-item-name">分类</span>
               </a>
             </div>
           
@@ -602,7 +615,7 @@ var jiathis_config={
             <div class="site-state-item site-state-tags">
               <a href="/tags/index.html">
                 <span class="site-state-item-count">4</span>
-                <span class="site-state-item-name">Tags</span>
+                <span class="site-state-item-name">标签</span>
               </a>
             </div>
           
@@ -653,7 +666,7 @@ var jiathis_config={
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#zepto对象"><span class="nav-number">1.</span> <span class="nav-text">zepto对象</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#显而易见，ele并不是Array构建出来的，用Array构建出来也没那么多方法用啊，除非大规模重写Array的proto对象，那不是太惨了。"><span class="nav-number"></span> <span class="nav-text">显而易见，ele并不是Array构建出来的，用Array构建出来也没那么多方法用啊，除非大规模重写Array的proto对象，那不是太惨了。</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#那么是谁构建了这个类数组对象？"><span class="nav-number">0.1.</span> <span class="nav-text">那么是谁构建了这个类数组对象？</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#zepto-init"><span class="nav-number">0.2.</span> <span class="nav-text">zepto.init</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#构建zepto对象"><span class="nav-number">0.3.</span> <span class="nav-text">构建zepto对象</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#当selector是选择器时，查找dom。"><span class="nav-number"></span> <span class="nav-text">当selector是选择器时，查找dom。</span></a></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#zepto对象"><span class="nav-number">1.</span> <span class="nav-text">zepto对象</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#那么是谁构建了这个类数组对象？"><span class="nav-number">1.1.</span> <span class="nav-text">那么是谁构建了这个类数组对象？</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#zepto-init"><span class="nav-number">1.2.</span> <span class="nav-text">zepto.init</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#构建zepto对象"><span class="nav-number">1.3.</span> <span class="nav-text">构建zepto对象</span></a></li></ol></li></ol></div>
             
 
           </div>
