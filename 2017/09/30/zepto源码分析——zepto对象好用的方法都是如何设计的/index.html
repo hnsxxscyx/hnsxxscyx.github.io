@@ -69,18 +69,18 @@
 
 
 
-<meta name="description" content="zepto的核心方法一部分通过给$增加属性而给$(要知道$是一个函数，即是一个对象)，另一部分定义在$.fn这个属性上，然后将zepto.Z.prototype指向$.fn，即所有的Z对象的proto指向$.fn，于是可使用其中的方法。">
+<meta name="description" content="zepto的核心方法一部分通过给$增加属性而给$(要知道$是一个函数，即是一个对象)，另一部分定义在$.fn这个属性上，然后将zepto.Z.prototype指向$.fn，即所有的Z对象的proto指向$.fn，于是可访问到其中的方法。">
 <meta name="keywords" content="源码,JavaScript,zepto">
 <meta property="og:type" content="article">
-<meta property="og:title" content="zepto源码设计——zepto对象好用的方法都是如何设计的">
-<meta property="og:url" content="http://yoursite.com/./2017/09/30/zepto源码设计——zepto对象好用的方法都是如何设计的/index.html">
+<meta property="og:title" content="zepto源码分析——zepto对象好用的方法都是如何设计的">
+<meta property="og:url" content="http://yoursite.com/./2017/09/30/zepto源码分析——zepto对象好用的方法都是如何设计的/index.html">
 <meta property="og:site_name" content="不得不错的博客">
-<meta property="og:description" content="zepto的核心方法一部分通过给$增加属性而给$(要知道$是一个函数，即是一个对象)，另一部分定义在$.fn这个属性上，然后将zepto.Z.prototype指向$.fn，即所有的Z对象的proto指向$.fn，于是可使用其中的方法。">
+<meta property="og:description" content="zepto的核心方法一部分通过给$增加属性而给$(要知道$是一个函数，即是一个对象)，另一部分定义在$.fn这个属性上，然后将zepto.Z.prototype指向$.fn，即所有的Z对象的proto指向$.fn，于是可访问到其中的方法。">
 <meta property="og:locale" content="zh-cn">
-<meta property="og:updated_time" content="2017-09-30T09:51:53.087Z">
+<meta property="og:updated_time" content="2017-09-30T12:22:25.763Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="zepto源码设计——zepto对象好用的方法都是如何设计的">
-<meta name="twitter:description" content="zepto的核心方法一部分通过给$增加属性而给$(要知道$是一个函数，即是一个对象)，另一部分定义在$.fn这个属性上，然后将zepto.Z.prototype指向$.fn，即所有的Z对象的proto指向$.fn，于是可使用其中的方法。">
+<meta name="twitter:title" content="zepto源码分析——zepto对象好用的方法都是如何设计的">
+<meta name="twitter:description" content="zepto的核心方法一部分通过给$增加属性而给$(要知道$是一个函数，即是一个对象)，另一部分定义在$.fn这个属性上，然后将zepto.Z.prototype指向$.fn，即所有的Z对象的proto指向$.fn，于是可访问到其中的方法。">
 
 
 
@@ -110,13 +110,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/./2017/09/30/zepto源码设计——zepto对象好用的方法都是如何设计的/"/>
+  <link rel="canonical" href="http://yoursite.com/./2017/09/30/zepto源码分析——zepto对象好用的方法都是如何设计的/"/>
 
 
 
 
 
-  <title>zepto源码设计——zepto对象好用的方法都是如何设计的 | 不得不错的博客</title>
+  <title>zepto源码分析——zepto对象好用的方法都是如何设计的 | 不得不错的博客</title>
   
 
 
@@ -185,7 +185,7 @@
             
               <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
             
-            Startseite
+            Home
           </a>
         </li>
       
@@ -205,7 +205,7 @@
             
               <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
             
-            Kategorien
+            Categories
           </a>
         </li>
       
@@ -215,7 +215,7 @@
             
               <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
             
-            Archiv
+            Archives
           </a>
         </li>
       
@@ -228,7 +228,7 @@
             
               <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
             
-            Suche
+            Search
           </a>
         </li>
       
@@ -286,7 +286,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/./2017/09/30/zepto源码设计——zepto对象好用的方法都是如何设计的/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/./2017/09/30/zepto源码分析——zepto对象好用的方法都是如何设计的/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="不得不错">
@@ -303,7 +303,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">zepto源码设计——zepto对象好用的方法都是如何设计的</h1>
+          <h1 class="post-title" itemprop="name headline">zepto源码分析——zepto对象好用的方法都是如何设计的</h1>
         
 
         <div class="post-meta">
@@ -313,7 +313,7 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Veröffentlicht am</span>
+                <span class="post-meta-item-text">Posted on</span>
               
               <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-09-30T11:52:58+08:00">
                 2017-09-30
@@ -334,7 +334,7 @@
                 <i class="fa fa-folder-o"></i>
               </span>
               
-                <span class="post-meta-item-text">in</span>
+                <span class="post-meta-item-text">In</span>
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
@@ -375,7 +375,8 @@
       
 
       
-        <h2 id="zepto的核心方法一部分通过给-增加属性而给-要知道-是一个函数，即是一个对象-，另一部分定义在-fn这个属性上，然后将zepto-Z-prototype指向-fn，即所有的Z对象的proto指向-fn，于是可使用其中的方法。"><a href="#zepto的核心方法一部分通过给-增加属性而给-要知道-是一个函数，即是一个对象-，另一部分定义在-fn这个属性上，然后将zepto-Z-prototype指向-fn，即所有的Z对象的proto指向-fn，于是可使用其中的方法。" class="headerlink" title="zepto的核心方法一部分通过给$增加属性而给$(要知道$是一个函数，即是一个对象)，另一部分定义在$.fn这个属性上，然后将zepto.Z.prototype指向$.fn，即所有的Z对象的proto指向$.fn，于是可使用其中的方法。"></a>zepto的核心方法一部分通过给$增加属性而给$(要知道$是一个函数，即是一个对象)，另一部分定义在$.fn这个属性上，然后将zepto.Z.prototype指向$.fn，即所有的Z对象的<strong>proto</strong>指向$.fn，于是可使用其中的方法。</h2>
+        <p>zepto的核心方法一部分通过给$增加属性而给$(要知道$是一个函数，即是一个对象)，另一部分定义在$.fn这个属性上，然后将zepto.Z.prototype指向$.fn，即所有的Z对象的<strong>proto</strong>指向$.fn，于是可访问到其中的方法。</p>
+<h2 id=""><a href="#" class="headerlink" title=""></a><a id="more"></a></h2>
       
     </div>
     
@@ -397,7 +398,7 @@
 
     
       <div id="alipay" style="display: inline-block">
-        <img id="alipay_qr" src="/images/alipay.jpg" alt="不得不错 Alipay"/>
+        <img id="alipay_qr" src="\source\images\付款码.jpg" alt="不得不错 Alipay"/>
         <p>Alipay</p>
       </div>
     
@@ -523,10 +524,10 @@ var jiathis_config={
       
         <ul class="sidebar-nav motion-element">
           <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
-            Inhaltsverzeichnis
+            Table of Contents
           </li>
           <li class="sidebar-nav-overview" data-target="site-overview">
-            Übersicht
+            Overview
           </li>
         </ul>
       
@@ -546,7 +547,7 @@ var jiathis_config={
               <a href="/archives/">
             
                 <span class="site-state-item-count">3</span>
-                <span class="site-state-item-name">Artikel</span>
+                <span class="site-state-item-name">posts</span>
               </a>
             </div>
           
@@ -557,7 +558,7 @@ var jiathis_config={
             <div class="site-state-item site-state-categories">
               <a href="/categories/index.html">
                 <span class="site-state-item-count">1</span>
-                <span class="site-state-item-name">Kategorien</span>
+                <span class="site-state-item-name">categories</span>
               </a>
             </div>
           
@@ -568,7 +569,7 @@ var jiathis_config={
             <div class="site-state-item site-state-tags">
               <a href="/tags/index.html">
                 <span class="site-state-item-count">4</span>
-                <span class="site-state-item-name">Tags</span>
+                <span class="site-state-item-name">tags</span>
               </a>
             </div>
           
@@ -619,7 +620,7 @@ var jiathis_config={
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#zepto的核心方法一部分通过给-增加属性而给-要知道-是一个函数，即是一个对象-，另一部分定义在-fn这个属性上，然后将zepto-Z-prototype指向-fn，即所有的Z对象的proto指向-fn，于是可使用其中的方法。"><span class="nav-number">1.</span> <span class="nav-text">zepto的核心方法一部分通过给$增加属性而给$(要知道$是一个函数，即是一个对象)，另一部分定义在$.fn这个属性上，然后将zepto.Z.prototype指向$.fn，即所有的Z对象的proto指向$.fn，于是可使用其中的方法。</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#"><span class="nav-number">1.</span> <span class="nav-text"></span></a></li></ol></div>
             
 
           </div>
@@ -652,7 +653,7 @@ var jiathis_config={
 </div>
 
 
-  <div class="powered-by">Erstellt mit  <a class="theme-link" href="https://hexo.io">Hexo</a></div>
+  <div class="powered-by">Powered by <a class="theme-link" href="https://hexo.io">Hexo</a></div>
 
   <span class="post-meta-divider">|</span>
 

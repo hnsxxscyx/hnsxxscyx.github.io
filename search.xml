@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title><![CDATA[zepto源码设计——zepto对象好用的方法都是如何设计的]]></title>
-    <url>%2F2017%2F09%2F30%2Fzepto%E6%BA%90%E7%A0%81%E8%AE%BE%E8%AE%A1%E2%80%94%E2%80%94zepto%E5%AF%B9%E8%B1%A1%E5%A5%BD%E7%94%A8%E7%9A%84%E6%96%B9%E6%B3%95%E9%83%BD%E6%98%AF%E5%A6%82%E4%BD%95%E8%AE%BE%E8%AE%A1%E7%9A%84%2F</url>
-    <content type="text"><![CDATA[zepto的核心方法一部分通过给$增加属性而给$(要知道$是一个函数，即是一个对象)，另一部分定义在$.fn这个属性上，然后将zepto.Z.prototype指向$.fn，即所有的Z对象的proto指向$.fn，于是可使用其中的方法。]]></content>
+    <title><![CDATA[zepto源码分析——zepto对象好用的方法都是如何设计的]]></title>
+    <url>%2F2017%2F09%2F30%2Fzepto%E6%BA%90%E7%A0%81%E5%88%86%E6%9E%90%E2%80%94%E2%80%94zepto%E5%AF%B9%E8%B1%A1%E5%A5%BD%E7%94%A8%E7%9A%84%E6%96%B9%E6%B3%95%E9%83%BD%E6%98%AF%E5%A6%82%E4%BD%95%E8%AE%BE%E8%AE%A1%E7%9A%84%2F</url>
+    <content type="text"><![CDATA[zepto的核心方法一部分通过给$增加属性而给$(要知道$是一个函数，即是一个对象)，另一部分定义在$.fn这个属性上，然后将zepto.Z.prototype指向$.fn，即所有的Z对象的proto指向$.fn，于是可访问到其中的方法。]]></content>
       <categories>
         <category>编程</category>
       </categories>
