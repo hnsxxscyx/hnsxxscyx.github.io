@@ -53,7 +53,7 @@
 <link href="/css/main.css?v=5.1.2" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="Hexo, NexT" />
+  <meta name="keywords" content="源码,JavaScript,zepto," />
 
 
 
@@ -69,13 +69,18 @@
 
 
 
-<meta property="og:type" content="website">
-<meta property="og:title" content="不得不错的博客">
-<meta property="og:url" content="http://yoursite.com/./archives/2017/index.html">
+<meta name="description" content="zepto的核心方法一部分通过给$增加属性而给$(要知道$是一个函数，即是一个对象)，另一部分定义在$.fn这个属性上，然后将zepto.Z.prototype指向$.fn，即所有的Z对象的proto指向$.fn，于是可使用其中的方法。">
+<meta name="keywords" content="源码,JavaScript,zepto">
+<meta property="og:type" content="article">
+<meta property="og:title" content="zepto源码设计——zepto对象好用的方法都是如何设计的">
+<meta property="og:url" content="http://yoursite.com/./2017/09/30/zepto源码设计——zepto对象好用的方法都是如何设计的/index.html">
 <meta property="og:site_name" content="不得不错的博客">
+<meta property="og:description" content="zepto的核心方法一部分通过给$增加属性而给$(要知道$是一个函数，即是一个对象)，另一部分定义在$.fn这个属性上，然后将zepto.Z.prototype指向$.fn，即所有的Z对象的proto指向$.fn，于是可使用其中的方法。">
 <meta property="og:locale" content="zh-cn">
+<meta property="og:updated_time" content="2017-09-30T09:51:53.087Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="不得不错的博客">
+<meta name="twitter:title" content="zepto源码设计——zepto对象好用的方法都是如何设计的">
+<meta name="twitter:description" content="zepto的核心方法一部分通过给$增加属性而给$(要知道$是一个函数，即是一个对象)，另一部分定义在$.fn这个属性上，然后将zepto.Z.prototype指向$.fn，即所有的Z对象的proto指向$.fn，于是可使用其中的方法。">
 
 
 
@@ -105,13 +110,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/./archives/2017/"/>
+  <link rel="canonical" href="http://yoursite.com/./2017/09/30/zepto源码设计——zepto对象好用的方法都是如何设计的/"/>
 
 
 
 
 
-  <title>Archiv | 不得不错的博客</title>
+  <title>zepto源码设计——zepto对象好用的方法都是如何设计的 | 不得不错的博客</title>
   
 
 
@@ -139,7 +144,7 @@
     
   
 
-  <div class="container sidebar-position-left page-archive">
+  <div class="container sidebar-position-left page-post-detail">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -267,148 +272,222 @@
           <div id="content" class="content">
             
 
-  
-  
-  
-  <div class="post-block archive">
-    <div id="posts" class="posts-collapse">
-      <span class="archive-move-on"></span>
+  <div id="posts" class="posts-expand">
+    
 
-      <span class="archive-page-counter">
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/./2017/09/30/zepto源码设计——zepto对象好用的方法都是如何设计的/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="不得不错">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="不得不错的博客">
+    </span>
+
+    
+      <header class="post-header">
+
         
         
+          <h1 class="post-title" itemprop="name headline">zepto源码设计——zepto对象好用的方法都是如何设计的</h1>
         
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Veröffentlicht am</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-09-30T11:52:58+08:00">
+                2017-09-30
+              </time>
+            
+
+            
+
+            
+          </span>
+
           
-        
-        Öhm..! Insgesamt 3 Artikel. Bleib dran.
-      </span>
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">in</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/编程/" itemprop="url" rel="index">
+                    <span itemprop="name">编程</span>
+                  </a>
+                </span>
 
-      
-
-        
-        
-        
-
-        
+                
+                
+              
+            </span>
           
-          <div class="collection-title">
-            <h1 class="archive-year" id="archive-year-2017">2017</h1>
-          </div>
-        
-        
 
-        
+          
+            
+          
 
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
+          
+          
 
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2017/09/30/zepto源码设计——zepto对象好用的方法都是如何设计的/" itemprop="url">
-              
-                <span itemprop="name">zepto源码设计——zepto对象好用的方法都是如何设计的</span>
-              
-            </a>
-        
-      </h2>
+          
 
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2017-09-30T11:52:58+08:00"
-              content="2017-09-30" >
-          09-30
-        </time>
-      </div>
+          
 
-    </header>
-  </article>
+          
 
+        </div>
+      </header>
+    
 
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
 
       
-
-        
-        
-        
-
-        
-        
-
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2017/09/27/zepto源码分析——设计/" itemprop="url">
-              
-                <span itemprop="name">zepto源码分析——设计</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2017-09-27T11:51:00+08:00"
-              content="2017-09-27" >
-          09-27
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
       
 
-        
-        
-        
-
-        
-        
-
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2017/09/27/zepto源码分析——序/" itemprop="url">
-              
-                <span itemprop="name">zepto源码分析——序</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2017-09-27T11:00:12+08:00"
-              content="2017-09-27" >
-          09-27
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
       
-
+        <h2 id="zepto的核心方法一部分通过给-增加属性而给-要知道-是一个函数，即是一个对象-，另一部分定义在-fn这个属性上，然后将zepto-Z-prototype指向-fn，即所有的Z对象的proto指向-fn，于是可使用其中的方法。"><a href="#zepto的核心方法一部分通过给-增加属性而给-要知道-是一个函数，即是一个对象-，另一部分定义在-fn这个属性上，然后将zepto-Z-prototype指向-fn，即所有的Z对象的proto指向-fn，于是可使用其中的方法。" class="headerlink" title="zepto的核心方法一部分通过给$增加属性而给$(要知道$是一个函数，即是一个对象)，另一部分定义在$.fn这个属性上，然后将zepto.Z.prototype指向$.fn，即所有的Z对象的proto指向$.fn，于是可使用其中的方法。"></a>zepto的核心方法一部分通过给$增加属性而给$(要知道$是一个函数，即是一个对象)，另一部分定义在$.fn这个属性上，然后将zepto.Z.prototype指向$.fn，即所有的Z对象的<strong>proto</strong>指向$.fn，于是可使用其中的方法。</h2>
+      
     </div>
+    
+    
+    
+
+    
+
+    
+      <div>
+        <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+  <div>坚持原创技术分享，您的支持将鼓励我继续创作！</div>
+  <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+    <span>Donate</span>
+  </button>
+  <div id="QR" style="display: none;">
+
+    
+
+    
+      <div id="alipay" style="display: inline-block">
+        <img id="alipay_qr" src="/images/alipay.jpg" alt="不得不错 Alipay"/>
+        <p>Alipay</p>
+      </div>
+    
+
+    
+
+  </div>
+</div>
+
+      </div>
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/源码/" rel="tag"># 源码</a>
+          
+            <a href="/tags/JavaScript/" rel="tag"># JavaScript</a>
+          
+            <a href="/tags/zepto/" rel="tag"># zepto</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2017/09/27/zepto源码分析——设计/" rel="next" title="zepto源码分析——设计">
+                <i class="fa fa-chevron-left"></i> zepto源码分析——设计
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
   </div>
   
   
   
+  </article>
 
-  
 
+
+    <div class="post-spread">
+      
+        <!-- JiaThis Button BEGIN -->
+<div class="jiathis_style">
+<span class="jiathis_txt">分享到：</span>
+<a class="jiathis_button_fav">收藏夹</a>
+<a class="jiathis_button_copy">复制网址</a>
+<a class="jiathis_button_email">邮件</a>
+<a class="jiathis_button_weixin">微信</a>
+<a class="jiathis_button_qzone">QQ空间</a>
+<a class="jiathis_button_tqq">腾讯微博</a>
+<a class="jiathis_button_douban">豆瓣</a>
+<a class="jiathis_button_share">一键分享</a>
+
+<a href="http://www.jiathis.com/share?uid=2140465" class="jiathis jiathis_txt jiathis_separator jtico jtico_jiathis" target="_blank">更多</a>
+<a class="jiathis_counter_style"></a>
+</div>
+<script type="text/javascript" >
+var jiathis_config={
+  data_track_clickback:true,
+  summary:"",
+  shortUrl:false,
+  hideMore:false
+}
+</script>
+<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js?uid=" charset="utf-8"></script>
+<!-- JiaThis Button END -->
+      
+    </div>
+  </div>
 
 
           </div>
@@ -416,6 +495,12 @@
 
 
           
+  <div class="comments" id="comments">
+    
+      <div id="lv-container" data-id="city" data-uid="MTAyMC8zMTA1NS83NjAz"></div>
+    
+  </div>
+
 
         </div>
         
@@ -436,8 +521,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            Inhaltsverzeichnis
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            Übersicht
+          </li>
+        </ul>
+      
 
-      <section class="site-overview sidebar-panel sidebar-panel-active">
+      <section class="site-overview sidebar-panel">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           
             <p class="site-author-name" itemprop="name">不得不错</p>
@@ -515,6 +609,22 @@
 
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#zepto的核心方法一部分通过给-增加属性而给-要知道-是一个函数，即是一个对象-，另一部分定义在-fn这个属性上，然后将zepto-Z-prototype指向-fn，即所有的Z对象的proto指向-fn，于是可使用其中的方法。"><span class="nav-number">1.</span> <span class="nav-text">zepto的核心方法一部分通过给$增加属性而给$(要知道$是一个函数，即是一个对象)，另一部分定义在$.fn这个属性上，然后将zepto.Z.prototype指向$.fn，即所有的Z对象的proto指向$.fn，于是可使用其中的方法。</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
@@ -679,6 +789,17 @@
 
 
 
+  
+    <script type="text/javascript">
+      (function(d, s) {
+        var j, e = d.getElementsByTagName(s)[0];
+        if (typeof LivereTower === 'function') { return; }
+        j = d.createElement(s);
+        j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+        j.async = true;
+        e.parentNode.insertBefore(j, e);
+      })(document, 'script');
+    </script>
   
 
 
