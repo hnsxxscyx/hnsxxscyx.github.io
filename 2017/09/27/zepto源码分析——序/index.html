@@ -53,7 +53,7 @@
 <link href="/css/main.css?v=5.1.2" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="Hexo, NexT" />
+  <meta name="keywords" content="源码,JavaScript,zepto,自述," />
 
 
 
@@ -69,13 +69,18 @@
 
 
 
-<meta property="og:type" content="website">
-<meta property="og:title" content="不得不错的博客">
-<meta property="og:url" content="http://yoursite.com/./archives/2017/09/index.html">
+<meta name="description" content="为什么17年还要读zepto的源码？问这个问题首先要清除为什么读源码。程序员阅读源码是一种什么心态？源码对编程意义何在？如何才能更好阅读代码？这个问题高票答案基本上已经解释的很好了，但我还想再补充几点。 - 向优秀的人学习，这个毫无疑问。 - 人大多是依靠模仿学习的，想要模仿，必须先了解。 - 巩固基础，而基础有多重要就不用说了吧。 确实mvvm框架极火爆，也的确好用，但是依我现在目前的水平来看（">
+<meta name="keywords" content="源码,JavaScript,zepto,自述">
+<meta property="og:type" content="article">
+<meta property="og:title" content="zepto源码分析——序">
+<meta property="og:url" content="http://yoursite.com/./2017/09/27/zepto源码分析——序/index.html">
 <meta property="og:site_name" content="不得不错的博客">
+<meta property="og:description" content="为什么17年还要读zepto的源码？问这个问题首先要清除为什么读源码。程序员阅读源码是一种什么心态？源码对编程意义何在？如何才能更好阅读代码？这个问题高票答案基本上已经解释的很好了，但我还想再补充几点。 - 向优秀的人学习，这个毫无疑问。 - 人大多是依靠模仿学习的，想要模仿，必须先了解。 - 巩固基础，而基础有多重要就不用说了吧。 确实mvvm框架极火爆，也的确好用，但是依我现在目前的水平来看（">
 <meta property="og:locale" content="zh-cn">
+<meta property="og:updated_time" content="2017-09-27T03:51:27.836Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="不得不错的博客">
+<meta name="twitter:title" content="zepto源码分析——序">
+<meta name="twitter:description" content="为什么17年还要读zepto的源码？问这个问题首先要清除为什么读源码。程序员阅读源码是一种什么心态？源码对编程意义何在？如何才能更好阅读代码？这个问题高票答案基本上已经解释的很好了，但我还想再补充几点。 - 向优秀的人学习，这个毫无疑问。 - 人大多是依靠模仿学习的，想要模仿，必须先了解。 - 巩固基础，而基础有多重要就不用说了吧。 确实mvvm框架极火爆，也的确好用，但是依我现在目前的水平来看（">
 
 
 
@@ -105,13 +110,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/./archives/2017/09/"/>
+  <link rel="canonical" href="http://yoursite.com/./2017/09/27/zepto源码分析——序/"/>
 
 
 
 
 
-  <title>Archive | 不得不错的博客</title>
+  <title>zepto源码分析——序 | 不得不错的博客</title>
   
 
 
@@ -139,7 +144,7 @@
     
   
 
-  <div class="container sidebar-position-left page-archive">
+  <div class="container sidebar-position-left page-post-detail">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -267,148 +272,219 @@
           <div id="content" class="content">
             
 
-  
-  
-  
-  <div class="post-block archive">
-    <div id="posts" class="posts-collapse">
-      <span class="archive-move-on"></span>
+  <div id="posts" class="posts-expand">
+    
 
-      <span class="archive-page-counter">
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/./2017/09/27/zepto源码分析——序/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="不得不错">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="不得不错的博客">
+    </span>
+
+    
+      <header class="post-header">
+
         
         
+          <h1 class="post-title" itemprop="name headline">zepto源码分析——序</h1>
         
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-09-27T11:00:12+08:00">
+                2017-09-27
+              </time>
+            
+
+            
+
+            
+          </span>
+
           
-        
-        Um..! 3 posts in total. Keep on posting.
-      </span>
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/编程/" itemprop="url" rel="index">
+                    <span itemprop="name">编程</span>
+                  </a>
+                </span>
 
-      
-
-        
-        
-        
-
-        
+                
+                
+              
+            </span>
           
-          <div class="collection-title">
-            <h1 class="archive-year" id="archive-year-2017">2017</h1>
-          </div>
-        
-        
 
-        
+          
+            
+          
 
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
+          
+          
 
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2017/09/27/zepto源码分析——设计/" itemprop="url">
-              
-                <span itemprop="name">zepto源码分析——设计</span>
-              
-            </a>
-        
-      </h2>
+          
 
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2017-09-27T11:51:00+08:00"
-              content="2017-09-27" >
-          09-27
-        </time>
-      </div>
+          
 
-    </header>
-  </article>
+          
 
+        </div>
+      </header>
+    
 
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
 
       
-
-        
-        
-        
-
-        
-        
-
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2017/09/27/zepto源码分析——序/" itemprop="url">
-              
-                <span itemprop="name">zepto源码分析——序</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2017-09-27T11:00:12+08:00"
-              content="2017-09-27" >
-          09-27
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
       
 
-        
-        
-        
-
-        
-        
-
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2017/09/26/第一日/" itemprop="url">
-              
-                <span itemprop="name">第一日</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2017-09-26T20:23:34+08:00"
-              content="2017-09-26" >
-          09-26
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
+      
+        <h3 id="为什么17年还要读zepto的源码？"><a href="#为什么17年还要读zepto的源码？" class="headerlink" title="为什么17年还要读zepto的源码？"></a>为什么17年还要读zepto的源码？</h3><p>问这个问题首先要清除为什么读源码。<a href="!https://www.zhihu.com/question/29765945">程序员阅读源码是一种什么心态？源码对编程意义何在？如何才能更好阅读代码？</a>这个问题高票答案基本上已经解释的很好了，但我还想再补充几点。</p>
+<pre><code>- 向优秀的人学习，这个毫无疑问。
+- 人大多是依靠模仿学习的，想要模仿，必须先了解。
+- 巩固基础，而基础有多重要就不用说了吧。
+</code></pre><p>确实mvvm框架极火爆，也的确好用，但是依我现在目前的水平来看（js基础不是很牢，计算机基础也跟不上），学习优秀库是一个极其方便且好用的学习以及复习策略。</p>
+<h3 id="为什么是zepto？"><a href="#为什么是zepto？" class="headerlink" title="为什么是zepto？"></a>为什么是zepto？</h3><p>zepto大家都说好。<br>还有一点是在几个月以前我已经根据前辈的源码分析熟悉了一遍并自己仿制了一个类zepto的库，重拾起来应该更轻松。<br>还有一点，zepto的分析已经有很多人进行了，资料也很多，基本上没什么大问题，但是大都有一点缺点，就是不够通俗易懂。依我来看前端JavaScript水平的差距是巨大的。初学者可能一点一点的啃过基础大部头，以为自己已经了解了JavaScript，却被实际的各种用法所困惑。<br>我作为一个初学者，希望可以通过阅读和拆析zepto的源码来略微的垫高这一沟壑。</p>
+<h3 id="究竟怎么阅读？"><a href="#究竟怎么阅读？" class="headerlink" title="究竟怎么阅读？"></a>究竟怎么阅读？</h3><p>读之前首先一定要会用吧，如果不会用建议去看看zepto的文档，和jQuery很像。<br>会了基本的用法之后就可以准备阅读了。<br>首先需要源代码的源文件，其次要找好的资料。</p>
+<h4 id="什么才算是好的资料？"><a href="#什么才算是好的资料？" class="headerlink" title="什么才算是好的资料？"></a>什么才算是好的资料？</h4><p>在我看来至少要满足以下几点：</p>
+<ul>
+<li>语句通顺易懂</li>
+<li>不办弄概念</li>
+<li>最好能引导人进行主动阅读</li>
+<li>对一些概念进行扩展</li>
+</ul>
+<p>在zepto源码分析的诸多资料中，个人认为称的上好的资料应当是王福朋老师的<a href="!http://www.imooc.com/learn/745">zepto设计和源码分析</a>,在慕课网上的课程讲解十分详细，但个人推荐阅读<a href="!https://www.kancloud.cn/wangfupeng/zepto-design-srouce/173689">文字版</a>.<br>在js进阶的资料中，个人认为最好的应当是曾探老师的<a href="!https://book.douban.com/subject/26382780/">JavaScript设计模式与开发实践</a></p>
 
       
-
     </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/源码/" rel="tag"># 源码</a>
+          
+            <a href="/tags/JavaScript/" rel="tag"># JavaScript</a>
+          
+            <a href="/tags/zepto/" rel="tag"># zepto</a>
+          
+            <a href="/tags/自述/" rel="tag"># 自述</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2017/09/26/第一日/" rel="next" title="第一日">
+                <i class="fa fa-chevron-left"></i> 第一日
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2017/09/27/zepto源码分析——设计/" rel="prev" title="zepto源码分析——设计">
+                zepto源码分析——设计 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
   </div>
   
   
   
+  </article>
 
-  
 
+
+    <div class="post-spread">
+      
+        <!-- JiaThis Button BEGIN -->
+<div class="jiathis_style">
+<span class="jiathis_txt">分享到：</span>
+<a class="jiathis_button_fav">收藏夹</a>
+<a class="jiathis_button_copy">复制网址</a>
+<a class="jiathis_button_email">邮件</a>
+<a class="jiathis_button_weixin">微信</a>
+<a class="jiathis_button_qzone">QQ空间</a>
+<a class="jiathis_button_tqq">腾讯微博</a>
+<a class="jiathis_button_douban">豆瓣</a>
+<a class="jiathis_button_share">一键分享</a>
+
+<a href="http://www.jiathis.com/share?uid=2140465" class="jiathis jiathis_txt jiathis_separator jtico jtico_jiathis" target="_blank">更多</a>
+<a class="jiathis_counter_style"></a>
+</div>
+<script type="text/javascript" >
+var jiathis_config={
+  data_track_clickback:true,
+  summary:"",
+  shortUrl:false,
+  hideMore:false
+}
+</script>
+<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js?uid=" charset="utf-8"></script>
+<!-- JiaThis Button END -->
+      
+    </div>
+  </div>
 
 
           </div>
@@ -416,6 +492,12 @@
 
 
           
+  <div class="comments" id="comments">
+    
+      <div id="lv-container" data-id="city" data-uid="MTAyMC8zMTA1NS83NjAz"></div>
+    
+  </div>
+
 
         </div>
         
@@ -436,8 +518,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            Overview
+          </li>
+        </ul>
+      
 
-      <section class="site-overview sidebar-panel sidebar-panel-active">
+      <section class="site-overview sidebar-panel">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           
             <p class="site-author-name" itemprop="name">不得不错</p>
@@ -498,6 +589,22 @@
 
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#为什么17年还要读zepto的源码？"><span class="nav-number">1.</span> <span class="nav-text">为什么17年还要读zepto的源码？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#为什么是zepto？"><span class="nav-number">2.</span> <span class="nav-text">为什么是zepto？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#究竟怎么阅读？"><span class="nav-number">3.</span> <span class="nav-text">究竟怎么阅读？</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#什么才算是好的资料？"><span class="nav-number">3.1.</span> <span class="nav-text">什么才算是好的资料？</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
@@ -653,6 +760,17 @@
 
 
 
+  
+    <script type="text/javascript">
+      (function(d, s) {
+        var j, e = d.getElementsByTagName(s)[0];
+        if (typeof LivereTower === 'function') { return; }
+        j = d.createElement(s);
+        j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+        j.async = true;
+        e.parentNode.insertBefore(j, e);
+      })(document, 'script');
+    </script>
   
 
 

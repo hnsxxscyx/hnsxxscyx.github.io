@@ -1,6 +1,33 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[zepto源码分析——设计]]></title>
+    <url>%2F2017%2F09%2F27%2Fzepto%E6%BA%90%E7%A0%81%E5%88%86%E6%9E%90%E2%80%94%E2%80%94%E8%AE%BE%E8%AE%A1%2F</url>
+    <content type="text"><![CDATA[zepto对象zepto或是jQuery的设计思想几乎是一致的，通过选择器获取一个DOM对象，然后对这个对象进行操作。我们来看zepto对象是什么样子。进入Zepto文档界面，打开控制台，使用$取一个元素，将它打印出来。1&lt;h3 id=&quot;download&quot;&gt;下载 Zepto&lt;/h3&gt; 这个元素用的是id呀，就它了12345let ele = $(&apos;#download&apos;)ele[h3#download, selector: &quot;#download&quot;]Array.isArray(ele)true 看起来是一个数组对象，但实际上并不是,isArray()不要骗人啊~我们知道JavaScript中数组是Array对象的实例，那么ele是么？1234ele.__proto__.constructor === Array;falseele instanceof Arrayfalse instanceof 运算符用来测试一个对象在其原型链中是否存在一个构造函数的 prototype 属性。 显而易见，ele并不是Array构建出来的，用Array构建出来也没那么多方法用啊，除非大规模重写Array的proto对象，那不是太惨了。那么是谁构建了这个类数组对象？我们先来看看$ 1234$ƒ (selector, context)&#123; return zepto.init(selector, context)&#125; $是一个函数来看看源码 12345var Zepto = (function() &#123;&#125;)()window.Zepto = Zeptowindow.$ === undefined &amp;&amp; (window.$ = Zepto) $被挂载到window上，要知道在浏览器中所有JavaScript 全局对象、函数以及变量均自动成为window 对象的成员，所以$是全局对象，且是Zepto函数，很明显Zepto函数是一个构造函数。 源代码解析部分请配合源代码和搜索食用 前面已经知道$是一个函数，参数为(selector,context)，返回一个函数，我们先来看看返回的函数是什么样子。搜索到zepto.init，可以看到英文注释： `$.zepto.init` is Zepto&apos;s counterpart to jQuery&apos;s `$.fn.init` and takes a CSS selector and an optional context (and handles various special cases). // This method can be overriden in plugins. 简单来说就是这个方法类似jQuery的$.fn.init方法，传入一个CSS选择器和一个上下文。这个函数还能被插件改写。显而易见，这是为了生成之前的类数组对象做准备，选取其中的dom与环境，来看看这个函数的内部。$函数的作用有以下几种： 把普通DOM对象包装成zepto对象 当页面ready时加载函数 充当选择器选择DOM并将其包装成zepto对象 生成一个dom元素 详情分析请看源代码解析部分。加载函数部分比较好理解，我们先来看看是如何构建zepto对象的。 当selector是选择器时，查找dom。zepto.qsa()方法用来选择dom，使用字符串匹配后分别使用各种get方法进行选择dom，最后特殊情况使用querySelectorAll和querySelector。因为它俩的速度要慢得多 找到dom后把dom与selector传给zepto.Z这个构造函数。 1234567zepto.Z = function(dom, selector) &#123; dom = dom || [] dom.__proto__ = $.fn dom.selector = selector || &apos;&apos; return dom&#125;zepto.Z.prototype = $.fn 可以看到dom的隐式原型被指向$.fn,zepto.Z.prototype也被指向$.fn，因为隐式原型与显式原型的关系，实际上只要一个生效就生效了。$.fn中定义了zepto类数组对象所有方法，通过原型链这些方法就可以共享啦。]]></content>
+      <categories>
+        <category>编程</category>
+      </categories>
+      <tags>
+        <tag>源码</tag>
+        <tag>JavaScript</tag>
+        <tag>zepto</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[zepto源码分析——序]]></title>
+    <url>%2F2017%2F09%2F27%2Fzepto%E6%BA%90%E7%A0%81%E5%88%86%E6%9E%90%E2%80%94%E2%80%94%E5%BA%8F%2F</url>
+    <content type="text"><![CDATA[为什么17年还要读zepto的源码？问这个问题首先要清除为什么读源码。程序员阅读源码是一种什么心态？源码对编程意义何在？如何才能更好阅读代码？这个问题高票答案基本上已经解释的很好了，但我还想再补充几点。 - 向优秀的人学习，这个毫无疑问。 - 人大多是依靠模仿学习的，想要模仿，必须先了解。 - 巩固基础，而基础有多重要就不用说了吧。 确实mvvm框架极火爆，也的确好用，但是依我现在目前的水平来看（js基础不是很牢，计算机基础也跟不上），学习优秀库是一个极其方便且好用的学习以及复习策略。 为什么是zepto？zepto大家都说好。还有一点是在几个月以前我已经根据前辈的源码分析熟悉了一遍并自己仿制了一个类zepto的库，重拾起来应该更轻松。还有一点，zepto的分析已经有很多人进行了，资料也很多，基本上没什么大问题，但是大都有一点缺点，就是不够通俗易懂。依我来看前端JavaScript水平的差距是巨大的。初学者可能一点一点的啃过基础大部头，以为自己已经了解了JavaScript，却被实际的各种用法所困惑。我作为一个初学者，希望可以通过阅读和拆析zepto的源码来略微的垫高这一沟壑。 究竟怎么阅读？读之前首先一定要会用吧，如果不会用建议去看看zepto的文档，和jQuery很像。会了基本的用法之后就可以准备阅读了。首先需要源代码的源文件，其次要找好的资料。 什么才算是好的资料？在我看来至少要满足以下几点： 语句通顺易懂 不办弄概念 最好能引导人进行主动阅读 对一些概念进行扩展 在zepto源码分析的诸多资料中，个人认为称的上好的资料应当是王福朋老师的zepto设计和源码分析,在慕课网上的课程讲解十分详细，但个人推荐阅读文字版.在js进阶的资料中，个人认为最好的应当是曾探老师的JavaScript设计模式与开发实践]]></content>
+      <categories>
+        <category>编程</category>
+      </categories>
+      <tags>
+        <tag>源码</tag>
+        <tag>JavaScript</tag>
+        <tag>zepto</tag>
+        <tag>自述</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[第一日]]></title>
     <url>%2F2017%2F09%2F26%2F%E7%AC%AC%E4%B8%80%E6%97%A5%2F</url>
     <content type="text"><![CDATA[#阿姜森静安寺路翻看]]></content>
