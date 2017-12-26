@@ -93,329 +93,329 @@ $(function() {
         footer: '',
     }
     let model = {
-        // face: {
-        //     logo: {
-        //         cfg: makeObj.componentCfg('img', { type: 'top', val: '236' }, { center: true, top: 0 }, { src: './imgs/face_logo.png' })
-        //     },
-        //     slogan: {
-        //         cfg: makeObj.componentCfg('img', { type: 'top', val: '430', opacity: 1 }, { center: true, top: 700, opacity: 0 }, { src: './imgs/face_slogan.png' })
-        //     },
-        //     img_left: {
-        //         cfg: makeObj.componentCfg('img', { type: 'left bottom', val: '0 0' }, { bottom: '-300', left: '-370', }, { src: './imgs/face_img_left.png' })
-        //     },
-        //     img_right: {
-        //         cfg: makeObj.componentCfg('img', { type: 'right bottom', val: '0 0' }, { bottom: '-300', right: '-370', }, { src: './imgs/face_img_right.png' })
-        //     },
-        //     footer: makeObj.footer()
-        // },
-        // page2: {
-        //     caption: makeObj.caption('核心理念'),
-        //     // slogan: makeObj.componentCfg('img', { type: 'left bottom', val: '0 0' }, { bottom: '-300', left: '-370' }, { src: './imgs/p1_slogan.png' })
-        //     slogan: {
-        //         cfg: makeObj.componentCfg('img', { type: 'top', val: '308', opacity: 1 }, { center: true, top: '100', opacity: 0 }, { src: './imgs/p1_slogan.png' })
-        //     },
-        //     text: {
-        //         cfg: makeObj.componentCfg('text', { type: 'bottom', val: '412', opacity: 1 }, {
-        //             center: true,
-        //             bottom: '-100',
-        //             opacity: 0,
-        //             padding: '42 44 0 34',
-        //             background: 'url("./imgs/description_bg.gif") no-repeat',
-        //             backgroundSize: 'cover',
-        //             width: 520,
-        //             height: 336,
-        //             fontSize: 23,
-        //             color: '#fff',
-        //         }, {}, '2013年，慕课网的诞生引领中国IT职业 从教育进入新时代； 高质量实战课程、全新教学模式、实时 互动学习，以领先优势打造行业品牌； 迄今为止，慕课网已成为中国规模最大、 互动性最高的IT技能学习平')
-        //     },
-        //     pepple: {
-        //         cfg: makeObj.componentCfg('img', { type: 'bottom', val: '76', opacity: 1 }, { center: true, bottom: -100, opacity: 0 }, { src: './imgs/p1_people.png' })
-        //     },
-        //     footer: makeObj.footer()
-        // },
-        // page3: {
-        //     caption: makeObj.caption('课程方向分布', 174),
-        //     text: {
-        //         cfg: makeObj.componentCfg('text', { type: 'top', val: '366', opacity: 1 }, {
-        //             center: true,
-        //             top: 100,
-        //             opacity: 0,
-        //             fontSize: 23,
-        //             fontWeight: 'bold',
-        //             color: '#000',
-        //             whiteSpace: 'nowrap',
-        //         }, {}, '课程分布前端开发占到40%')
-        //     },
-        //     chart: {
-        //         cfg: makeObj.componentCfg('chart', {}, { width: 600, height: 400, center: true, bottom: 364 }, {}, '', {
-        //             xAxis: {
-        //                 type: 'category',
-        //                 boundaryGap: false,
-        //                 splitLine: {
-        //                     show: true,
-        //                     areaStyle: {
-        //                         lineStyle: ['#f4f4f4']
-        //                     }
-        //                 },
-        //                 axisLabel: {
-        //                     margin: 24,
-        //                 },
-        //                 data: [{
-        //                     value: "前端开发",
-        //                     textStyle: {
-        //                         fontSize: 20,
-        //                         baseLine: 'bottom'
-        //                     },
-        //                 }, {
-        //                     value: "移动开发",
-        //                     textStyle: {
-        //                         fontSize: 20,
-        //                         baseLine: 'bottom'
-        //                     },
-        //                 }, {
-        //                     value: "后端开发",
-        //                     textStyle: {
-        //                         fontSize: 20,
-        //                         baseLine: 'bottom'
-        //                     },
-        //                 }, {
-        //                     value: "图像处理",
-        //                     textStyle: {
-        //                         fontSize: 20,
-        //                         baseLine: 'bottom'
-        //                     },
-        //                 }, {
-        //                     value: "数据处理",
-        //                     textStyle: {
-        //                         fontSize: 20,
-        //                         baseLine: 'bottom'
-        //                     }
-        //                 }],
+        face: {
+            logo: {
+                cfg: makeObj.componentCfg('img', { type: 'top', val: '236' }, { center: true, top: 0 }, { src: './imgs/face_logo.png' })
+            },
+            slogan: {
+                cfg: makeObj.componentCfg('img', { type: 'top', val: '430', opacity: 1 }, { center: true, top: 700, opacity: 0 }, { src: './imgs/face_slogan.png' })
+            },
+            img_left: {
+                cfg: makeObj.componentCfg('img', { type: 'left bottom', val: '0 0' }, { bottom: '-300', left: '-370', }, { src: './imgs/face_img_left.png' })
+            },
+            img_right: {
+                cfg: makeObj.componentCfg('img', { type: 'right bottom', val: '0 0' }, { bottom: '-300', right: '-370', }, { src: './imgs/face_img_right.png' })
+            },
+            footer: makeObj.footer()
+        },
+        page2: {
+            caption: makeObj.caption('核心理念'),
+            // slogan: makeObj.componentCfg('img', { type: 'left bottom', val: '0 0' }, { bottom: '-300', left: '-370' }, { src: './imgs/p1_slogan.png' })
+            slogan: {
+                cfg: makeObj.componentCfg('img', { type: 'top', val: '308', opacity: 1 }, { center: true, top: '100', opacity: 0 }, { src: './imgs/p1_slogan.png' })
+            },
+            text: {
+                cfg: makeObj.componentCfg('text', { type: 'bottom', val: '412', opacity: 1 }, {
+                    center: true,
+                    bottom: '-100',
+                    opacity: 0,
+                    padding: '42 44 0 34',
+                    background: 'url("./imgs/description_bg.gif") no-repeat',
+                    backgroundSize: 'cover',
+                    width: 520,
+                    height: 336,
+                    fontSize: 23,
+                    color: '#fff',
+                }, {}, '2013年，慕课网的诞生引领中国IT职业 从教育进入新时代； 高质量实战课程、全新教学模式、实时 互动学习，以领先优势打造行业品牌； 迄今为止，慕课网已成为中国规模最大、 互动性最高的IT技能学习平')
+            },
+            pepple: {
+                cfg: makeObj.componentCfg('img', { type: 'bottom', val: '76', opacity: 1 }, { center: true, bottom: -100, opacity: 0 }, { src: './imgs/p1_people.png' })
+            },
+            footer: makeObj.footer()
+        },
+        page3: {
+            caption: makeObj.caption('课程方向分布', 174),
+            text: {
+                cfg: makeObj.componentCfg('text', { type: 'top', val: '366', opacity: 1 }, {
+                    center: true,
+                    top: 100,
+                    opacity: 0,
+                    fontSize: 23,
+                    fontWeight: 'bold',
+                    color: '#000',
+                    whiteSpace: 'nowrap',
+                }, {}, '课程分布前端开发占到40%')
+            },
+            chart: {
+                cfg: makeObj.componentCfg('chart', {}, { width: 600, height: 400, center: true, bottom: 364 }, {}, '', {
+                    xAxis: {
+                        type: 'category',
+                        boundaryGap: false,
+                        splitLine: {
+                            show: true,
+                            areaStyle: {
+                                lineStyle: ['#f4f4f4']
+                            }
+                        },
+                        axisLabel: {
+                            margin: 24,
+                        },
+                        data: [{
+                            value: "前端开发",
+                            textStyle: {
+                                fontSize: 20,
+                                baseLine: 'bottom'
+                            },
+                        }, {
+                            value: "移动开发",
+                            textStyle: {
+                                fontSize: 20,
+                                baseLine: 'bottom'
+                            },
+                        }, {
+                            value: "后端开发",
+                            textStyle: {
+                                fontSize: 20,
+                                baseLine: 'bottom'
+                            },
+                        }, {
+                            value: "图像处理",
+                            textStyle: {
+                                fontSize: 20,
+                                baseLine: 'bottom'
+                            },
+                        }, {
+                            value: "数据处理",
+                            textStyle: {
+                                fontSize: 20,
+                                baseLine: 'bottom'
+                            }
+                        }],
 
-        //             },
+                    },
 
-        //             yAxis: {
-        //                 show: true,
-        //                 boundaryGap: false,
-        //                 data: [0, 10, 20, 30, 40, 50],
-        //                 // 
-        //                 axisTick: {
-        //                     show: false,
-        //                 },
-        //                 axisLabel: {
-        //                     show: false,
-        //                 },
-        //                 // 
-        //                 splitLine: {
-        //                     show: true,
+                    yAxis: {
+                        show: true,
+                        boundaryGap: false,
+                        data: [0, 10, 20, 30, 40, 50],
+                        // 
+                        axisTick: {
+                            show: false,
+                        },
+                        axisLabel: {
+                            show: false,
+                        },
+                        // 
+                        splitLine: {
+                            show: true,
 
-        //                 },
-        //                 splitArea: {
-        //                     show: true,
-        //                     areaStyle: {
-        //                         color: ['#d2e2ff', '#fff']
-        //                     }
-        //                 },
-        //                 axisLabel: {
-        //                     formatter: '{value}%'
-        //                 }
-        //             },
+                        },
+                        splitArea: {
+                            show: true,
+                            areaStyle: {
+                                color: ['#d2e2ff', '#fff']
+                            }
+                        },
+                        axisLabel: {
+                            formatter: '{value}%'
+                        }
+                    },
 
-        //             series: [{
-        //                 name: '销量',
-        //                 type: 'line',
-        //                 areaStyle: {
-        //                     normal: {
-        //                         color: ['#ffb2b2'],
-        //                         opacity: 0.7
-        //                     }
-        //                 },
-        //                 itemStyle: {
-        //                     normal: {
-        //                         label: {
-        //                             show: true,
-        //                             formatter: function(p) {
-        //                                 return p.data * 10 + '%'
-        //                             }
-        //                         }
-        //                     }
-        //                 },
-        //                 lineStyle: {
-        //                     normal: {
-        //                         color: ['#ff7260'],
-        //                         opacity: 1
-        //                     }
-        //                 },
-        //                 data: [4, 2, 2.9, 0.1, 1]
-        //             }]
-        //         })
-        //     },
-        //     footer: makeObj.footer()
-        // },
-        //         page4: {
-        //             caption: makeObj.caption('移动开发'),
-        //             chart: {
-        //                 cfg: makeObj.componentCfg('chart', {}, { width: 534, height: 340, center: true, bottom: 406 }, {}, '', {
-        //                     series: [{
-        //                         type: 'pie',
-        //                         radius: [0, 150],
-        //                         minAngle: 20,
-        //                         label: {
-        //                             normal: {
-        //                                 show: true,
-        //                                 formatter: `{b}
-        // {c}%`,
-        //                                 textStyle: {
-        //                                     color: '#000',
-        //                                     fontSize: 21
-        //                                 }
-        //                             }
-        //                         },
-        //                         color: ['#5ddbd8', '#99c0ff', '#ffad69', '#ff7676'],
-        //                         data: [{
-        //                             name: 'IOS',
-        //                             value: 25
-        //                         }, {
-        //                             name: 'Cocos2d-x',
-        //                             value: 2
-        //                         }, {
-        //                             name: 'Unity-3D',
-        //                             value: 2
-        //                         }, {
-        //                             name: 'Android',
-        //                             value: 71
-        //                         }]
-        //                     }]
-        //                 })
-        //             },
-        //             text: {
-        //                 cfg: makeObj.componentCfg('text', { type: 'bottom', val: '260', opacity: 1 }, {
-        //                     center: true,
-        //                     bottom: -100,
-        //                     opacity: 0,
-        //                     fontSize: 23,
-        //                     fontWeight: 'bold',
-        //                     color: '#000',
-        //                     whiteSpace: 'nowrap',
-        //                 }, {}, '移动开发课程中Android比例最大')
-        //             },
-        //             footer: makeObj.footer()
-        //         },
-        // page5: {
-        //     caption: makeObj.caption('前端开发'),
-        //     chart: {
-        //         cfg: makeObj.componentCfg('chart', {}, { width: 570, height: 600, center: true, bottom: 200 }, {}, '', {
-        //             series: [{
-        //                 type: 'bar',
-        //                 data: [{
-        //                     value: 32,
-        //                     itemStyle: {
-        //                         normal: {
-        //                             color: '#ff7676',
-        //                         }
-        //                     },
-        //                 }, {
-        //                     value: 21,
-        //                     itemStyle: {
-        //                         normal: {
-        //                             color: '#99c0ff',
-        //                         }
-        //                     },
-        //                 }, {
-        //                     value: 10,
-        //                     itemStyle: {
-        //                         normal: {
-        //                             color: '#99c0ff',
-        //                         }
-        //                     },
-        //                 }, {
-        //                     value: 10,
-        //                     itemStyle: {
-        //                         normal: {
-        //                             color: '#99c0ff',
-        //                         }
-        //                     },
-        //                 }, {
-        //                     value: 4,
-        //                     itemStyle: {
-        //                         normal: {
-        //                             color: '#99c0ff',
-        //                         }
-        //                     },
-        //                 }, {
-        //                     value: 4,
-        //                     itemStyle: {
-        //                         normal: {
-        //                             color: '#99c0ff',
-        //                         }
-        //                     },
-        //                 }, {
-        //                     value: 3,
-        //                     itemStyle: {
-        //                         normal: {
-        //                             color: '#99c0ff',
-        //                         }
-        //                     },
-        //                 }, {
-        //                     value: 2,
-        //                     itemStyle: {
-        //                         normal: {
-        //                             color: '#99c0ff',
-        //                         }
-        //                     },
-        //                 }, {
-        //                     value: 2,
-        //                     itemStyle: {
-        //                         normal: {
-        //                             color: '#99c0ff',
-        //                         }
-        //                     },
-        //                 }, ],
-        //                 label: {
-        //                     normal: {
-        //                         show: true,
-        //                         position: 'right',
-        //                         formatter: '{c}%',
-        //                         color: '#fff',
-        //                     },
-        //                 },
-        //             }],
-        //             grid: {
-        //                 left: '18%',
-        //                 right: 0,
-        //                 top: 0,
-        //                 bottom: 0
-        //             },
-        //             xAxis: {
-        //                 show: false,
-        //                 type: 'value',
-        //             },
-        //             yAxis: {
-        //                 show: true,
-        //                 type: 'category',
-        //                 // y轴从下到上
-        //                 inverse: true,
-        //                 axisLine: {
-        //                     show: false,
-        //                 },
-        //                 axisTick: {
-        //                     show: false,
-        //                 },
-        //                 axisLabel: {
-        //                     margin: 30,
-        //                 },
-        //                 label: {
-        //                     normal: {
-        //                         show: true,
-        //                         position: 'inside'
-        //                     }
-        //                 },
-        //                 data: ['JavaSript', 'HTML/CSS', 'CSS3', 'HTML5', 'jQuery', 'Webapp', 'Node.js', 'Bootstrap', 'Angular']
-        //             }
-        //         })
-        //     },
-        //     footer: makeObj.footer()
-        // },
+                    series: [{
+                        name: '销量',
+                        type: 'line',
+                        areaStyle: {
+                            normal: {
+                                color: ['#ffb2b2'],
+                                opacity: 0.7
+                            }
+                        },
+                        itemStyle: {
+                            normal: {
+                                label: {
+                                    show: true,
+                                    formatter: function(p) {
+                                        return p.data * 10 + '%'
+                                    }
+                                }
+                            }
+                        },
+                        lineStyle: {
+                            normal: {
+                                color: ['#ff7260'],
+                                opacity: 1
+                            }
+                        },
+                        data: [4, 2, 2.9, 0.1, 1]
+                    }]
+                })
+            },
+            footer: makeObj.footer()
+        },
+                page4: {
+                    caption: makeObj.caption('移动开发'),
+                    chart: {
+                        cfg: makeObj.componentCfg('chart', {}, { width: 534, height: 340, center: true, bottom: 406 }, {}, '', {
+                            series: [{
+                                type: 'pie',
+                                radius: [0, 150],
+                                minAngle: 20,
+                                label: {
+                                    normal: {
+                                        show: true,
+                                        formatter: `{b}
+        {c}%`,
+                                        textStyle: {
+                                            color: '#000',
+                                            fontSize: 21
+                                        }
+                                    }
+                                },
+                                color: ['#5ddbd8', '#99c0ff', '#ffad69', '#ff7676'],
+                                data: [{
+                                    name: 'IOS',
+                                    value: 25
+                                }, {
+                                    name: 'Cocos2d-x',
+                                    value: 2
+                                }, {
+                                    name: 'Unity-3D',
+                                    value: 2
+                                }, {
+                                    name: 'Android',
+                                    value: 71
+                                }]
+                            }]
+                        })
+                    },
+                    text: {
+                        cfg: makeObj.componentCfg('text', { type: 'bottom', val: '260', opacity: 1 }, {
+                            center: true,
+                            bottom: -100,
+                            opacity: 0,
+                            fontSize: 23,
+                            fontWeight: 'bold',
+                            color: '#000',
+                            whiteSpace: 'nowrap',
+                        }, {}, '移动开发课程中Android比例最大')
+                    },
+                    footer: makeObj.footer()
+                },
+        page5: {
+            caption: makeObj.caption('前端开发'),
+            chart: {
+                cfg: makeObj.componentCfg('chart', {}, { width: 570, height: 600, center: true, bottom: 200 }, {}, '', {
+                    series: [{
+                        type: 'bar',
+                        data: [{
+                            value: 32,
+                            itemStyle: {
+                                normal: {
+                                    color: '#ff7676',
+                                }
+                            },
+                        }, {
+                            value: 21,
+                            itemStyle: {
+                                normal: {
+                                    color: '#99c0ff',
+                                }
+                            },
+                        }, {
+                            value: 10,
+                            itemStyle: {
+                                normal: {
+                                    color: '#99c0ff',
+                                }
+                            },
+                        }, {
+                            value: 10,
+                            itemStyle: {
+                                normal: {
+                                    color: '#99c0ff',
+                                }
+                            },
+                        }, {
+                            value: 4,
+                            itemStyle: {
+                                normal: {
+                                    color: '#99c0ff',
+                                }
+                            },
+                        }, {
+                            value: 4,
+                            itemStyle: {
+                                normal: {
+                                    color: '#99c0ff',
+                                }
+                            },
+                        }, {
+                            value: 3,
+                            itemStyle: {
+                                normal: {
+                                    color: '#99c0ff',
+                                }
+                            },
+                        }, {
+                            value: 2,
+                            itemStyle: {
+                                normal: {
+                                    color: '#99c0ff',
+                                }
+                            },
+                        }, {
+                            value: 2,
+                            itemStyle: {
+                                normal: {
+                                    color: '#99c0ff',
+                                }
+                            },
+                        }, ],
+                        label: {
+                            normal: {
+                                show: true,
+                                position: 'right',
+                                formatter: '{c}%',
+                                color: '#fff',
+                            },
+                        },
+                    }],
+                    grid: {
+                        left: '18%',
+                        right: 0,
+                        top: 0,
+                        bottom: 0
+                    },
+                    xAxis: {
+                        show: false,
+                        type: 'value',
+                    },
+                    yAxis: {
+                        show: true,
+                        type: 'category',
+                        // y轴从下到上
+                        inverse: true,
+                        axisLine: {
+                            show: false,
+                        },
+                        axisTick: {
+                            show: false,
+                        },
+                        axisLabel: {
+                            margin: 30,
+                        },
+                        label: {
+                            normal: {
+                                show: true,
+                                position: 'inside'
+                            }
+                        },
+                        data: ['JavaSript', 'HTML/CSS', 'CSS3', 'HTML5', 'jQuery', 'Webapp', 'Node.js', 'Bootstrap', 'Angular']
+                    }
+                })
+            },
+            footer: makeObj.footer()
+        },
         page6: {
             caption: makeObj.caption('后端处理'),
             chart: {
