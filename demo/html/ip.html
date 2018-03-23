@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>IP</title>
+    <link rel="stylesheet" href="../css/base.css">
+    <link rel="stylesheet" type="text/css" href="../font/iconfont.css">
+    <style>
+        body {
+            background-image: linear-gradient(120deg, #84fab0 0%, #8fd3f4 100%);
+            align-items: center;
+            justify-content: center;
+        }
+
+        p {
+            margin-bottom: 10vh;
+            color: #aaa;
+            font-size: 3rem;
+            text-align: center;
+        }
+    </style>
+</head>
+
+<body>
+    <nav>
+        <ul>
+            <li onclick="toggleIcon()">
+                <i class="iconfont icon-gengduo"></i>
+            </li>
+            <li class="iconHide">
+                <a href="../index.html">
+                    <i class="iconfont icon-clock"></i>
+                </a>
+            </li>
+            <li class="iconHide">
+                <a href="ip.html">
+                    <i class="iconfont icon-ip"></i>
+                </a>
+            </li>
+            <li class="iconHide">
+                <a href="search.html">
+                    <i class="iconfont icon-sousuo"></i>
+                </a>
+            </li>
+            <li class="iconHide">
+                <a href="weather.html">
+                    <i class="iconfont icon-icon-"></i>
+                </a>
+            </li>
+            <li class="iconHide">
+                <a href="waterfall.html">
+                    <i class="iconfont icon-tupian"></i>
+                </a>
+            </li>
+        </ul>
+    </nav>
+    <p class="ip"></p>
+    <p class="area"></p>
+    <script src="http://pv.sohu.com/cityjson?ie=utf-8"></script>
+    <script>
+        let ipInfo = returnCitySN
+        document.querySelectorAll('.ip')[0].innerHTML = `您的IP地址为${ipInfo.cip}`
+        document.querySelectorAll('.area')[0].innerHTML = `您来自${ipInfo.cname}`
+        function toggleIcon() {
+            console.log('icon')
+            let iconList = document.querySelectorAll('nav ul li')
+            for(let i=1;i<iconList.length;i++){
+                iconList[i].classList.toggle('iconHide')
+                iconList[i].classList.toggle('iconShow')
+            }
+        }
+    </script>
+</body>
+
+</html>
