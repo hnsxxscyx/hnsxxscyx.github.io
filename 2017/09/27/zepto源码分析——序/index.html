@@ -77,7 +77,7 @@
 <meta property="og:site_name" content="不得不错的博客">
 <meta property="og:description" content="为什么17年还要读zepto的源码？问这个问题首先要清除为什么读源码。程序员阅读源码是一种什么心态？源码对编程意义何在？如何才能更好阅读代码？这个问题高票答案基本上已经解释的很好了，但我还想再补充几点。">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2017-09-30T12:22:49.547Z">
+<meta property="og:updated_time" content="2017-12-30T15:21:54.209Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="zepto源码分析——序">
 <meta name="twitter:description" content="为什么17年还要读zepto的源码？问这个问题首先要清除为什么读源码。程序员阅读源码是一种什么心态？源码对编程意义何在？如何才能更好阅读代码？这个问题高票答案基本上已经解释的很好了，但我还想再补充几点。">
@@ -383,13 +383,11 @@
 <h3 id="为什么是zepto？"><a href="#为什么是zepto？" class="headerlink" title="为什么是zepto？"></a>为什么是zepto？</h3><p>zepto大家都说好。<br>还有一点是在几个月以前我已经根据前辈的源码分析熟悉了一遍并自己仿制了一个类zepto的库，重拾起来应该更轻松。<br>还有一点，zepto的分析已经有很多人进行了，资料也很多，基本上没什么大问题，但是大都有一点缺点，就是不够通俗易懂。依我来看前端JavaScript水平的差距是巨大的。初学者可能一点一点的啃过基础大部头，以为自己已经了解了JavaScript，却被实际的各种用法所困惑。<br>我作为一个初学者，希望可以通过阅读和拆析zepto的源码来略微的垫高这一沟壑。</p>
 <h3 id="究竟怎么阅读？"><a href="#究竟怎么阅读？" class="headerlink" title="究竟怎么阅读？"></a>究竟怎么阅读？</h3><p>读之前首先一定要会用吧，如果不会用建议去看看zepto的文档，和jQuery很像。<br>会了基本的用法之后就可以准备阅读了。<br>首先需要源代码的源文件，其次要找好的资料。</p>
 <h4 id="什么才算是好的资料？"><a href="#什么才算是好的资料？" class="headerlink" title="什么才算是好的资料？"></a>什么才算是好的资料？</h4><p>在我看来至少要满足以下几点：</p>
-<ul>
-<li>语句通顺易懂</li>
-<li>不办弄概念</li>
-<li>最好能引导人进行主动阅读</li>
-<li>对一些概念进行扩展</li>
-</ul>
-<p>在zepto源码分析的诸多资料中，个人认为称的上好的资料应当是王福朋老师的<a href="!http://www.imooc.com/learn/745">zepto设计和源码分析</a>,在慕课网上的课程讲解十分详细，但个人推荐阅读<a href="!https://www.kancloud.cn/wangfupeng/zepto-design-srouce/173689">文字版</a>.<br>在js进阶的资料中，个人认为最好的应当是曾探老师的<a href="!https://book.douban.com/subject/26382780/">JavaScript设计模式与开发实践</a></p>
+<pre><code>- 语句通顺易懂
+- 不办弄概念
+- 最好能引导人进行主动阅读
+- 对一些概念进行扩展
+</code></pre><p>在zepto源码分析的诸多资料中，个人认为称的上好的资料应当是王福朋老师的<a href="!http://www.imooc.com/learn/745">zepto设计和源码分析</a>,在慕课网上的课程讲解十分详细，但个人推荐阅读<a href="!https://www.kancloud.cn/wangfupeng/zepto-design-srouce/173689">文字版</a>.<br>在js进阶的资料中，个人认为最好的应当是曾探老师的<a href="!https://book.douban.com/subject/26382780/">JavaScript设计模式与开发实践</a></p>
 
       
     </div>
@@ -562,7 +560,7 @@ var jiathis_config={
             
               <a href="/archives/">
             
-                <span class="site-state-item-count">3</span>
+                <span class="site-state-item-count">6</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -584,7 +582,7 @@ var jiathis_config={
             
             <div class="site-state-item site-state-tags">
               <a href="/tags/index.html">
-                <span class="site-state-item-count">4</span>
+                <span class="site-state-item-count">10</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
@@ -659,7 +657,7 @@ var jiathis_config={
         <div class="copyright" >
   
   &copy; 
-  <span itemprop="copyrightYear">2017</span>
+  <span itemprop="copyrightYear">2018</span>
   <span class="with-love">
     <i class="fa fa-heart"></i>
   </span>
