@@ -1,0 +1,960 @@
+<!DOCTYPE html>
+<html><head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=10;IE=9;IE=8;IE=7;IE=EDGE">
+    <meta http-equiv="Cache-Control" content="no-siteapp">
+    <link rel="alternate" media="handheld" href="#">
+    <meta charset="utf-8">
+    <title>黄金波的简历</title>
+    <meta content="" name="description">
+    <meta content="" name="keywords">
+    <style>
+        * {
+            outline: none;
+        }
+
+        body {
+            margin: 0;
+            padding: 0;
+            font-size: 14px;
+            font-family: "Hiragino Sans GB", "Microsoft Yahei", "SimSun", Arial, "Helvetica Neue", Helvetica;
+            color: #333;
+            word-wrap: break-word;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+
+        article,
+        aside,
+        details,
+        figcaption,
+        figure,
+        footer,
+        header,
+        hgroup,
+        main,
+        menu,
+        nav,
+        section,
+        summary {
+            display: block;
+        }
+
+        progress {
+            display: inline-block;
+            vertical-align: baseline;
+        }
+
+        a {
+            color: #555;
+            background-color: transparent;
+            text-decoration: none;
+        }
+
+        a:hover {
+            color: #00b38a;
+        }
+
+        h1,
+        h2,
+        h3,
+        h4,
+        h5,
+        h6 {
+            margin: 10px 0;
+            font-weight: normal;
+        }
+
+        p {
+            margin: 0;
+        }
+
+        p+p {
+            margin-top: 10px;
+        }
+
+        img {
+            border: 0;
+            vertical-align: top;
+            display: inline-block;
+        }
+
+        button,
+        input,
+        optgroup,
+        select,
+        textarea {
+            margin: 0;
+            padding: 0;
+            border: 1px solid #ededed;
+            border-radius: 0;
+            font-family: "Hiragino Sans GB", "Microsoft Yahei", "SimSun", Arial, "Helvetica Neue", Helvetica;
+        }
+
+        textarea {
+            overflow: auto;
+        }
+
+        label,
+        select,
+        button,
+        input[type="button"],
+        input[type="reset"],
+        input[type="submit"],
+        input[type="radio"],
+        input[type="checkbox"],
+        input[type="file"] {
+            cursor: pointer;
+        }
+
+        input[type=text],
+        input[type=password],
+        textarea {
+            font-family: "Microsoft Yahei", "SimSun", Arial, "Helvetica Neue", Helvetica;
+        }
+
+        table {
+            border-collapse: collapse;
+            border-spacing: 0;
+        }
+
+        th,
+        td {
+            padding: 0;
+        }
+
+        strong {
+            font-weight: normal;
+        }
+
+        em,
+        i {
+            font-style: normal;
+        }
+
+        dl,
+        dt,
+        dd {
+            margin: 0;
+        }
+
+        ::selection {
+            color: #fff;
+            background-color: #00b38a;
+        }
+
+        ::-moz-selection {
+            color: #fff;
+            background-color: #00b38a;
+        }
+
+        ul,
+        ol {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+
+        #container {
+            width: 720px;
+            margin: 50px auto 54px auto;
+            border: 1px solid #e3ebe9;
+            border-radius: 5px;
+        }
+
+        .mr-template {
+            padding: 50px 50px 10px;
+        }
+
+        .mr-template .mr-template_title {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 30px;
+        }
+
+        .mr-template .mr-template_title span {
+            font-size: 18px;
+            color: #333333;
+            font-weight: 600;
+            position: relative;
+            margin-left: 10px;
+        }
+
+        .mr-template .mr-template_title span:before {
+            content: '';
+            display: block;
+            border-left: 3px solid #00B38A;
+            height: 16px;
+            width: 3px;
+            position: absolute;
+            left: -7px;
+            top: 50%;
+            transform: translateY(-50%);
+        }
+
+        .mr-template .mr_md_del {
+            display: none;
+        }
+
+        /***** 基本信息 ****/
+
+        .basic {
+            padding: 50px;
+            background: #FAFAFA;
+            border-radius: 5px 5px 0 0;
+            border-bottom: 1px solid #E3EBE9;
+            display: flex;
+        }
+
+        .basic .basic-photo {
+            height: 88px;
+            width: 88px;
+            display: inline-block;
+            position: relative;
+        }
+
+        .basic .basic-photo img {
+            height: 88px;
+            width: 88px;
+            position: absolute;
+            top: 0;
+            border-radius: 50%;
+        }
+
+        .basic .basic-photo .basic-photo_shadow {
+            display: none;
+        }
+
+        .basic .basic-photo:hover .basic-photo_shadow {
+            display: block;
+        }
+
+        .basic .basic-info {
+            position: relative;
+            width: 100%;
+            margin-left: 20px;
+            flex: 1;
+        }
+
+        .basic .basic-info .edit-btn {
+            position: absolute;
+            right: 0;
+            top: 4px;
+        }
+
+        .basic .basic-info .basic-name-area {
+            overflow: hidden;
+            height: 37px;
+            margin-bottom: 11px;
+        }
+
+        .basic .basic-info .basic-name {
+            float: left;
+            max-width: 250px;
+            font-size: 26px;
+            color: #333333;
+            font-weight: 600;
+            line-height: 37px;
+        }
+
+        .basic .basic-info .icon-sex {
+            width: 13px;
+            height: 13px;
+            float: left;
+            margin-top: 16px;
+            margin-left: 10px;
+            background: none;
+        }
+
+        .basic .basic-info .icon-sex.icon-sex__male {
+            background: url(https://www.lgstatic.com/common/image/pc/icon_man.png);
+        }
+
+        .basic .basic-info .icon-sex.icon-sex__female {
+            background: url(https://www.lgstatic.com/common/image/pc/icon_woman.png);
+        }
+
+        .basic .basic-info .basic-self {
+            margin-top: 20px;
+        }
+
+        .basic .basic-info p {
+            font-size: 14px;
+            color: #333333;
+            line-height: 20px;
+            margin-top: 6px;
+        }
+
+        .basic .basic-info i {
+            display: inline-block;
+            margin-right: 5px;
+            vertical-align: middle;
+        }
+
+        .basic .basic-info .basic-tel_icon {
+            width: 11px;
+            height: 14px;
+            margin-right: 2px;
+            background: url(https://www.lgstatic.com/common/image/pc/icon_phone.png);
+            display: inline-block;
+            vertical-align: middle;
+        }
+
+        .basic .basic-info .basic-email_icon {
+            width: 14px;
+            height: 11px;
+            margin-right: 2px;
+            background: url(https://www.lgstatic.com/common/image/pc/icon_mail.png);
+            display: inline-block;
+            vertical-align: middle;
+        }
+
+        .basic .basic-info .basic-tel {
+            margin-right: 20px;
+        }
+
+        .basic-tel span {
+            vertical-align: middle;
+        }
+
+        .basic-email span {
+            vertical-align: middle;
+        }
+
+        /***** 基本信息 end ****/
+
+        /***** 自我描述 ****/
+
+        .per .per-self_content {
+            position: relative;
+        }
+
+        .per .per-self_content .per-self_des {
+            margin-top: 13px;
+            font-size: 14px;
+            color: #666666;
+            line-height: 30px;
+        }
+
+        .per .per-self_content .per-self_des p {
+            margin-top: 0;
+        }
+
+        .per .per-self_content .per-self_des ol {
+            list-style-type: decimal;
+            -webkit-padding-start: 20px;
+        }
+        .per .per-self_content .per-self_des ul {
+            list-style: disc;
+            -webkit-padding-start: 20px;
+        }
+
+        /***** 自我描述 end ****/
+
+        /***** 工作经历 ****/
+
+        .work-exp .work-exp_list {
+            position: relative;
+            margin-bottom: 30px;
+        }
+
+        .work-exp .work-exp_list .exp-list_time {
+            font-size: 14px;
+            color: #666666;
+            position: absolute;
+            right: 0;
+        }
+
+        .work-exp .work-exp_list .exp-list_top {
+            display: flex;
+            align-items: center;
+        }
+
+        .work-exp .work-exp_list .exp-list_top img {
+            width: 46px;
+            height: 46px;
+            margin-right: 10px;
+        }
+
+        .work-exp .work-exp_list .exp-list_top .exp-list_right {
+            display: flex;
+            flex-direction: column;
+            flex: 1;
+            height: 46px;
+            justify-content: space-between;
+        }
+
+        .work-exp .work-exp_list .exp-list_top .exp-list_right p,
+        .work-exp .work-exp_list .exp-list_top .exp-list_right strong {
+            font-size: 14px;
+            color: #333333;
+        }
+
+        .work-exp .work-exp_list .exp-list_top .exp-list_right strong {
+            font-weight: 600;
+        }
+
+        .work-exp .work-exp_list .tagboard {
+            margin: 20px 0 10px;
+        }
+
+        .work-exp .work-exp_list .exp-list_content {
+            font-size: 14px;
+            color: #666666;
+            line-height: 30px;
+        }
+
+        .tagboard .tagboard-tag {
+            font-size: 12px;
+            color: #999;
+            line-height: 18px;
+            padding: 3px 10px;
+            border: 1px solid #EAEDEC;
+            border-radius: 100px;
+            margin-right: 10px;
+        }
+
+        .work-exp .work-exp_list .exp-list_content ul, .work-exp .work-exp_list .exp-list_content_highlight ul {
+            list-style: disc;
+            -webkit-padding-start: 20px;
+        }
+
+        .work-exp .work-exp_list .exp-list_content ol, .work-exp .work-exp_list .exp-list_content_highlight ol {
+            list-style-type: decimal;
+            -webkit-padding-start: 20px;
+        }
+        /***** 工作经历 end ****/
+
+        /***** 项目经历 ****/
+
+        .pro-exp .pro-exp_list {
+            position: relative;
+            margin-bottom: 30px;
+        }
+
+        .pro-exp .pro-exp_list .exp-list_title {
+            font-size: 14px;
+            color: #333333;
+            font-weight: 600;
+            cursor: default;
+            display: flex;
+        }
+
+        .pro-exp .pro-exp_list .exp-list_title .exp-project_name, .pro-exp .pro-exp_list .exp-list_title .exp-project_company span {
+            max-width: 222px;
+            display: block;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+        }
+
+        .pro-exp .pro-exp_list .exp-list_title .exp-project_company {
+            display: flex;
+        }
+
+        .pro-exp .pro-exp_list .exp-list_time {
+            font-size: 14px;
+            color: #666666;
+            position: absolute;
+            right: 0;
+            top: 0;
+        }
+
+        .pro-exp .pro-exp_list .exp-list_content,
+        .pro-exp .pro-exp_list .exp-project_des {
+            font-size: 14px;
+            color: #666666;
+            line-height: 30px;
+            margin-top: 10px;
+        }
+
+        .pro-exp .exp-list_title.active:hover {
+            color: #00B38A;
+            cursor: pointer;
+        }
+        .pro-exp .exp-project_url {
+            font-size: 14px;
+            color: #666;
+            line-height: 30px;
+        }
+        .pro-exp .pro-exp_list .exp-list_content ul, .pro-exp .pro-exp_list .exp-project_des ul {
+            list-style: disc;
+            -webkit-padding-start: 20px;
+        }
+
+        .pro-exp .pro-exp_list .exp-list_content ol,.pro-exp .pro-exp_list .exp-project_des ol{
+            list-style-type:decimal;-webkit-padding-start:20px
+        }
+
+        /***** 项目经历 end ****/
+
+        /***** 教育经历 ****/
+
+        .edu-exp .edu-exp_list {
+            position: relative;
+            margin-bottom: 30px;
+        }
+
+        .edu-exp .edu-exp_list .exp-list_time {
+            font-size: 14px;
+            color: #666666;
+            position: absolute;
+            right: 0;
+        }
+
+        .edu-exp .edu-exp_list .exp-list_top {
+            display: flex;
+            align-items: center;
+        }
+
+        .edu-exp .edu-exp_list .exp-list_top img {
+            width: 46px;
+            height: 46px;
+            margin-right: 10px;
+        }
+
+        .edu-exp .edu-exp_list .exp-list_top .exp-list_right {
+            display: flex;
+            flex-direction: column;
+            flex: 1;
+            height: 46px;
+            justify-content: space-between;
+        }
+
+        .edu-exp .edu-exp_list .exp-list_top .exp-list_right p,
+        .edu-exp .edu-exp_list .exp-list_top .exp-list_right strong {
+            font-size: 14px;
+            color: #333333;
+        }
+
+        .edu-exp .edu-exp_list .exp-list_top .exp-list_right strong {
+            font-weight: 600;
+        }
+
+
+        /***** 教育经历 end ****/
+
+        /***** 社交主页 ****/
+
+        .social-page .social-page_list {
+            margin-bottom: 30px;
+            position: relative;
+        }
+
+        .social-page .social-page_list .social-page_content {
+            display: flex;
+        }
+
+        .social-page .social-page_list .social-page_content img {
+            width: 24px;
+            height: 24px;
+            margin-right: 10px;
+            border-radius: 50%;
+        }
+
+        .social-page .social-page_list .social-page_content p {
+            font-size: 14px;
+            color: #666666;
+        }
+
+
+        /***** 社交主页 end ****/
+                /***** 图片作品 ****/
+
+        .portfolio-page .portfolio-list{
+            margin-bottom: 30px;
+            position: relative;
+        }
+        .portfolio-page .portfolio-list .portfolio-content{
+            font-size: 14px;
+            color: #666666;
+        }
+
+
+        /***** 图片作品 end ****/
+    </style>
+</head>
+
+    <body>
+        <div id="container">
+            <!-- 基本信息 -->
+            <div class="basic" id="baseInfo">
+                <div class="basic-photo" style="display: none;">
+                    <img class="mr_headimg user-avatar" id="userpic" src="%E9%BB%84%E9%87%91%E6%B3%A2%E7%9A%84%E7%AE%80%E5%8E%86-%E6%8B%89%E5%8B%BE%E7%BD%91-%E6%9C%80%E4%B8%93%E4%B8%9A%E7%9A%84%E4%BA%92%E8%81%94%E7%BD%91%E6%8B%9B%E8%81%98%E5%B9%B3%E5%8F%B0_files/CgpFT1o6aJiAMd0-AAAS5lEbXhc071.png" alt="头像" width="120" height="120">
+                </div>
+                <div class="basic-info">
+                    <div class="basic-name-area">
+                        <p class="basic-name female">黄金波</p>
+                            <i class="icon-sex icon-sex__male"></i>
+                    </div>
+                                <p>
+                                    <span class="basic-company">河南省豫建建筑工程技术服务中心</span>
+                                    <span> / </span>
+                                    <span class="basic-job">WEB前端</span>
+                                </p>
+                            <p class="basic-self">
+                                    <span class="basic-exp">2年工作经验 / </span>
+                                    <span class="basic-edu">本科
+                                         / 
+                                    </span>
+                                    <span class="basic-age">24岁</span>
+                            </p>
+                    <p>
+                            <span class="basic-tel">
+                                <i class="basic-tel_icon"></i>
+                                <span>18539285642</span>
+                            </span>
+                            <span class="basic-email">
+                                <i class="basic-email_icon"></i>
+                                <span>hjb89@126.com</span>
+                            </span>
+                    </p>
+                </div>
+            </div>
+            <!-- /基本信息 -->
+
+            <!-- 自我描述 -->
+            <div class="mr-template per" id="perAbility">
+                <div class="mr-template_title">
+                    <span>自我描述</span>
+                </div>
+                <div class="tagboard integrative-tag">
+                    <div class="integrative-tag_content">
+                                <span class="tagboard-tag">责任心</span>
+                    </div>
+                </div>
+                <div class="per-self_content">
+                        <div class="per-self_des">
+                            本人学习能力较强，熟悉前端web框架及小程序开发，意向工具链较新及开发流程较为规范的前端团队。
+                        </div>
+                </div>
+            </div>
+            <!-- /自我描述 -->
+
+
+            <!-- 工作经历 -->
+                <div class="mr-template work-exp" id="workExp">
+                    <div class="mr-template_title">
+                        <span>工作经历</span>
+                    </div>
+                    <ol class="work-exp_group">
+                            <li class="work-exp_list">
+                                <p class="exp-list_time">2017.12-至今</p>
+                                <div class="exp-list_top">
+                                    <img src="%E9%BB%84%E9%87%91%E6%B3%A2%E7%9A%84%E7%AE%80%E5%8E%86-%E6%8B%89%E5%8B%BE%E7%BD%91-%E6%9C%80%E4%B8%93%E4%B8%9A%E7%9A%84%E4%BA%92%E8%81%94%E7%BD%91%E6%8B%9B%E8%81%98%E5%B9%B3%E5%8F%B0_files/CgoB5lzs42KAIVUJAABPAf7nqH4414.png" alt="公司Logo">
+                                    <div class="exp-list_right">
+                                        <strong class="exp-list_title">
+                                            <span>河南省豫建建筑工程技术服务中心</span>
+                                             ／
+                                                <span>技术信息部</span>
+                                        </strong>
+                                        <p>WEB前端</p>
+                                    </div>
+                                </div>
+                                <div class="tagboard">
+                                        <span class="tagboard-tag">Vue</span>
+                                        <span class="tagboard-tag">React</span>
+                                        <span class="tagboard-tag">TypeScript</span>
+                                </div>
+                                <div class="exp-list_content">
+                                    <p>我在公司负责所有项目的前端方面，包括小程序与WEB页面。</p>
+<p>小程序框架使用了wepy与Taro，WEB页面通常使用Vue全家桶来进行开发。</p>
+                                </div>
+                            </li>
+                            <li class="work-exp_list">
+                                <p class="exp-list_time">2017.05-2017.12</p>
+                                <div class="exp-list_top">
+                                    <img src="%E9%BB%84%E9%87%91%E6%B3%A2%E7%9A%84%E7%AE%80%E5%8E%86-%E6%8B%89%E5%8B%BE%E7%BD%91-%E6%9C%80%E4%B8%93%E4%B8%9A%E7%9A%84%E4%BA%92%E8%81%94%E7%BD%91%E6%8B%9B%E8%81%98%E5%B9%B3%E5%8F%B0_files/logo_default.png" alt="公司Logo">
+                                    <div class="exp-list_right">
+                                        <strong class="exp-list_title">
+                                            <span>春泥科技</span>
+                                             ／
+                                                <span>技术</span>
+                                        </strong>
+                                        <p>前端开发</p>
+                                    </div>
+                                </div>
+                                <div class="tagboard">
+                                        <span class="tagboard-tag">前端开发</span>
+                                        <span class="tagboard-tag">移动端</span>
+                                </div>
+                                <div class="exp-list_content">
+                                    <p>完成小程序开发以及部分企业站开发</p>
+                                </div>
+                            </li>
+                            <li class="work-exp_list">
+                                <p class="exp-list_time">2016.07-2017.04</p>
+                                <div class="exp-list_top">
+                                    <img src="%E9%BB%84%E9%87%91%E6%B3%A2%E7%9A%84%E7%AE%80%E5%8E%86-%E6%8B%89%E5%8B%BE%E7%BD%91-%E6%9C%80%E4%B8%93%E4%B8%9A%E7%9A%84%E4%BA%92%E8%81%94%E7%BD%91%E6%8B%9B%E8%81%98%E5%B9%B3%E5%8F%B0_files/logo_default.png" alt="公司Logo">
+                                    <div class="exp-list_right">
+                                        <strong class="exp-list_title">
+                                            <span>长垣县众泰物流有限公司</span>
+                                                                                    </strong>
+                                        <p>其他</p>
+                                    </div>
+                                </div>
+                                <div class="tagboard">
+                                        <span class="tagboard-tag">word</span>
+                                </div>
+                                <div class="exp-list_content">
+                                    <p>无</p>
+                                </div>
+                            </li>
+                    </ol>
+                </div>
+            <!-- /工作经历 -->
+
+            <!-- 项目经历 -->
+                <div class="mr-template pro-exp" id="proExp">
+                    <div class="mr-template_title">
+                        <span>项目经历</span>
+                    </div>
+                    <ol class="pro-exp_group">
+                            <li class="pro-exp_list">
+                                <p class="exp-list_title">
+                                    <span class="exp-project_name">室内环境检测平台</span>
+                                    <span class="exp-project_company">（<span>河南省豫建建筑工程技术服务中心</span>）</span>
+                                </p>
+                                <p class="exp-list_time">2018.10-至今</p>
+                                <div class="exp-project_des"><p>1、该项目是辅助
+郑州市室内环境联谊会进行管理的检测管理平台，分别有PC管理端、PC企业端、检测人员H5端、检测人员小程序端、信息员小程序端。用户端的难点主要有填
+写的数据较多与联动较多，并且需要保证照片、视频是实时拍摄、定位的准确性等；管理端的难点主要有UI稿的诸多功能难设计、列表的状态、修改的状态较多，
+权限配置等。<br>2、 该项目小程序端由于数据状态比较复杂，使用了Taro作为小程序框架，使用了TypeScript+Taro+Scss+Mobx进行开发。使用了装饰器、class以及一些ES6/7的新特性来提高开发效率。<br>3、 PC管理端使用了Vue+Vue-Router+TypeScript+Scss+Element-UI进行开发，由于UI设计与传统的管理端样式不同，采用了多页面的组织方式，由于侧栏与导航栏的特殊样式，使用了动态组件来进行组件件的切换。<br>4、
+ 
+PC企业端由于表单较多，主要使用了动态表单来进行开发，大大提升了开发效率，通过动态配置动态表单的rules来生成、展示、验证表单，由于Vue对
+TypeScript的支持原因，没有继续使用TypeScript来进行开发，该项目使用了Vue+Vuex+Vue-
+Router+JavaScript+Scss+Element-UI等。<br>5、 由于微信小程序在部分安卓端调取图片、相机会假死、闪退，所以将检测人员端小程序转译成H5项目并手动编写无官方组件的部分（如Map），该项目使用了高德地图的API并重写了上传接口。</p></div>
+                                <div class="exp-list_content">
+                                    <ul>
+ <li>TypeScript的使用大幅提高生产力</li>
+ <li>复杂状态的有结构管理</li>
+ <li>通用组件的抽象能力显著上升</li>
+ <li>熟悉大部分微信小程序官方API并踩坑（如map组件的父组件不能使用Flex布局，否则map中cover-view失效）</li>
+ <li>熟悉了React风格的</li>
+ <li>使用动态表单大幅提高开发效率</li>
+</ul>
+                                </div>
+                            </li>
+                            <li class="pro-exp_list">
+                                <p class="exp-list_title">
+                                    <span class="exp-project_name">学生选课系统</span>
+                                </p>
+                                <p class="exp-list_time">2018.07-2018.09</p>
+                                <div class="exp-project_des"><p>1、该项目是自考的毕业论文项目，依靠软件工程思想从分析到交付完整的论文及项目。<br>2、项目采用了前后端分离的开发方式，后端使用了MySQL、ThinkJS来作为RESTful API输出，登陆使用JWT方案来做登陆鉴权，前台使用vue+element。<br>3、此项目分为3个角色：管理员、老师、学生。管理员可以查看所有信息和记录，老师可以发布课程，学生可以进行选课与改选课程。</p></div>
+                                <div class="exp-list_content">
+                                    <ul>
+ <li>使用软件工程的经典流程来进行开发；</li>
+ <li>学会使用ThinkJS作为后端服务框架；</li>
+ <li>使用MySQL对各项数据进行存储</li>
+ <li>使用中间件来产出RESTful&nbsp;风格API并校验</li>
+ <li>使用中间件来完成JWT的登陆校验</li>
+</ul>
+                                </div>
+                            </li>
+                            <li class="pro-exp_list">
+                                <p class="exp-list_title">
+                                    <span class="exp-project_name">建设工程质量站学习微平台</span>
+                                    <span class="exp-project_company">（<span>河南省豫建建筑工程技术服务中心</span>）</span>
+                                </p>
+                                <p class="exp-list_time">2018.07-2018.07</p>
+                                <div class="exp-project_des"><p>使用vant作为前端ui框架，快速完成开发。<br>该项目目的是为了辅助监督站人员刷题，有固定题库获取。每次做题记录错题，方便回顾巩固。</p></div>
+                                <div class="exp-list_content">
+                                    <p>vant框架的熟练使用</p>
+                                </div>
+                            </li>
+                            <li class="pro-exp_list">
+                                <p class="exp-list_title">
+                                    <span class="exp-project_name">能力比对</span>
+                                    <span class="exp-project_company">（<span>河南省豫建建筑工程技术服务中心</span>）</span>
+                                </p>
+                                <p class="exp-list_time">2018.06-2018.06</p>
+                                <div class="exp-project_des"><p>1、该项目为节能检测能力比对提供服务，通过定位、拍摄人员、材料、检测照片来规范能力比对过程。<br>2、使用了vue、scss、高德地图的jssdk，限制了网页登陆的设备类型（不允许pc使用）</p></div>
+                                <div class="exp-list_content">
+                                    <p>熟悉了高德地图的WEB端生成与定位，熟悉了导航守卫钩子来进行路由的限制。</p>
+                                </div>
+                            </li>
+                            <li class="pro-exp_list">
+                                <p class="exp-list_title">
+                                    <span class="exp-project_name">浙江水利检测服务</span>
+                                </p>
+                                <p class="exp-list_time">2018.05-2018.05</p>
+                                <div class="exp-project_des"><p>主要功能是作为一个售卖芯片的商城，我负责小程序部分的开发。由于要求只有快，所以采用了小程序内嵌入web的方法，使用vant进行开发</p></div>
+                                <div class="exp-list_content">
+                                    <p>小程序中使用webview的踩坑与数据共存。</p>
+                                </div>
+                            </li>
+                            <li class="pro-exp_list">
+                                <p class="exp-list_title">
+                                    <span class="exp-project_name">预拌小程序</span>
+                                    <span class="exp-project_company">（<span>河南省豫建建筑工程技术服务中心</span>）</span>
+                                </p>
+                                <p class="exp-list_time">2018.01-2018.03</p>
+                                <div class="exp-project_des"><p>该小程序目的是一个给检测人员交流、展示、招聘的平台，采用会员制度，集小型的课程播放、招聘求职、论坛交流为一体。但推广效果不好，目前服务器已撤销所有功能。<br>使用wepy、scss构建小程序，使用jQuery修改管理后台。</p></div>
+                                <div class="exp-list_content">
+                                    <p>wepy框架的熟练与踩坑，嵌套列表的性能优化。</p>
+<p>熟悉大多数小程序官方API。</p>
+                                </div>
+                            </li>
+                            <li class="pro-exp_list">
+                                <p class="exp-list_title">
+                                    <span class="exp-project_name">前后端全栈商城SPA应用 WebApp</span>
+                                </p>
+                                <p class="exp-list_time">2017.10-2017.12</p>
+                                <div class="exp-project_des"><ul>
+ <li><p>此项目是完成了正常商城功能的全栈系统，前后端均由我独自完成。</p></li>
+ <li><p>采用前后端分离的开发方式<br></p></li>
+ <li><p>前端使用了大量Vue技术栈</p></li>
+ <ol>
+  <li><p>使用axios库用以异步接口请求</p></li>
+  <li><p>使用vue-router进行单页应用路由管理以及组件的跳转</p></li>
+  <li><p>使用vue-cli搭建脚手架，热重载以提高开发效率</p></li>
+  <li><p>使用Vuex用以集中管理状态</p></li>
+  <li><p>使用ZanUI构建前端基础组件</p></li>
+  <li><p>使用懒加载加载图片，配合后端实现分页瀑布流<br></p></li>
+ </ol>
+ <li><p>后端使用了Node.js+Express+mongoDB</p></li>
+ <ol>
+  <li><p>使用Node.js做服务端运行环境</p></li>
+  <li><p>使用Express作为应用程序框架处理请求</p></li>
+  <li><p>使用mongoose为接口处理mongoDB数据</p></li>
+  <li><p>使用ES6、ES7新特性处理异步情况</p></li>
+ </ol>
+</ul></div>
+                                <div class="exp-list_content">
+                                    独自负责所有工作，包括前端页面、后端服务器的搭建与数据库处理
+                                </div>
+                            </li>
+                            <li class="pro-exp_list">
+                                <p class="exp-list_title">
+                                    <span class="exp-project_name">凯儿得乐商城小程序</span>
+                                </p>
+                                <p class="exp-list_time">2017.08-2017.09</p>
+                                <div class="exp-project_des"><p>1、此小程序项目是一个商城项目，可以在小程序中完成完整的商城操作</p>
+<p>2、使用了官方微信Web开发工具开发</p>
+<p>3、实现了微信用户的登陆以及本地储存和</p>
+<p>4、和后端协调api接口以实现查询、筛选、提交订单</p>
+<p>5、页面实现了轮播、分类查询、商品搜索、订单查询等</p>
+<p><br></p></div>
+                                <div class="exp-list_content">
+                                    小程序前端页面的撰写
+                                </div>
+                            </li>
+                            <li class="pro-exp_list">
+                                <p class="exp-list_title">
+                                    <span class="exp-project_name">使用vue构建饿了么商家SPA应用 webapp</span>
+                                </p>
+                                <p class="exp-list_time">2017.08-2017.09</p>
+                                <div class="exp-project_des"><ul>
+ <li><p>此项目使用了大量Vue技术栈</p></li>
+</ul>
+<ol>
+ <ol>
+  <li><p>使用axios库用以异步接口请求</p></li>
+  <li><p>使用vue-router进行单页应用路由管理</p></li>
+  <li><p>使用vue-cli搭建脚手架，热重载以提高开发效率</p></li>
+  <li><p>使用better-scroll完成浏览器端的类原生滑动</p></li>
+ </ol>
+</ol>
+<ul>
+ <li><p>此项目使用大量前端新技术</p></li>
+</ul>
+<ol>
+ <ol>
+  <li><p>使用Scss预处理CSS</p></li>
+  <li><p>使用mock.js&nbsp;mock数据</p></li>
+  <li><p>使用ES6、7处理异步问题，以及提高开发效率<br></p></li>
+ </ol>
+</ol>
+<ul>
+ <li><p>项目已在chrome与手机端测试，基本与饿了么商家页面相同，功能全部正常</p></li>
+</ul>
+
+</div>
+                                <div class="exp-list_content">
+                                    独自负责数据模拟、前端环境的搭建、前端页面的开发
+                                </div>
+                            </li>
+                            <li class="pro-exp_list">
+                                <p class="exp-list_title">
+                                    <span class="exp-project_name">驻马店拼车小程序</span>
+                                </p>
+                                <p class="exp-list_time">2017.07-2017.08</p>
+                                <div class="exp-project_des"><ol>
+ <li><p>此项目是一个发布拼车和浏览拼车列表的小程序</p></li>
+ <li><p>使用了官方微信Web开发工具开发</p></li>
+ <li><p>实现了微信用户的登陆以及本地储存<br></p></li>
+ <li><p>和后端协调api接口以实现查询、筛选、发布<br></p></li>
+</ol></div>
+                                <div class="exp-list_content">
+                                    负责小程序前端页面的撰写
+                                </div>
+                            </li>
+                            <li class="pro-exp_list">
+                                <p class="exp-list_title">
+                                    <span class="exp-project_name">新奇隆服饰官网</span>
+                                </p>
+                                <p class="exp-list_time">2017.05-2017.06</p>
+                                <div class="exp-project_des"><ol>
+ <li><p>此项目是企业展示页面</p></li>
+ <li><p>个人负责由UI转成前端页面的绘制</p></li>
+ <li><p>使用jQuery和Bootstrap制作<br></p></li>
+</ol></div>
+                                <div class="exp-list_content">
+                                    前端页面的部分开发
+                                </div>
+                            </li>
+                    </ol>
+                </div>
+            <!-- /项目经历 -->
+                <!-- 教育经历 -->
+                    <div class="mr-template edu-exp" id="eduExp">
+                        <div class="mr-template_title">
+                            <span>教育经历</span>
+                        </div>
+                        <ol class="edu-exp_group">
+                                <li class="edu-exp_list">
+                                    <p class="exp-list_time">2015-2018</p>
+                                    <div class="exp-list_top">
+                                        <img src="%E9%BB%84%E9%87%91%E6%B3%A2%E7%9A%84%E7%AE%80%E5%8E%86-%E6%8B%89%E5%8B%BE%E7%BD%91-%E6%9C%80%E4%B8%93%E4%B8%9A%E7%9A%84%E4%BA%92%E8%81%94%E7%BD%91%E6%8B%9B%E8%81%98%E5%B9%B3%E5%8F%B0_files/CgqKkVi1E2eAK746AAAQCwL_24g56.jpg" alt="学校Logo">
+                                        <div class="exp-list_right">
+                                            <strong>郑州大学</strong>
+                                            <p>本科 / 软件工程</p>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li class="edu-exp_list">
+                                    <p class="exp-list_time">2013-2016</p>
+                                    <div class="exp-list_top">
+                                        <img src="%E9%BB%84%E9%87%91%E6%B3%A2%E7%9A%84%E7%AE%80%E5%8E%86-%E6%8B%89%E5%8B%BE%E7%BD%91-%E6%9C%80%E4%B8%93%E4%B8%9A%E7%9A%84%E4%BA%92%E8%81%94%E7%BD%91%E6%8B%9B%E8%81%98%E5%B9%B3%E5%8F%B0_files/2a5f9ddf051a4071a10a9e3921635750.jpg" alt="学校Logo">
+                                        <div class="exp-list_right">
+                                            <strong>洛阳理工学院</strong>
+                                            <p>大专 / 机电设备维修与管理</p>
+                                        </div>
+                                    </div>
+                                </li>
+                        </ol>
+                    </div>
+                <!-- /教育经历 -->
+
+            <!-- 社交主页 -->
+                <div class="mr-template social-page" id="socialPage">
+                    <div class="mr-template_title">
+                        <span>社交主页</span>
+                    </div>
+                    <ol class="social-page_group">
+                            <li class="social-page_list">
+                                <div class="social-page_content">
+                                    <img src="%E9%BB%84%E9%87%91%E6%B3%A2%E7%9A%84%E7%AE%80%E5%8E%86-%E6%8B%89%E5%8B%BE%E7%BD%91-%E6%9C%80%E4%B8%93%E4%B8%9A%E7%9A%84%E4%BA%92%E8%81%94%E7%BD%91%E6%8B%9B%E8%81%98%E5%B9%B3%E5%8F%B0_files/github2x.png" alt="">
+                                    <p>https://github.com/hnsxxscyx</p>
+                                </div>
+                            </li>
+                    </ol>
+                </div>
+            <!-- /社交主页 -->
+
+            <!-- 图片作品 -->
+            <!-- /图片作品 -->
+        </div>
+    <script type="text/javascript" src="%E9%BB%84%E9%87%91%E6%B3%A2%E7%9A%84%E7%AE%80%E5%8E%86-%E6%8B%89%E5%8B%BE%E7%BD%91-%E6%9C%80%E4%B8%93%E4%B8%9A%E7%9A%84%E4%BA%92%E8%81%94%E7%BD%91%E6%8B%9B%E8%81%98%E5%B9%B3%E5%8F%B0_files/oss.js"></script>
+
+</body></html>
