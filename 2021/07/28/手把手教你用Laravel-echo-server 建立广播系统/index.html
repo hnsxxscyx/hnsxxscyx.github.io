@@ -1,0 +1,1154 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="zh-Hans">
+<head><meta name="generator" content="Hexo 3.9.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+
+<link href="/css/main.css?v=5.1.2" rel="stylesheet" type="text/css">
+
+
+  <meta name="keywords" content="laravel,WebSockets,web,">
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.2">
+
+
+
+
+
+
+<meta name="description" content="开始之前 Laravel并没有官方的Socket.IO 服务器，所以我们使用Laravel-echo-server 这个第三方库，只要正确配置，无缝接入Laravel 需要会使用Laravel 的事件的写法 确保config/broadcasting.php 中default 不为null  原理简述Laravel 广播系统的原理其实很简单，客户端与Socket.io服务端（Laravel-ech">
+<meta name="keywords" content="laravel,WebSockets,web">
+<meta property="og:type" content="article">
+<meta property="og:title" content="手把手教你用Laravel-echo-server 建立广播系统">
+<meta property="og:url" content="http://yoursite.com/./2021/07/28/手把手教你用Laravel-echo-server 建立广播系统/index.html">
+<meta property="og:site_name" content="不得不错的博客">
+<meta property="og:description" content="开始之前 Laravel并没有官方的Socket.IO 服务器，所以我们使用Laravel-echo-server 这个第三方库，只要正确配置，无缝接入Laravel 需要会使用Laravel 的事件的写法 确保config/broadcasting.php 中default 不为null  原理简述Laravel 广播系统的原理其实很简单，客户端与Socket.io服务端（Laravel-ech">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2021-07-28T12:18:13.056Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="手把手教你用Laravel-echo-server 建立广播系统">
+<meta name="twitter:description" content="开始之前 Laravel并没有官方的Socket.IO 服务器，所以我们使用Laravel-echo-server 这个第三方库，只要正确配置，无缝接入Laravel 需要会使用Laravel 的事件的写法 确保config/broadcasting.php 中default 不为null  原理简述Laravel 广播系统的原理其实很简单，客户端与Socket.io服务端（Laravel-ech">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    version: '5.1.2',
+    sidebar: {"position":"left","display":"post","offset":12,"offset_float":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/./2021/07/28/手把手教你用Laravel-echo-server 建立广播系统/">
+
+
+
+
+
+  <title>手把手教你用Laravel-echo-server 建立广播系统 | 不得不错的博客</title>
+  
+
+
+
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+            (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+          m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+  ga('create', 'UA-107036762-1', 'auto');
+  ga('send', 'pageview');
+</script>
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">不得不错的博客</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br>
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br>
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
+            
+            归档
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br>
+            
+            搜索
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off" placeholder="搜索..." spellcheck="false" type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/./2021/07/28/手把手教你用Laravel-echo-server 建立广播系统/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="不得不错">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="不得不错的博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">手把手教你用Laravel-echo-server 建立广播系统</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2021-07-28T08:01:19+08:00">
+                2021-07-28
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h1 id="开始之前"><a href="#开始之前" class="headerlink" title="开始之前"></a>开始之前</h1><ul>
+<li>Laravel并没有官方的Socket.IO 服务器，所以我们使用Laravel-echo-server 这个第三方库，只要正确配置，无缝接入Laravel</li>
+<li>需要会使用Laravel 的事件的写法</li>
+<li>确保config/broadcasting.php 中default 不为null</li>
+</ul>
+<h1 id="原理简述"><a href="#原理简述" class="headerlink" title="原理简述"></a>原理简述</h1><p>Laravel 广播系统的原理其实很简单，客户端与Socket.io服务端（Laravel-echo-server) 建立连接，服务端监听驱动器事件，当驱动器产生事件时，服务端（Laravel-echo-server）监听到事件并向指定频道发送事件消息，客户端监听指定频道，收取事件消息。</p>
+<h1 id="建立连接"><a href="#建立连接" class="headerlink" title="建立连接"></a>建立连接</h1><h2 id="驱动器"><a href="#驱动器" class="headerlink" title="驱动器"></a>驱动器</h2><p>本文使用Redis 作为驱动器, 请参考Laravel Redis 的配置项并保证正常使用。</p>
+<h2 id="服务端（发送广播）"><a href="#服务端（发送广播）" class="headerlink" title="服务端（发送广播）"></a>服务端（发送广播）</h2><h3 id="Laravel-echo-server"><a href="#Laravel-echo-server" class="headerlink" title="Laravel-echo-server"></a>Laravel-echo-server</h3><h4 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h4><p>需要全局安装Laravel-echo-server。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install -g laravel-echo-server</span><br></pre></td></tr></table></figure></p>
+<h4 id="初始化配置"><a href="#初始化配置" class="headerlink" title="初始化配置"></a>初始化配置</h4><p>使用包自带的init 命令可以快速初始化配置文件<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">laravel-echo-server init</span><br></pre></td></tr></table></figure></p>
+<p>首次使用可以一路回车，全使用默认配置，执行后路径下会生成 laravel-echo-server.json 文件，根据实际需要再修改配置信息。<br><figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  <span class="attr">"authHost"</span>: <span class="string">"dash.dev.car.co.uk"</span>,</span><br><span class="line">  <span class="attr">"authEndpoint"</span>: <span class="string">"/broadcasting/auth"</span>,</span><br><span class="line">  <span class="attr">"clients"</span>: [</span><br><span class="line">    &#123;</span><br><span class="line">      <span class="attr">"appId"</span>: <span class="string">""</span>,</span><br><span class="line">      <span class="attr">"key"</span>: <span class="string">""</span></span><br><span class="line">    &#125;</span><br><span class="line">  ],</span><br><span class="line">  <span class="attr">"database"</span>: <span class="string">"redis"</span>,</span><br><span class="line">  <span class="attr">"databaseConfig"</span>: &#123;</span><br><span class="line">    <span class="attr">"redis"</span>: &#123;</span><br><span class="line">      <span class="attr">"port"</span>: <span class="string">"6379"</span></span><br><span class="line">    &#125;</span><br><span class="line">  &#125;,</span><br><span class="line">  <span class="attr">"devMode"</span>: <span class="literal">false</span>,</span><br><span class="line">  <span class="attr">"host"</span>: <span class="literal">null</span>,</span><br><span class="line">  <span class="attr">"port"</span>: <span class="string">"6001"</span>,</span><br><span class="line">  <span class="attr">"protocol"</span>: <span class="string">"http"</span>,</span><br><span class="line">  <span class="attr">"socketio"</span>: &#123;&#125;,</span><br><span class="line">  <span class="attr">"secureOptions"</span>: <span class="number">67108864</span>,</span><br><span class="line">  <span class="attr">"sslCertPath"</span>: <span class="string">""</span>,</span><br><span class="line">  <span class="attr">"sslKeyPath"</span>: <span class="string">""</span>,</span><br><span class="line">  <span class="attr">"sslCertChainPath"</span>: <span class="string">""</span>,</span><br><span class="line">  <span class="attr">"sslPassphrase"</span>: <span class="string">""</span>,</span><br><span class="line">  <span class="attr">"subscribers"</span>: &#123;</span><br><span class="line">    <span class="attr">"http"</span>: <span class="literal">true</span>,</span><br><span class="line">    <span class="attr">"redis"</span>: <span class="literal">true</span></span><br><span class="line">  &#125;,</span><br><span class="line">  <span class="attr">"apiOriginAllow"</span>: &#123;</span><br><span class="line">    <span class="attr">"allowCors"</span>: <span class="literal">false</span>,</span><br><span class="line">    <span class="attr">"allowOrigin"</span>: <span class="string">""</span>,</span><br><span class="line">    <span class="attr">"allowMethods"</span>: <span class="string">""</span>,</span><br><span class="line">    <span class="attr">"allowHeaders"</span>: <span class="string">""</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>注意：</p>
+<ul>
+<li>appId 是使用http 请求来触发广播的，如果只需要在Laravel 中使用Redis 触发广播，可以忽略此项配置。</li>
+<li>开发时建议devMode 设为true, 可以直观的看到连接及server 运行情况。</li>
+<li>注意驱动器的配置，给驱动器配置正确的地址及端口。</li>
+<li>跨域请求对cookies 有限制，注意合适的跨域配置</li>
+</ul>
+<h4 id="启动"><a href="#启动" class="headerlink" title="启动"></a>启动</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">laravel-echo-server start</span><br></pre></td></tr></table></figure>
+<p>看到”Server ready!“ 证明server 已经启动成功了。</p>
+<h3 id="Laravel"><a href="#Laravel" class="headerlink" title="Laravel"></a>Laravel</h3><h4 id="触发广播事件"><a href="#触发广播事件" class="headerlink" title="触发广播事件"></a>触发广播事件</h4><p>广播依赖于事件系统，这样设计是有原因的。<br>事件系统可以很好的解耦某个逻辑的不同响应，比如用户注册后可以短信、邮件等多种方式通知用户注册成功，并执行其他操作，使用一个事件及多个监听器就可以很好的解耦业务逻辑。</p>
+<h5 id="定义广播事件"><a href="#定义广播事件" class="headerlink" title="定义广播事件"></a>定义广播事件</h5><p>将事件实现 Illuminate\Contracts\Broadcasting\ShouldBroadcast<br><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">use</span> <span class="title">Illuminate</span>\<span class="title">Broadcasting</span>\<span class="title">Channel</span>;</span><br><span class="line"><span class="keyword">use</span> <span class="title">Illuminate</span>\<span class="title">Contracts</span>\<span class="title">Broadcasting</span>\<span class="title">ShouldBroadcast</span>;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">BroadcastDemo</span> <span class="keyword">implements</span> <span class="title">ShouldBroadcast</span></span></span><br><span class="line"><span class="class"></span>&#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">broadcastOn</span><span class="params">()</span></span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        <span class="comment">// need return a channel or channels</span></span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">new</span> Channel(<span class="string">'channel-demo'</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>必须存在 broadcastOn方法，该方法返回一个频道或者频道数组，事件会被广播到这些频道。<br>正常触发事件就可以触发广播。</p>
+<h5 id="广播数据"><a href="#广播数据" class="headerlink" title="广播数据"></a>广播数据</h5><p>Laravel 会默认将事件中public 属性自动序列化为广播数据，即允许客户端访问事件中的公有数据。<br>但是也可以使用broadcastWith 方法更细粒度的控制广播数据。</p>
+<h5 id="广播驱动"><a href="#广播驱动" class="headerlink" title="广播驱动"></a>广播驱动</h5><p>需要配置和laravel-echo-server 相同的驱动器，驱动器来实现发布-订阅模式，laravel 使用事件系统发布消息，laravel-echo-server订阅事件，做出回调（使用socket.io 推送消息），这里我们使用的是redis作为队列驱动程序，当laravel 触发推送到指定频道时，在redis-cli 中使用SUBSCRIBE 监听对应频道或所有频道也可以看到具体信息。</p>
+<h4 id="频道"><a href="#频道" class="headerlink" title="频道"></a>频道</h4><p>依然拿现实中的广播系统做类比，公共频道就像广播电台，客户端只要能连接到指定频道就都可以收听，但很多信息是不能放在公开频道上的，所以需要授权以进入频道。</p>
+<h5 id="频道认证"><a href="#频道认证" class="headerlink" title="频道认证"></a>频道认证</h5><p>当连接私有频道时，客户端向laravel-echo-server发起请求，laravel-echo-server 将此请求转发给Laravel 以判断是否应该授权。<br>Laravel 默认授权路由为：/broadcasting/auth，通常来说使用<br><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Broadcast::routes();</span><br></pre></td></tr></table></figure></p>
+<p>就会注册授权路由，或者可以使用BroadcastManager 来更细粒化的控制。<br>在routes/channels.php 中使用Broadcast::channel 方法定义授权回调，方法返回Boolean 值，回调中当前用户被当做第一个参数，额外的通配符参数会被作为后续参数。<br>需要注意的是，由于通配符中也使用了「.」，所以参数中会只取第一个点前面的字符。实际使用中可以将「.」替换为其他字符来获取完整信息</p>
+<h5 id="仅广播给他人"><a href="#仅广播给他人" class="headerlink" title="仅广播给他人"></a>仅广播给他人</h5><p>现实中，如果边听收音机边给电台热线打电话，收音机中肯定也会出现电话对话声，离得近了甚至会产生回音。<br>网络中的广播系统自然也会有这种情况发生，但在网上是没法走开的，所以需要广播系统可以针对性的进行推送，避开触发此次广播的用户。<br>laravel 在每个请求中使用X-Socket-ID 来标识用户，客户端可以将X-Socket-ID 设为socketId，使用axios 时库会自动向header中添加，但使用其他请求库时可以在socket 连接建立后将X-Socket-ID配置如header，可以参考以下代码:<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">echoInstance.connector.socket.on(<span class="string">'connect'</span>, () =&gt; &#123;</span><br><span class="line">  http.defaults.headers.common[<span class="string">'X-Socket-Id'</span>] = echoInstance.socketId();</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure></p>
+<p>当请求携带有X-Socket-ID时，调用broadcast函数时使用toOthers 方法，即可将指定连接从广播接收者中排除。<br><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">broadcast(<span class="keyword">new</span> BroadcastDemo())-&gt;toOthers();</span><br></pre></td></tr></table></figure></p>
+<p>到目前为止，我们已经构建了一个可以适应大部分需求的广播系统的发送，接下来我们看看如何配置客户端。</p>
+<h2 id="客户端（接收广播）"><a href="#客户端（接收广播）" class="headerlink" title="客户端（接收广播）"></a>客户端（接收广播）</h2><h3 id="建立连接-1"><a href="#建立连接-1" class="headerlink" title="建立连接"></a>建立连接</h3><p>客户端需要使用 Socket.IO JavaScript库来建立文件，当启动laravel-echo-server 后，可以通过 server 地址及端口号获取Socket.IO 库，比如开发时通常使用<a href="http://localhost" target="_blank" rel="noopener">http://localhost</a> 与6001 端口，可以使用<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">http://localhost:6001/socket.io/socket.io.js</span><br></pre></td></tr></table></figure></p>
+<p>获取到Socket.IO 库。<br>如果需要手动在客户端添加Socket.IO 库，请注意socket.io.js 版本，目前只有2.x 版本可以正常使用。</p>
+<p>接着，我们需要在合适的时机建立实例化Echo(示例代码使用localhost 与6001端口)：<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> Echo <span class="keyword">from</span> <span class="string">"laravel-echo"</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> EchoInstance = <span class="keyword">new</span> Echo(&#123;</span><br><span class="line">    broadcaster: <span class="string">'socket.io'</span>,</span><br><span class="line">    host: <span class="string">'http://localhost:6001'</span></span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure></p>
+<p>实例化Echo 时，客户端的echo 库会发送http 请求到server 端请求建立连接。</p>
+<h3 id="加入频道"><a href="#加入频道" class="headerlink" title="加入频道"></a>加入频道</h3><p>建立连接后可以使用echoInstance的channel 方法加入指定频道，使用listen 监听频道上的指定事件：<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">echoInstance</span><br><span class="line">      .channel(<span class="string">'channelName'</span>)</span><br><span class="line">      .listen(<span class="string">'eventName'</span>, ()=&gt;&#123;</span><br><span class="line">        <span class="comment">//   callback</span></span><br><span class="line">      &#125;)</span><br></pre></td></tr></table></figure></p>
+<p>需要退出频道时，使用leave 方法即可。</p>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+      <div>
+        <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+  <div>坚持原创技术分享，您的支持将鼓励我继续创作！</div>
+  <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+    <span>打赏</span>
+  </button>
+  <div id="QR" style="display: none;">
+
+    
+
+    
+      <div id="alipay" style="display: inline-block">
+        <img id="alipay_qr" src="/images/alipay.jpg" alt="不得不错 支付宝">
+        <p>支付宝</p>
+      </div>
+    
+
+    
+
+  </div>
+</div>
+
+      </div>
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/laravel/" rel="tag"># laravel</a>
+          
+            <a href="/tags/WebSockets/" rel="tag"># WebSockets</a>
+          
+            <a href="/tags/web/" rel="tag"># web</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/10/09/如何使用Vue CLI 3 搭建一个多页面项目/" rel="next" title="北京之行">
+                <i class="fa fa-chevron-left"></i> 北京之行
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+        <!-- JiaThis Button BEGIN -->
+<div class="jiathis_style">
+<span class="jiathis_txt">分享到：</span>
+<a class="jiathis_button_fav">收藏夹</a>
+<a class="jiathis_button_copy">复制网址</a>
+<a class="jiathis_button_email">邮件</a>
+<a class="jiathis_button_weixin">微信</a>
+<a class="jiathis_button_qzone">QQ空间</a>
+<a class="jiathis_button_tqq">腾讯微博</a>
+<a class="jiathis_button_douban">豆瓣</a>
+<a class="jiathis_button_share">一键分享</a>
+
+<a href="http://www.jiathis.com/share?uid=2140465" class="jiathis jiathis_txt jiathis_separator jtico jtico_jiathis" target="_blank">更多</a>
+<a class="jiathis_counter_style"></a>
+</div>
+<script type="text/javascript">
+var jiathis_config={
+  data_track_clickback:true,
+  summary:"",
+  shortUrl:false,
+  hideMore:false
+}
+</script>
+<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js?uid=" charset="utf-8"></script>
+<!-- JiaThis Button END -->
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+      <div id="lv-container" data-id="city" data-uid="MTAyMC8zMTA1NS83NjAz"></div>
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          
+            <p class="site-author-name" itemprop="name">不得不错</p>
+            <p class="site-description motion-element" itemprop="description"></p>
+        </div>
+
+        <nav class="site-state motion-element">
+
+          
+            <div class="site-state-item site-state-posts">
+            
+              <a href="/archives/">
+            
+                <span class="site-state-item-count">8</span>
+                <span class="site-state-item-name">日志</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-categories">
+              <a href="/categories/index.html">
+                <span class="site-state-item-count">1</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-tags">
+              <a href="/tags/index.html">
+                <span class="site-state-item-count">14</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/hnsxxscyx" target="_blank" title="GitHub">
+                  GitHub</a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="https://www.douban.com/people/59995408/" target="_blank" title="豆瓣">
+                  豆瓣</a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="https://www.zhihu.com/people/budebucuo/activities" target="_blank" title="知乎">
+                  知乎</a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        
+        
+
+        
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#开始之前"><span class="nav-number">1.</span> <span class="nav-text">开始之前</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#原理简述"><span class="nav-number">2.</span> <span class="nav-text">原理简述</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#建立连接"><span class="nav-number">3.</span> <span class="nav-text">建立连接</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#驱动器"><span class="nav-number">3.1.</span> <span class="nav-text">驱动器</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#服务端（发送广播）"><span class="nav-number">3.2.</span> <span class="nav-text">服务端（发送广播）</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Laravel-echo-server"><span class="nav-number">3.2.1.</span> <span class="nav-text">Laravel-echo-server</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#安装"><span class="nav-number">3.2.1.1.</span> <span class="nav-text">安装</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#初始化配置"><span class="nav-number">3.2.1.2.</span> <span class="nav-text">初始化配置</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#启动"><span class="nav-number">3.2.1.3.</span> <span class="nav-text">启动</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Laravel"><span class="nav-number">3.2.2.</span> <span class="nav-text">Laravel</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#触发广播事件"><span class="nav-number">3.2.2.1.</span> <span class="nav-text">触发广播事件</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#定义广播事件"><span class="nav-number">3.2.2.1.1.</span> <span class="nav-text">定义广播事件</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#广播数据"><span class="nav-number">3.2.2.1.2.</span> <span class="nav-text">广播数据</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#广播驱动"><span class="nav-number">3.2.2.1.3.</span> <span class="nav-text">广播驱动</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#频道"><span class="nav-number">3.2.2.2.</span> <span class="nav-text">频道</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#频道认证"><span class="nav-number">3.2.2.2.1.</span> <span class="nav-text">频道认证</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#仅广播给他人"><span class="nav-number">3.2.2.2.2.</span> <span class="nav-text">仅广播给他人</span></a></li></ol></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#客户端（接收广播）"><span class="nav-number">3.3.</span> <span class="nav-text">客户端（接收广播）</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#建立连接-1"><span class="nav-number">3.3.1.</span> <span class="nav-text">建立连接</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#加入频道"><span class="nav-number">3.3.2.</span> <span class="nav-text">加入频道</span></a></li></ol></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2021</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">不得不错</span>
+
+  
+</div>
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+  
+  
+
+
+
+
+
+
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+  
+  <script type="text/javascript" src="/lib/three/three.min.js"></script>
+
+  
+  <script type="text/javascript" src="/lib/three/three-waves.min.js"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.2"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.2"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.2"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.2"></script>
+
+
+
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.2"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.2"></script>
+
+
+  
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.2"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+    <script type="text/javascript">
+      (function(d, s) {
+        var j, e = d.getElementsByTagName(s)[0];
+        if (typeof LivereTower === 'function') { return; }
+        j = d.createElement(s);
+        j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+        j.async = true;
+        e.parentNode.insertBefore(j, e);
+      })(document, 'script');
+    </script>
+  
+
+
+
+
+
+
+
+
+  
+
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      $.ajax({
+        url: path,
+        dataType: isXml ? "xml" : "json",
+        async: true,
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url);
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('1');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'auto') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

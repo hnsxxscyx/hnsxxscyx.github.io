@@ -1,0 +1,41 @@
+ /* 先把html字体设为65，暂时不对其他设备进行适配 */
+ /* 原设计稿是针对iPhone5的 */
+ 
+ html {
+     font-size: 64px;
+ }
+ 
+ * {
+     margin: 0;
+     padding: 0;
+     box-sizing: border-box;
+ }
+ 
+ .component {
+     position: absolute;
+     font-family: 'Microsoft Yahei';
+ }
+ 
+ .section {
+     /* 防止元素absolute后跑到第一页 */
+     position: relative;
+     background: url('../imgs/page_bg.png') no-repeat;
+     background-size: cover;
+ }
+ 
+ .face {
+     background: url('../imgs/face_bg.png') no-repeat;
+     background-size: cover;
+ }
+ 
+ .footer {
+     width: 100%;
+ }
+ 
+ .caption {
+     width: calc(500rem / 64);
+     height: calc(124rem / 64);
+     background: url('../imgs/page_caption_bg.png') no-repeat;
+     position: absolute;
+     top: calc(134rem / 64);
+ }
