@@ -77,7 +77,7 @@
 <meta property="og:site_name" content="不得不错的博客">
 <meta property="og:description" content="zepto的核心方法一部分通过给$增加属性而给$(要知道$是一个函数，即是一个对象)，另一部分定义在$.fn这个属性上，然后将zepto.Z.prototype指向$.fn，即所有的Z对象的proto指向$.fn，于是可访问到其中的方法。">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2017-09-30T12:22:25.000Z">
+<meta property="og:updated_time" content="2021-08-26T01:54:47.291Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="zepto源码分析——zepto对象好用的方法都是如何设计的">
 <meta name="twitter:description" content="zepto的核心方法一部分通过给$增加属性而给$(要知道$是一个函数，即是一个对象)，另一部分定义在$.fn这个属性上，然后将zepto.Z.prototype指向$.fn，即所有的Z对象的proto指向$.fn，于是可访问到其中的方法。">
@@ -374,9 +374,7 @@
 
       
         <p>zepto的核心方法一部分通过给$增加属性而给$(要知道$是一个函数，即是一个对象)，另一部分定义在$.fn这个属性上，然后将zepto.Z.prototype指向$.fn，即所有的Z对象的<strong>proto</strong>指向$.fn，于是可访问到其中的方法。</p>
-<a id="more"></a>
-<hr>
-
+<h2 id><a href="#" class="headerlink" title></a><a id="more"></a></h2>
       
     </div>
     
@@ -526,8 +524,17 @@ var jiathis_config={
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview sidebar-panel sidebar-panel-active">
+      <section class="site-overview sidebar-panel">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           
             <p class="site-author-name" itemprop="name">不得不错</p>
@@ -541,7 +548,7 @@ var jiathis_config={
             
               <a href="/archives/">
             
-                <span class="site-state-item-count">8</span>
+                <span class="site-state-item-count">9</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -563,7 +570,7 @@ var jiathis_config={
             
             <div class="site-state-item site-state-tags">
               <a href="/tags/index.html">
-                <span class="site-state-item-count">14</span>
+                <span class="site-state-item-count">17</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
@@ -605,6 +612,22 @@ var jiathis_config={
 
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#null"><span class="nav-number">1.</span> <span class="nav-text"></span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       

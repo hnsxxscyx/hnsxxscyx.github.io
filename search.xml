@@ -1,197 +1,47 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title>zepto源码分析——序</title>
-    <url>/2017/09/27/zepto%E6%BA%90%E7%A0%81%E5%88%86%E6%9E%90%E2%80%94%E2%80%94%E5%BA%8F/</url>
-    <content><![CDATA[<h3 id="为什么17年还要读zepto的源码？"><a href="#为什么17年还要读zepto的源码？" class="headerlink" title="为什么17年还要读zepto的源码？"></a>为什么17年还要读zepto的源码？</h3><p>问这个问题首先要清除为什么读源码。<a href="!https://www.zhihu.com/question/29765945">程序员阅读源码是一种什么心态？源码对编程意义何在？如何才能更好阅读代码？</a>这个问题高票答案基本上已经解释的很好了，但我还想再补充几点。<br><a id="more"></a></p>
-<pre><code>- 向优秀的人学习，这个毫无疑问。
-- 人大多是依靠模仿学习的，想要模仿，必须先了解。
-- 巩固基础，而基础有多重要就不用说了吧。
-</code></pre><p>确实mvvm框架极火爆，也的确好用，但是依我现在目前的水平来看（js基础不是很牢，计算机基础也跟不上），学习优秀库是一个极其方便且好用的学习以及复习策略。</p>
-<h3 id="为什么是zepto？"><a href="#为什么是zepto？" class="headerlink" title="为什么是zepto？"></a>为什么是zepto？</h3><p>zepto大家都说好。<br>还有一点是在几个月以前我已经根据前辈的源码分析熟悉了一遍并自己仿制了一个类zepto的库，重拾起来应该更轻松。<br>还有一点，zepto的分析已经有很多人进行了，资料也很多，基本上没什么大问题，但是大都有一点缺点，就是不够通俗易懂。依我来看前端JavaScript水平的差距是巨大的。初学者可能一点一点的啃过基础大部头，以为自己已经了解了JavaScript，却被实际的各种用法所困惑。<br>我作为一个初学者，希望可以通过阅读和拆析zepto的源码来略微的垫高这一沟壑。</p>
-<h3 id="究竟怎么阅读？"><a href="#究竟怎么阅读？" class="headerlink" title="究竟怎么阅读？"></a>究竟怎么阅读？</h3><p>读之前首先一定要会用吧，如果不会用建议去看看zepto的文档，和jQuery很像。<br>会了基本的用法之后就可以准备阅读了。<br>首先需要源代码的源文件，其次要找好的资料。</p>
-<h4 id="什么才算是好的资料？"><a href="#什么才算是好的资料？" class="headerlink" title="什么才算是好的资料？"></a>什么才算是好的资料？</h4><p>在我看来至少要满足以下几点：</p>
-<pre><code>- 语句通顺易懂
-- 不办弄概念
-- 最好能引导人进行主动阅读
-- 对一些概念进行扩展
-</code></pre><p>在zepto源码分析的诸多资料中，个人认为称的上好的资料应当是王福朋老师的<a href="!http://www.imooc.com/learn/745">zepto设计和源码分析</a>,在慕课网上的课程讲解十分详细，但个人推荐阅读<a href="!https://www.kancloud.cn/wangfupeng/zepto-design-srouce/173689">文字版</a>.<br>在js进阶的资料中，个人认为最好的应当是曾探老师的<a href="!https://book.douban.com/subject/26382780/">JavaScript设计模式与开发实践</a></p>
-]]></content>
-      <categories>
-        <category>编程</category>
-      </categories>
+    <title><![CDATA[我们是如何在王者比赛中翻车的]]></title>
+    <url>%2F2021%2F08%2F26%2Fpost-title-%E6%88%91%E4%BB%AC%E6%98%AF%E5%A6%82%E4%BD%95%E5%9C%A8%E7%8E%8B%E8%80%85%E6%AF%94%E8%B5%9B%E4%B8%AD%E7%BF%BB%E8%BD%A6%E7%9A%84%2F</url>
+    <content type="text"><![CDATA[距离游戏比赛的惨败已经过去了6天，我个人心路历程:wtf-&gt;都是因为xxxxxxxxxxxxxxxx-&gt;输了就输了呗-&gt;要是选我的婉儿就好了说不定能翻盘再来-&gt;啊，游戏是真的费时间 目前还处在游戏好费时间啊，远离游戏，从我做起这一阶段。但说不准什么时候又变成了游戏真香。人呐，就是这么的奇奇怪怪。 失败的经验还是总结一下失败的经验，下次失败了不会这么震惊，搞的我两三晚都没睡好觉。 配合最核心的问题，与石家庄对阵的两局，5个人的配合只有两个字能说明，辣鸡，这个配合又完全是心态导致的。自从打败了西安，基本上确定了打决赛会很稳，几个人都飘的不成样子。在初步了解了石家庄的段位后，群里全是快活的气氛，换位置啦，怎么用xx 随意暴打xx啦之类的话。结果就是非常惨烈的翻车，第一局下来，其他人我不知道，我的心态是崩的。中路高地居然不是被逼塔或者我方有阵亡的情况下掉的，而是，漏兵线了。并且掉了后还在互相指责，我。第二局高地掉的更离谱，非要强开导致两路高地直接被兵线退了，张良接命令闪大后又不要打，这。总之配合非常离谱，正常来讲石家庄绝对打不过我们，但那两局他们的配合要比我们好的多的多。 配合如此不好的原因有一说一，并不是针对，局内矛头的起点就是ntg。队友失误了、被蹲草是非常正常且普通的事儿，职业选手还能被蹲草，没必要因为失误而说某些指责的话，而且也没听安排，事实上让虞姬全输出，炸弹猫+梦魇压制程咬金那不香吗？还有ly 的东皇吸人的时机不好，兵线处理的也不好，程咬金处于完全无人能压制的状态，两个人过去居然抓不死，中期居然还有抓到程咬金然后对面直接暂停游戏。喵喵喵，还能这样？？？总之节奏被彻底打乱，第一局最后一波简直像在送一样，三个人在中路无所事事结果被5人包饺子。第一局到第二局中间应该短暂的休息一下，转变一下心态。而我一直处于巨大的震惊当中（本来还算有优势莫名其妙浪输了），没换手机，没清醒一下，直接拉人准备了第二局。第二局本来想抢婉儿拯救局面，结果ntg 说拿太早被针对，但帮抢后放三楼和二楼其实效果没差，于是拿了昭君想打运营。这成了我输了游戏后后悔好几天的事儿。拿到昭君后对面选了吕布（大后期英雄）女娲（大后期英雄）露娜（中期英雄，但我方有张良与兰陵王作为克制点）。结果的结果，张良与兰陵王基本不限制露娜发育，不抢蓝不针对性抓单，露娜带线刷野美滋滋，昭君的作用完全没法发挥（清线转线快），迎来彻底失败。 游戏卡顿不得不说小米11 是真的辣鸡，我不知道为什么加了散热器后打一个王者还能掉帧掉到十几二十帧，第一局我玩露露基本上是屁股坐下去接下来要失联.5s的感觉，第二局没有选婉儿而是选昭君也有这方面的考量，实在是太卡了。888的性能完全没问题，就是MIUI 的锅，怕什么烧WiFi，稍微有点温度就限制性能，即使我加了散热器，这都还不够。骂小米也骂的够多了，无济于事。中途怎么就没想起来换小米10呢？又是一大后悔点。 精神状态不好晚上没睡好+拉肚子，老婆又是工作狂魔，一天我都在调bug，中午我跟老婆说你做饭吧，换来了嗯嗯然后拖到了一点我自己去搞，中午也没睡，十二分没有精神，全程就是迷糊状态，靠本能反应在打。 总结：事情还是要多多准备，骄兵必败。还有，辣鸡小米。 少打游戏多看书吧，王者游戏机制也实属阴间。辣鸡小米，但是挑来挑去还是只能选它，这就更气了哈哈哈。]]></content>
       <tags>
-        <tag>源码</tag>
-        <tag>JavaScript</tag>
-        <tag>zepto</tag>
-        <tag>自述</tag>
+        <tag>游戏</tag>
+        <tag>回顾</tag>
+        <tag>团队协作</tag>
       </tags>
   </entry>
   <entry>
-    <title>zepto源码分析——设计</title>
-    <url>/2017/09/27/zepto%E6%BA%90%E7%A0%81%E5%88%86%E6%9E%90%E2%80%94%E2%80%94%E8%AE%BE%E8%AE%A1/</url>
-    <content><![CDATA[<h3 id="zepto对象"><a href="#zepto对象" class="headerlink" title="zepto对象"></a>zepto对象</h3><p>zepto或是jQuery的设计思想几乎是一致的，通过选择器获取一个DOM对象，然后对这个对象进行操作。<br>我们来看zepto对象是什么样子。<br>进入Zepto文档界面，打开控制台，使用$取一个元素，将它打印出来。<br><a id="more"></a><br><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&lt;h3 id=&quot;download&quot;&gt;下载 Zepto&lt;/h3&gt;</span><br></pre></td></tr></table></figure></p>
-<p>这个元素用的是id呀，就它了</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">let ele = $(&apos;#download&apos;)</span><br><span class="line">ele</span><br><span class="line">[h3#download, selector: &quot;#download&quot;]</span><br><span class="line">Array.isArray(ele)</span><br><span class="line">true</span><br></pre></td></tr></table></figure>
-<p>看起来是一个数组对象，但实际上并不是,isArray()不要骗人啊~<br>我们知道JavaScript中数组是Array对象的实例，那么ele是么？</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">ele.__proto__.constructor === Array;</span><br><span class="line">false</span><br><span class="line">ele instanceof Array</span><br><span class="line">false</span><br></pre></td></tr></table></figure>
-<p>instanceof 运算符用来测试一个对象在其原型链中是否存在一个构造函数的 prototype 属性。<br>显而易见，ele并不是Array构建出来的，用Array构建出来也没那么多方法用啊，除非大规模重写Array的<strong>proto</strong>对象，那不是太惨了。</p>
-<h4 id="那么是谁构建了这个类数组对象？"><a href="#那么是谁构建了这个类数组对象？" class="headerlink" title="那么是谁构建了这个类数组对象？"></a>那么是谁构建了这个类数组对象？</h4><p>我们先来看看$</p>
-<pre><code>$
-ƒ (selector, context){
-    return zepto.init(selector, context)
-</code></pre><p>$是一个函数<br>来看看源码</p>
-<pre><code>var Zepto = (function() {
-})()
-
-window.Zepto = Zepto
-window.$ === undefined &amp;&amp; (window.$ = Zepto)
-</code></pre><p>$被挂载到window上，要知道在浏览器中所有JavaScript 全局对象、函数以及变量均自动成为window 对象的成员，所以$是全局对象，且是Zepto函数，很明显Zepto函数是一个构造函数。</p>
-<p><strong> 源代码解析部分请配合源代码和搜索食用 </strong></p>
-<h4 id="zepto-init"><a href="#zepto-init" class="headerlink" title="zepto.init"></a>zepto.init</h4><p>前面已经知道$是一个函数，参数为(selector,context)，返回一个函数，我们先来看看返回的函数是什么样子。<br>搜索到zepto.init，可以看到英文注释：</p>
-<blockquote>
-<pre><code>`$.zepto.init` is Zepto&apos;s counterpart to jQuery&apos;s `$.fn.init` and takes a CSS selector and an optional context (and handles various special cases).
-// This method can be overriden in plugins.
-</code></pre></blockquote>
-<p>简单来说就是这个方法类似jQuery的$.fn.init方法，传入一个CSS选择器和一个上下文。这个函数还能被插件改写。<br>显而易见，这是为了生成之前的类数组对象做准备，选取其中的dom与环境，来看看这个函数的内部。<br>$函数的作用有以下几种：</p>
-<ul>
-<li>把普通DOM对象包装成zepto对象</li>
-<li>当页面ready时加载函数</li>
-<li>充当选择器选择DOM并将其包装成zepto对象</li>
-<li>生成一个dom元素  </li>
-</ul>
-<p>详情分析请看源代码解析部分。<br>加载函数部分比较好理解，我们先来看看是如何构建zepto对象的。</p>
-<h4 id="构建zepto对象"><a href="#构建zepto对象" class="headerlink" title="构建zepto对象"></a>构建zepto对象</h4><p>当selector是选择器时，查找dom。</p>
-<p>zepto.qsa()方法用来选择dom，使用字符串匹配后分别使用各种get方法进行选择dom，最后特殊情况使用querySelectorAll和querySelector。因为它俩的速度要慢得多</p>
-<hr>
-<p>找到dom后把dom与selector传给zepto.Z这个构造函数。</p>
-<pre><code>zepto.Z = function(dom, selector) {
-    dom = dom || []
-    dom.__proto__ = $.fn
-    dom.selector = selector || &apos;&apos;
-    return dom
-}
-zepto.Z.prototype = $.fn
-</code></pre><p>可以看到dom的隐式原型被指向$.fn,zepto.Z.prototype也被指向$.fn，因为隐式原型与显式原型的关系，实际上只要一个生效就生效了。<br>$.fn中定义了zepto类数组对象所有方法，通过原型链这些方法就可以共享啦。</p>
-]]></content>
-      <categories>
-        <category>编程</category>
-      </categories>
+    <title><![CDATA[手把手教你用Laravel-echo-server 建立广播系统]]></title>
+    <url>%2F2021%2F07%2F28%2F%E6%89%8B%E6%8A%8A%E6%89%8B%E6%95%99%E4%BD%A0%E7%94%A8Laravel-echo-server%20%E5%BB%BA%E7%AB%8B%E5%B9%BF%E6%92%AD%E7%B3%BB%E7%BB%9F%2F</url>
+    <content type="text"><![CDATA[开始之前 Laravel并没有官方的Socket.IO 服务器，所以我们使用Laravel-echo-server 这个第三方库，只要正确配置，无缝接入Laravel 需要会使用Laravel 的事件的写法 确保config/broadcasting.php 中default 不为null 原理简述Laravel 广播系统的原理其实很简单，客户端与Socket.io服务端（Laravel-echo-server) 建立连接，服务端监听驱动器事件，当驱动器产生事件时，服务端（Laravel-echo-server）监听到事件并向指定频道发送事件消息，客户端监听指定频道，收取事件消息。 建立连接驱动器本文使用Redis 作为驱动器, 请参考Laravel Redis 的配置项并保证正常使用。 服务端（发送广播）Laravel-echo-server安装需要全局安装Laravel-echo-server。1npm install -g laravel-echo-server 初始化配置使用包自带的init 命令可以快速初始化配置文件1laravel-echo-server init 首次使用可以一路回车，全使用默认配置，执行后路径下会生成 laravel-echo-server.json 文件，根据实际需要再修改配置信息。123456789101112131415161718192021222324252627282930313233343536&#123; "authHost": "dash.dev.car.co.uk", "authEndpoint": "/broadcasting/auth", "clients": [ &#123; "appId": "", "key": "" &#125; ], "database": "redis", "databaseConfig": &#123; "redis": &#123; "port": "6379" &#125; &#125;, "devMode": false, "host": null, "port": "6001", "protocol": "http", "socketio": &#123;&#125;, "secureOptions": 67108864, "sslCertPath": "", "sslKeyPath": "", "sslCertChainPath": "", "sslPassphrase": "", "subscribers": &#123; "http": true, "redis": true &#125;, "apiOriginAllow": &#123; "allowCors": false, "allowOrigin": "", "allowMethods": "", "allowHeaders": "" &#125;&#125; 注意： appId 是使用http 请求来触发广播的，如果只需要在Laravel 中使用Redis 触发广播，可以忽略此项配置。 开发时建议devMode 设为true, 可以直观的看到连接及server 运行情况。 注意驱动器的配置，给驱动器配置正确的地址及端口。 跨域请求对cookies 有限制，注意合适的跨域配置 启动1laravel-echo-server start 看到”Server ready!“ 证明server 已经启动成功了。 Laravel触发广播事件广播依赖于事件系统，这样设计是有原因的。事件系统可以很好的解耦某个逻辑的不同响应，比如用户注册后可以短信、邮件等多种方式通知用户注册成功，并执行其他操作，使用一个事件及多个监听器就可以很好的解耦业务逻辑。 定义广播事件将事件实现 Illuminate\Contracts\Broadcasting\ShouldBroadcast1234567891011use Illuminate\Broadcasting\Channel;use Illuminate\Contracts\Broadcasting\ShouldBroadcast;class BroadcastDemo implements ShouldBroadcast&#123; public function broadcastOn() &#123; // need return a channel or channels return new Channel('channel-demo'); &#125;&#125; 必须存在 broadcastOn方法，该方法返回一个频道或者频道数组，事件会被广播到这些频道。正常触发事件就可以触发广播。 广播数据Laravel 会默认将事件中public 属性自动序列化为广播数据，即允许客户端访问事件中的公有数据。但是也可以使用broadcastWith 方法更细粒度的控制广播数据。 广播驱动需要配置和laravel-echo-server 相同的驱动器，驱动器来实现发布-订阅模式，laravel 使用事件系统发布消息，laravel-echo-server订阅事件，做出回调（使用socket.io 推送消息），这里我们使用的是redis作为队列驱动程序，当laravel 触发推送到指定频道时，在redis-cli 中使用SUBSCRIBE 监听对应频道或所有频道也可以看到具体信息。 频道依然拿现实中的广播系统做类比，公共频道就像广播电台，客户端只要能连接到指定频道就都可以收听，但很多信息是不能放在公开频道上的，所以需要授权以进入频道。 频道认证当连接私有频道时，客户端向laravel-echo-server发起请求，laravel-echo-server 将此请求转发给Laravel 以判断是否应该授权。Laravel 默认授权路由为：/broadcasting/auth，通常来说使用1Broadcast::routes(); 就会注册授权路由，或者可以使用BroadcastManager 来更细粒化的控制。在routes/channels.php 中使用Broadcast::channel 方法定义授权回调，方法返回Boolean 值，回调中当前用户被当做第一个参数，额外的通配符参数会被作为后续参数。需要注意的是，由于通配符中也使用了「.」，所以参数中会只取第一个点前面的字符。实际使用中可以将「.」替换为其他字符来获取完整信息 仅广播给他人现实中，如果边听收音机边给电台热线打电话，收音机中肯定也会出现电话对话声，离得近了甚至会产生回音。网络中的广播系统自然也会有这种情况发生，但在网上是没法走开的，所以需要广播系统可以针对性的进行推送，避开触发此次广播的用户。laravel 在每个请求中使用X-Socket-ID 来标识用户，客户端可以将X-Socket-ID 设为socketId，使用axios 时库会自动向header中添加，但使用其他请求库时可以在socket 连接建立后将X-Socket-ID配置如header，可以参考以下代码:123echoInstance.connector.socket.on('connect', () =&gt; &#123; http.defaults.headers.common['X-Socket-Id'] = echoInstance.socketId();&#125;); 当请求携带有X-Socket-ID时，调用broadcast函数时使用toOthers 方法，即可将指定连接从广播接收者中排除。1broadcast(new BroadcastDemo())-&gt;toOthers(); 到目前为止，我们已经构建了一个可以适应大部分需求的广播系统的发送，接下来我们看看如何配置客户端。 客户端（接收广播）建立连接客户端需要使用 Socket.IO JavaScript库来建立文件，当启动laravel-echo-server 后，可以通过 server 地址及端口号获取Socket.IO 库，比如开发时通常使用http://localhost 与6001 端口，可以使用1http://localhost:6001/socket.io/socket.io.js 获取到Socket.IO 库。如果需要手动在客户端添加Socket.IO 库，请注意socket.io.js 版本，目前只有2.x 版本可以正常使用。 接着，我们需要在合适的时机建立实例化Echo(示例代码使用localhost 与6001端口)：123456import Echo from "laravel-echo"const EchoInstance = new Echo(&#123; broadcaster: 'socket.io', host: 'http://localhost:6001'&#125;); 实例化Echo 时，客户端的echo 库会发送http 请求到server 端请求建立连接。 加入频道建立连接后可以使用echoInstance的channel 方法加入指定频道，使用listen 监听频道上的指定事件：12345echoInstance .channel('channelName') .listen('eventName', ()=&gt;&#123; // callback &#125;) 需要退出频道时，使用leave 方法即可。]]></content>
       <tags>
-        <tag>源码</tag>
-        <tag>JavaScript</tag>
-        <tag>zepto</tag>
+        <tag>laravel</tag>
+        <tag>WebSockets</tag>
+        <tag>web</tag>
       </tags>
   </entry>
   <entry>
-    <title>zepto源码分析——zepto对象好用的方法都是如何设计的</title>
-    <url>/2017/09/30/zepto%E6%BA%90%E7%A0%81%E5%88%86%E6%9E%90%E2%80%94%E2%80%94zepto%E5%AF%B9%E8%B1%A1%E5%A5%BD%E7%94%A8%E7%9A%84%E6%96%B9%E6%B3%95%E9%83%BD%E6%98%AF%E5%A6%82%E4%BD%95%E8%AE%BE%E8%AE%A1%E7%9A%84/</url>
-    <content><![CDATA[<p>zepto的核心方法一部分通过给$增加属性而给$(要知道$是一个函数，即是一个对象)，另一部分定义在$.fn这个属性上，然后将zepto.Z.prototype指向$.fn，即所有的Z对象的<strong>proto</strong>指向$.fn，于是可访问到其中的方法。</p>
-<a id="more"></a>
-<hr>
-]]></content>
-      <categories>
-        <category>编程</category>
-      </categories>
-      <tags>
-        <tag>源码</tag>
-        <tag>JavaScript</tag>
-        <tag>zepto</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>北京之行</title>
-    <url>/2018/10/09/%E5%A6%82%E4%BD%95%E4%BD%BF%E7%94%A8Vue%20CLI%203%20%E6%90%AD%E5%BB%BA%E4%B8%80%E4%B8%AA%E5%A4%9A%E9%A1%B5%E9%9D%A2%E9%A1%B9%E7%9B%AE/</url>
-    <content><![CDATA[<h4 id="为什么要用vue来做多页面应用"><a href="#为什么要用vue来做多页面应用" class="headerlink" title="为什么要用vue来做多页面应用"></a>为什么要用vue来做多页面应用</h4><ul>
-<li>熟悉vue开发模式</li>
-<li>有大量封装好的组件来用</li>
-<li>避免加载不必要的资源</li>
-<li>多页面中的部分单页面</li>
-</ul>
-<h4 id="如何配置"><a href="#如何配置" class="headerlink" title="如何配置"></a>如何配置</h4><p>首先是<a href="https://cli.vuejs.org/zh/config/#pages" target="_blank" rel="noopener">官方文档</a></p>
-<p>其次是，(⊙o⊙)…，能搜到的都是2.x版本的，新版本连build目录都木有了（统一在vue.config.js中配置）</p>
-<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="built_in">module</span>.exports = &#123;</span><br><span class="line">  pages: &#123;</span><br><span class="line">    index: &#123;</span><br><span class="line">      <span class="comment">// page 的入口</span></span><br><span class="line">      entry: <span class="string">'src/index/main.js'</span>,</span><br><span class="line">      <span class="comment">// 模板来源</span></span><br><span class="line">      template: <span class="string">'public/index.html'</span>,</span><br><span class="line">      <span class="comment">// 在 dist/index.html 的输出</span></span><br><span class="line">      filename: <span class="string">'index.html'</span>,</span><br><span class="line">      <span class="comment">// 当使用 title 选项时，</span></span><br><span class="line">      <span class="comment">// template 中的 title 标签需要是 &lt;title&gt;&lt;%= htmlWebpackPlugin.options.title %&gt;&lt;/title&gt;</span></span><br><span class="line">      title: <span class="string">'Index Page'</span>,</span><br><span class="line">      <span class="comment">// 在这个页面中包含的块，默认情况下会包含</span></span><br><span class="line">      <span class="comment">// 提取出来的通用 chunk 和 vendor chunk。</span></span><br><span class="line">      chunks: [<span class="string">'chunk-vendors'</span>, <span class="string">'chunk-common'</span>, <span class="string">'index'</span>]</span><br><span class="line">    &#125;,</span><br><span class="line">    <span class="comment">// 当使用只有入口的字符串格式时，</span></span><br><span class="line">    <span class="comment">// 模板会被推导为 `public/subpage.html`</span></span><br><span class="line">    <span class="comment">// 并且如果找不到的话，就回退到 `public/index.html`。</span></span><br><span class="line">    <span class="comment">// 输出文件名会被推导为 `subpage.html`。</span></span><br><span class="line">    subpage: <span class="string">'src/subpage/main.js'</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>参考pages的配置示例，设置一下就行。（目录不要写错了⊙︿⊙）</p>
-<p>然后启动devServer，注意这里devServer是没有设置路由的，URL必须加上.html后缀才能访问到输出文件。</p>
-<h4 id="为什么要记录一下"><a href="#为什么要记录一下" class="headerlink" title="为什么要记录一下"></a>为什么要记录一下</h4><p>其实踩了很多坑，比如config中目录写错了，demo中模块调不到（复制其他现成页面进来的），启动devServe如何不知道如何启动具体页面。</p>
-<p>暴露了基础知识的不足，对webpack的原理完全不清楚，上来就是胡瞎用，需要加强。</p>
-<p>那么加油咯。</p>
-]]></content>
+    <title><![CDATA[北京之行]]></title>
+    <url>%2F2018%2F10%2F09%2F%E5%A6%82%E4%BD%95%E4%BD%BF%E7%94%A8Vue%20CLI%203%20%E6%90%AD%E5%BB%BA%E4%B8%80%E4%B8%AA%E5%A4%9A%E9%A1%B5%E9%9D%A2%E9%A1%B9%E7%9B%AE%2F</url>
+    <content type="text"><![CDATA[为什么要用vue来做多页面应用 熟悉vue开发模式 有大量封装好的组件来用 避免加载不必要的资源 多页面中的部分单页面 如何配置首先是官方文档 其次是，(⊙o⊙)…，能搜到的都是2.x版本的，新版本连build目录都木有了（统一在vue.config.js中配置） 1234567891011121314151617181920212223module.exports = &#123; pages: &#123; index: &#123; // page 的入口 entry: 'src/index/main.js', // 模板来源 template: 'public/index.html', // 在 dist/index.html 的输出 filename: 'index.html', // 当使用 title 选项时， // template 中的 title 标签需要是 &lt;title&gt;&lt;%= htmlWebpackPlugin.options.title %&gt;&lt;/title&gt; title: 'Index Page', // 在这个页面中包含的块，默认情况下会包含 // 提取出来的通用 chunk 和 vendor chunk。 chunks: ['chunk-vendors', 'chunk-common', 'index'] &#125;, // 当使用只有入口的字符串格式时， // 模板会被推导为 `public/subpage.html` // 并且如果找不到的话，就回退到 `public/index.html`。 // 输出文件名会被推导为 `subpage.html`。 subpage: 'src/subpage/main.js' &#125;&#125; 参考pages的配置示例，设置一下就行。（目录不要写错了⊙︿⊙） 然后启动devServer，注意这里devServer是没有设置路由的，URL必须加上.html后缀才能访问到输出文件。 为什么要记录一下其实踩了很多坑，比如config中目录写错了，demo中模块调不到（复制其他现成页面进来的），启动devServe如何不知道如何启动具体页面。 暴露了基础知识的不足，对webpack的原理完全不清楚，上来就是胡瞎用，需要加强。 那么加油咯。]]></content>
       <tags>
         <tag>Vue</tag>
       </tags>
   </entry>
   <entry>
-    <title>小程序框架——wepy</title>
-    <url>/2017/12/27/%E5%B0%8F%E7%A8%8B%E5%BA%8F%E6%A1%86%E6%9E%B6%E2%80%94%E2%80%94wepy/</url>
-    <content><![CDATA[<p>小程序的写法实在不太敢恭维。wepy参照了Vue的一些风格和特性，对小程序开发进行二次封装，更贴近MVVM架构。</p>
-<ul>
-<li>文件说明<ul>
-<li>wpy文件可使用Vue的代码提示和代码风格</li>
-<li>wpy文件内容主要分三块，脚本、结构、样式。三个标签均支持lang和src属性，当src属性有效时，会忽略内联代码</li>
-<li>脚本部分<ul>
-<li>入口<ul>
-<li>继承自wepy.app类，此处语法参见ES6实现继承</li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-</li>
-<li>改进<ul>
-<li>小程序对组件化支持非常不友好，wepy改进了组件开发的方法。组件的所有业务和功能在本身实现，组件之间彼此隔离</li>
-</ul>
-</li>
-</ul>
-]]></content>
+    <title><![CDATA[北京之行]]></title>
+    <url>%2F2018%2F09%2F13%2F%E5%8C%97%E4%BA%AC%E4%B9%8B%E8%A1%8C%2F</url>
+    <content type="text"><![CDATA[北京之行行程篇9.8早上火车过去，9.11晚9点坐火车回来，全是Z开头，都是坐6个小时左右 9.8早上坐火车真心不算累，也可能大早上神清气爽，两个人开开心心吃饱喝足再出发的关系，但是，晚上回来的时候简直累死！！ 火车篇 火车硬座上睡觉是真心不舒服，时间再短也不行，而且还挤的慌。最最重要的是，我俩居然被分开了。。。为啥买票一个订单两个座会差那么多啊摔！！！ 去北京路上的风景挺好的，蓝天白云，看着电影吃着牛肉，没事望望玉米田。小虫子乱入 景点篇 故宫真的是跑断腿，但是建筑的宏伟霸气加上蓝天白云，超级超级美。 天安门广场也还好，各种震撼，特别搭配蓝天白云，顺便知道那么一点历史，心里特别有感觉，自己像一个伪历史见证者。但是天安门那一区域进去前要安检，但是这个安检只是做做样子，我觉着主要作用还是降低人流量，刷身份证才能进。不知道海外同胞是怎么过安检呢？ 中关村下了车，没感觉有啥特别的，反倒像奸商聚集地，歇了一会走人了。 北大清华两校没进去，北大是迎接新生呢，不让外来游客参观，清华园那边不想跑了。所以两个都没看成，只看了外面的样子。不过就我看到的，两个学校的校门是真的小，感觉其他学校校门都是一个比一个大，这是我们学校不用只看门面的意思吗？ 圆明园现在应该是只剩下旅游局在骗钱了，去游客中心存包人家不让存，可能是过点了（下午两点），印象分极低。当然，也可能是当时我俩都太累了，所以评价有失公道。里面大概是天鹅湖、沙盘模型、大水法（没被烧到和抢走的残石）。 看到大水法其实也挺有感慨的，毕竟国家屈辱的历史，不过更多的是百年前底层人民的悲惨，皇帝尚且有这么豪华巨大的园林（故宫的5倍大小），底层人民在面对战争的时候有什么呢？可能只剩下想活下去的意志了吧。然而不要偷这些名贵的文物啊、古树啊、石料啊，现在看来都是无价宝啊大爷们，你们把古树烧掉了弄成碳卖钱很不划算啊啊啊。当然树还能再长，和平万岁。 沙盘模型就是一个圆明园的缩略模型，离东门很近，路过了看一看还行。 天鹅湖没太有印象，当然风景很好~ 食物篇并不知道北京的特色是什么，灵光一闪那就是吃火锅了，老北京火锅，大铜锅，涮羊肉，美滋滋。 其实是没这个计划的，因为没钱，本来准备是看到啥吃啥，然而几乎上啥也没看到，要么看起来高级不敢进，要么小小餐馆还是不敢进。况且京城看起来真的是荒凉，不知道是大还是人都在外围或者是在工作，真真的看起来荒凉。人少买东西的少，但是比郑州要干净太多了。 早上在普通餐馆吃了东西，还行，不贵，听着人说带京味儿的口音还挺有意思。 跑过故宫后那个累，然而故宫北门周边并没有那种坐下来就吃的小馆子。于是北门涮肉走起。 从故宫北门走了约1.7公里，期间的小巷子小破路一度让我认为是不是走错了。还好在倒下前走到了。 说下食物，北京的铜锅涮肉都讲究清汤，一个大铜锅（给我们的是小的→_→)，中间是碳，汤开了就能咕嘟咕嘟的涮起肉来。 这个清汤锅底收我20块好不爽啊，我好穷⊙︿⊙ 鲜切羊肉一流，其他的都是还行，鲜切羊肉非常好吃，怎么描述那种感觉呢？我能说记不清了嘛。。。 其他的都是日常火锅，总之鲜切羊肉必点，39 五两。（顺便送一个伞，遮阳伞忘店里了╯﹏╰） 在这次北门火锅后还吃了另一家酒店不远的羊火涮肉，同样的操作，但是便宜太多，作为吃饱喝足的地方那是极好的，想吃特色肉这里就不太行了，都是冷冻的，鲜切（名义）羊肉吃起来也没那种感觉。 好像只是吃了两顿火锅次次吃到饱，吃饭次数好少~ 演唱会篇去北京当然是为了看花花演唱会啦，提前准备了这么久，不好好享受演唱会怎么行！！！ 所以我跑神了好多，摔。 心里压力大是一方面，我来说说让我出戏的要点： 98场 那个位置已经快是距花花最远的地方了，以我的视力很难看清楚，举着望远镜也不现实（还是只能看屏幕，看人还是远远的看的感觉） 乐器声要不要这么大啊，这一场说实话人声很小，不知道是混音的关系还是座位的关系。 总之我看不到也听不到人声，只能随着音乐嗨，进不了状态，频频出戏 99场 团票的位置果然更好，但是坐的更高更远了，能看到花花的影子，大屏幕还是看不太清。 跑了一天了真心累 个人最喜欢的两首：地球之盐、我~刚好一首开场，一首收尾~ 话说花花真的是太拼，嗓子做了雾化打了封闭，结果还是唱，而且可怕的是高音依然稳，虽然第二场有所收敛但同样各种炸，果然要吹爆我花。 1封闭主要是指将激素类的药物和局部麻醉药物混合在一起注射到疼痛或者炎症的部位， 但是也太拼了，身体会受不了的，吸血公司也是够够的： 看这行程 希望花花能早日离开这种吸血公司~ 总结这次北京行：开心~ 做人嘛，最重要的就是开心。 努力自由咯。]]></content>
       <tags>
-        <tag>前端</tag>
+        <tag>生活</tag>
+        <tag>华晨宇</tag>
+        <tag>旅游</tag>
       </tags>
   </entry>
   <entry>
-    <title>开始sicp的旅程吧，scheme要跑起来</title>
-    <url>/2017/12/30/%E5%BC%80%E5%A7%8Bsicp%E7%9A%84%E6%97%85%E7%A8%8B%E5%90%A7/</url>
-    <content><![CDATA[<p>作为一只萌新，知识可不能仅靠工作上的摸索踩坑和单纯经验上的积累，深入基础是十分有必要滴，而且还得应付考试不是，考试是个好理由，不敢拒绝。<br>有需要也有必要补足计算机基础知识，那么作为野生程序员，咋么做呢？<br>参考前人的经验，首选自然是萧大的<a href="https://zhuanlan.zhihu.com/xiao-jing-mo/19959253" target="_blank" rel="noopener">编程入门指南</a>,而我现在不应该再入门了吧，那自然搞起sicp啦。</p>
-<h3 id="为什么要学sicp"><a href="#为什么要学sicp" class="headerlink" title="为什么要学sicp"></a>为什么要学sicp</h3><p>多人推荐，评分高，那就没的说了呗。大部分理由都可以参见这篇文章：<a href="http://blog.zhaojie.me/2009/07/recommended-reading-2-sicp.html" target="_blank" rel="noopener">老赵书托（2）：计算机程序的构造与解释 - 老赵点滴 - 追求编程之美</a></p>
-<h3 id="为什么不学python版本的sicp"><a href="#为什么不学python版本的sicp" class="headerlink" title="为什么不学python版本的sicp"></a>为什么不学python版本的sicp</h3><p>说实话学python版的的确效率高、收益大，不过我也有自己的考虑。</p>
-<pre><code>- 我看过一遍python版的中文翻译，然而并不懂，和其他的python书看起来并没什么区别，或许我当年太弱鸡？
-- 基于上，python版的就要配合课程进行学习，然而时间决定了我目前不太能常看视频
-- 谁说的刷了老版的就看不了新版的哦，cs61扔入计划
-</code></pre><h3 id="准备工作"><a href="#准备工作" class="headerlink" title="准备工作"></a>准备工作</h3><p>ok,开始了没什么疑问，然而刚刚上去我就经受了小小打击，那就是sicp所用的语言。<br>scheme应该是简单但强大的语言了吧，但着实小众，作为方言还有方言，怎么运行成了一个问题。依我目前的了解，有以下几种方法跑。</p>
-<pre><code>- 云端跑
-    - 好处
-        - 复制粘贴即可运行
-    - 坏处
-        - 浏览器必须的
-        - 联网必须的
-        - 复杂了就玩不转了
-- 本地跑
-    - Emacs + 插件
-        - 好处
-            - 未知，因为下载了并没有安装，但是听说这是个神级编译器，参见[一年成为 Emacs 高手 (像神一样使用编辑器)](https://github.com/redguardtoo/mastering-emacs-in-one-year-guide/blob/master/guide-zh.org)对手是vim等，以后有缘再见吧
-        - 坏处
-            - 没用过，上手需要熟悉一段时间
-    - 开源包，如Racket、MIT Scheme
-        - 参考[程序设计技术和方法](http://www.math.pku.edu.cn/teachers/qiuzy/progtech/)
-        - 好处
-            - 安装即用
-        - 坏处
-            - 在老婆的电脑上装了MIT Scheme，运行及其不便，可能因为我是萌新吧
-            - windows不友好，自我感觉
-            - Racket并不能做所有sicp的题目
-    - 扩展包，如biwascheme
-        - 此项目官网[biwascheme](http://www.biwascheme.org/)
-        - 好处
-            - 不仅能本地运行，还能使用本地JavaScript来跑，HTML中看结果，简直666
-            - 不仅能在HTML里预览，还可以扔到JavaScript来跑，更加666。参见[Github](https://github.com/biwascheme/biwascheme)
-        - 坏处
-            - 未知
-</code></pre><p>以上准备运行的参考资料：<br>1、<a href="http://cocode.cc/t/sicp/7689" target="_blank" rel="noopener">sicp学习前的几个准备资料</a><br>2、<a href="http://tieba.baidu.com/p/1855833563" target="_blank" rel="noopener">安装scheme解释器</a><br>3、<a href="http://www.yinwang.org/blog-cn/2013/04/11/scheme-setup" target="_blank" rel="noopener">Scheme 编程环境的设置</a><br>4、<a href="https://www.gnu.org/software/mit-scheme/" target="_blank" rel="noopener">MIT-scheme</a></p>
-<h3 id="biwascheme的使用"><a href="#biwascheme的使用" class="headerlink" title="biwascheme的使用"></a>biwascheme的使用</h3><p>好处多多，作为前端用起vscode又很方便，HTML预览也好，run code一键都很方便，那肯定是用它的咯。<br>How to use with HTML：<br>    <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&lt;!DOCTYPE html&gt;</span><br><span class="line">&lt;html&gt;</span><br><span class="line">    &lt;body&gt;</span><br><span class="line"></span><br><span class="line">    &lt;div id=&quot;bs-console&quot;&gt;&lt;/div&gt;</span><br><span class="line"></span><br><span class="line">    &lt;script src=&quot;biwascheme.js&quot;&gt;</span><br><span class="line">        (define (test x)</span><br><span class="line">            (+ x x))</span><br><span class="line">        (print (test 2))</span><br><span class="line">    &lt;/script&gt;</span><br><span class="line"></span><br><span class="line">    &lt;/body&gt;</span><br><span class="line">&lt;/html&gt;</span><br></pre></td></tr></table></figure></p>
-<p>How to use with node.js to run a biwa script<br>    <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">$ npm install biwascheme</span><br><span class="line"></span><br><span class="line">create a file a.scm:</span><br><span class="line"></span><br><span class="line">(display &quot;Hello, world!&quot;) (newline)</span><br><span class="line"></span><br><span class="line">$ biwas a.scm</span><br></pre></td></tr></table></figure></p>
-<p>How to use from inside node.js as a module<br>    <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">$ npm install biwascheme</span><br><span class="line"></span><br><span class="line">create a file server.js:</span><br><span class="line"></span><br><span class="line">var BiwaScheme = require(&quot;biwascheme&quot;); BiwaScheme.run(&quot;(+ 1 2)&quot;); // or // BiwaScheme.run_file(&quot;a.scm&quot;);</span><br><span class="line"></span><br><span class="line">$ node server.js</span><br></pre></td></tr></table></figure></p>
-<p>这样子可以愉快的刷题啦，希望可以帮到你们。<br>我这样子这么费时费力的记录还有时间看书吗，摔！</p>
-]]></content>
+    <title><![CDATA[开始sicp的旅程吧，scheme要跑起来]]></title>
+    <url>%2F2017%2F12%2F30%2F%E5%BC%80%E5%A7%8Bsicp%E7%9A%84%E6%97%85%E7%A8%8B%E5%90%A7%2F</url>
+    <content type="text"><![CDATA[作为一只萌新，知识可不能仅靠工作上的摸索踩坑和单纯经验上的积累，深入基础是十分有必要滴，而且还得应付考试不是，考试是个好理由，不敢拒绝。有需要也有必要补足计算机基础知识，那么作为野生程序员，咋么做呢？参考前人的经验，首选自然是萧大的编程入门指南,而我现在不应该再入门了吧，那自然搞起sicp啦。 为什么要学sicp多人推荐，评分高，那就没的说了呗。大部分理由都可以参见这篇文章：老赵书托（2）：计算机程序的构造与解释 - 老赵点滴 - 追求编程之美 为什么不学python版本的sicp说实话学python版的的确效率高、收益大，不过我也有自己的考虑。 - 我看过一遍python版的中文翻译，然而并不懂，和其他的python书看起来并没什么区别，或许我当年太弱鸡？ - 基于上，python版的就要配合课程进行学习，然而时间决定了我目前不太能常看视频 - 谁说的刷了老版的就看不了新版的哦，cs61扔入计划 准备工作ok,开始了没什么疑问，然而刚刚上去我就经受了小小打击，那就是sicp所用的语言。scheme应该是简单但强大的语言了吧，但着实小众，作为方言还有方言，怎么运行成了一个问题。依我目前的了解，有以下几种方法跑。 - 云端跑 - 好处 - 复制粘贴即可运行 - 坏处 - 浏览器必须的 - 联网必须的 - 复杂了就玩不转了 - 本地跑 - Emacs + 插件 - 好处 - 未知，因为下载了并没有安装，但是听说这是个神级编译器，参见[一年成为 Emacs 高手 (像神一样使用编辑器)](https://github.com/redguardtoo/mastering-emacs-in-one-year-guide/blob/master/guide-zh.org)对手是vim等，以后有缘再见吧 - 坏处 - 没用过，上手需要熟悉一段时间 - 开源包，如Racket、MIT Scheme - 参考[程序设计技术和方法](http://www.math.pku.edu.cn/teachers/qiuzy/progtech/) - 好处 - 安装即用 - 坏处 - 在老婆的电脑上装了MIT Scheme，运行及其不便，可能因为我是萌新吧 - windows不友好，自我感觉 - Racket并不能做所有sicp的题目 - 扩展包，如biwascheme - 此项目官网[biwascheme](http://www.biwascheme.org/) - 好处 - 不仅能本地运行，还能使用本地JavaScript来跑，HTML中看结果，简直666 - 不仅能在HTML里预览，还可以扔到JavaScript来跑，更加666。参见[Github](https://github.com/biwascheme/biwascheme) - 坏处 - 未知 以上准备运行的参考资料：1、sicp学习前的几个准备资料2、安装scheme解释器3、Scheme 编程环境的设置4、MIT-scheme biwascheme的使用好处多多，作为前端用起vscode又很方便，HTML预览也好，run code一键都很方便，那肯定是用它的咯。How to use with HTML： 1234567891011121314&lt;!DOCTYPE html&gt;&lt;html&gt; &lt;body&gt; &lt;div id=&quot;bs-console&quot;&gt;&lt;/div&gt; &lt;script src=&quot;biwascheme.js&quot;&gt; (define (test x) (+ x x)) (print (test 2)) &lt;/script&gt; &lt;/body&gt;&lt;/html&gt; How to use with node.js to run a biwa script 1234567$ npm install biwaschemecreate a file a.scm:(display &quot;Hello, world!&quot;) (newline)$ biwas a.scm How to use from inside node.js as a module 1234567$ npm install biwaschemecreate a file server.js:var BiwaScheme = require(&quot;biwascheme&quot;); BiwaScheme.run(&quot;(+ 1 2)&quot;); // or // BiwaScheme.run_file(&quot;a.scm&quot;);$ node server.js 这样子可以愉快的刷题啦，希望可以帮到你们。我这样子这么费时费力的记录还有时间看书吗，摔！]]></content>
       <categories>
         <category>编程</category>
       </categories>
@@ -201,117 +51,51 @@ zepto.Z.prototype = $.fn
       </tags>
   </entry>
   <entry>
-    <title>北京之行</title>
-    <url>/2018/09/13/%E5%8C%97%E4%BA%AC%E4%B9%8B%E8%A1%8C/</url>
-    <content><![CDATA[<h1 id="北京之行"><a href="#北京之行" class="headerlink" title="北京之行"></a>北京之行</h1><h2 id="行程篇"><a href="#行程篇" class="headerlink" title="行程篇"></a>行程篇</h2><p>9.8早上火车过去，9.11晚9点坐火车回来，全是Z开头，都是坐6个小时左右</p>
-<p>9.8早上坐火车真心不算累，也可能大早上神清气爽，两个人开开心心吃饱喝足再出发的关系，但是，晚上回来的时候简直累死！！</p>
-<h3 id="火车篇"><a href="#火车篇" class="headerlink" title="火车篇"></a>火车篇</h3><ul>
-<li><p>火车硬座上睡觉是真心不舒服，时间再短也不行，而且还挤的慌。最最重要的是，我俩居然被分开了。。。为啥买票一个订单两个座会差那么多啊摔！！！</p>
-</li>
-<li><p>去北京路上的风景挺好的，蓝天白云，看着电影吃着牛肉，没事望望玉米田。<br><img src="https://ws1.sinaimg.cn/large/690f0543ly1fv80e42h88j221s1jce81.jpg" alt><br>小虫子乱入<br><img src="https://ws1.sinaimg.cn/large/690f0543ly1fv80d57ja9j221s1jcu0x.jpg" alt></p>
-<h3 id="景点篇"><a href="#景点篇" class="headerlink" title="景点篇"></a>景点篇</h3></li>
-<li>故宫真的是跑断腿，但是建筑的宏伟霸气加上蓝天白云，超级超级美。<br><img src="https://ws1.sinaimg.cn/large/690f0543ly1fv80envdyqj221s1jcnpd.jpg" alt></li>
-<li>天安门广场也还好，各种震撼，特别搭配蓝天白云，顺便知道那么一点历史，心里特别有感觉，自己像一个伪历史见证者。但是天安门那一区域进去前要安检，但是这个安检只是做做样子，我觉着主要作用还是降低人流量，刷身份证才能进。不知道海外同胞是怎么过安检呢？</li>
-<li>中关村下了车，没感觉有啥特别的，反倒像奸商聚集地，歇了一会走人了。</li>
-<li>北大清华两校没进去，北大是迎接新生呢，不让外来游客参观，清华园那边不想跑了。所以两个都没看成，只看了外面的样子。不过就我看到的，两个学校的校门是真的小，感觉其他学校校门都是一个比一个大，这是我们学校不用只看门面的意思吗？</li>
-<li>圆明园现在应该是只剩下旅游局在骗钱了，去游客中心存包人家不让存，可能是过点了（下午两点），印象分极低。当然，也可能是当时我俩都太累了，所以评价有失公道。里面大概是天鹅湖、沙盘模型、大水法（没被烧到和抢走的残石）。<ul>
-<li>看到大水法其实也挺有感慨的，毕竟国家屈辱的历史，不过更多的是百年前底层人民的悲惨，皇帝尚且有这么豪华巨大的园林（故宫的5倍大小），底层人民在面对战争的时候有什么呢？可能只剩下想活下去的意志了吧。然而不要偷这些名贵的文物啊、古树啊、石料啊，现在看来都是无价宝啊大爷们，你们把古树烧掉了弄成碳卖钱很不划算啊啊啊。当然树还能再长，和平万岁。</li>
-<li>沙盘模型就是一个圆明园的缩略模型，离东门很近，路过了看一看还行。</li>
-<li>天鹅湖没太有印象，当然风景很好~</li>
-</ul>
-</li>
-</ul>
-<h3 id="食物篇"><a href="#食物篇" class="headerlink" title="食物篇"></a>食物篇</h3><p>并不知道北京的特色是什么，灵光一闪那就是吃火锅了，老北京火锅，大铜锅，涮羊肉，美滋滋。</p>
-<p>其实是没这个计划的，因为没钱，本来准备是看到啥吃啥，然而几乎上啥也没看到，要么看起来高级不敢进，要么小小餐馆还是不敢进。况且京城看起来真的是荒凉，不知道是大还是人都在外围或者是在工作，真真的看起来荒凉。人少买东西的少，但是比郑州要干净太多了。</p>
-<p>早上在普通餐馆吃了东西，还行，不贵，听着人说带京味儿的口音还挺有意思。</p>
-<p>跑过故宫后那个累，然而故宫北门周边并没有那种坐下来就吃的小馆子。于是北门涮肉走起。</p>
-<p>从故宫北门走了约1.7公里，期间的小巷子小破路一度让我认为是不是走错了。还好在倒下前走到了。</p>
-<p>说下食物，北京的铜锅涮肉都讲究清汤，一个大铜锅（给我们的是小的→_→)，中间是碳，汤开了就能咕嘟咕嘟的涮起肉来。</p>
-<p>这个清汤锅底收我20块好不爽啊，我好穷⊙︿⊙</p>
-<p>鲜切羊肉一流，其他的都是还行，鲜切羊肉非常好吃，怎么描述那种感觉呢？我能说记不清了嘛。。。</p>
-<p>其他的都是日常火锅，总之鲜切羊肉必点，39 五两。（顺便送一个伞，遮阳伞忘店里了╯﹏╰）</p>
-<p>在这次北门火锅后还吃了另一家酒店不远的羊火涮肉，同样的操作，但是便宜太多，作为吃饱喝足的地方那是极好的，想吃特色肉这里就不太行了，都是冷冻的，鲜切（名义）羊肉吃起来也没那种感觉。</p>
-<p>好像只是吃了两顿火锅次次吃到饱，吃饭次数好少~</p>
-<h2 id="演唱会篇"><a href="#演唱会篇" class="headerlink" title="演唱会篇"></a>演唱会篇</h2><p>去北京当然是为了看花花演唱会啦，提前准备了这么久，不好好享受演唱会怎么行！！！<br><img src="https://ws1.sinaimg.cn/large/690f0543ly1fv80eho3chj221s1jcqv5.jpg" alt></p>
-<p><img src="https://ws1.sinaimg.cn/large/690f0543ly1fv80elt238j221s1jcnpd.jpg" alt></p>
-<p>所以我跑神了好多，摔。</p>
-<p>心里压力大是一方面，我来说说让我出戏的要点：</p>
-<ul>
-<li>98场<ul>
-<li>那个位置已经快是距花花最远的地方了，以我的视力很难看清楚，举着望远镜也不现实（还是只能看屏幕，看人还是远远的看的感觉）</li>
-<li>乐器声要不要这么大啊，这一场说实话人声很小，不知道是混音的关系还是座位的关系。</li>
-<li>总之我看不到也听不到人声，只能随着音乐嗨，进不了状态，频频出戏</li>
-</ul>
-</li>
-<li>99场<ul>
-<li>团票的位置果然更好，但是坐的更高更远了，能看到花花的影子，大屏幕还是看不太清。</li>
-<li>跑了一天了真心累</li>
-</ul>
-</li>
-</ul>
-<p>个人最喜欢的两首：地球之盐、我~<br>刚好一首开场，一首收尾~</p>
-<p>话说花花真的是太拼，嗓子做了雾化打了封闭，结果还是唱，而且可怕的是高音依然稳，虽然第二场有所收敛但同样各种炸，果然要吹爆我花。</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">封闭主要是指将激素类的药物和局部麻醉药物混合在一起注射到疼痛或者炎症的部位，</span><br></pre></td></tr></table></figure>
-<p>但是也太拼了，身体会受不了的，吸血公司也是够够的：</p>
-<p><img src="https://ws1.sinaimg.cn/large/690f0543ly1fv80okhevwj20qo1hcter.jpg" alt></p>
-<p>看这行程</p>
-<p><img src="https://ws1.sinaimg.cn/large/690f0543ly1fv80okmja8j20k00m1jtg.jpg" alt></p>
-<p>希望花花能早日离开这种吸血公司~</p>
-<hr>
-<p>总结这次北京行：开心~</p>
-<p>做人嘛，最重要的就是开心。</p>
-<p>努力自由咯。</p>
-]]></content>
+    <title><![CDATA[小程序框架——wepy]]></title>
+    <url>%2F2017%2F12%2F27%2F%E5%B0%8F%E7%A8%8B%E5%BA%8F%E6%A1%86%E6%9E%B6%E2%80%94%E2%80%94wepy%2F</url>
+    <content type="text"><![CDATA[小程序的写法实在不太敢恭维。wepy参照了Vue的一些风格和特性，对小程序开发进行二次封装，更贴近MVVM架构。 文件说明 wpy文件可使用Vue的代码提示和代码风格 wpy文件内容主要分三块，脚本、结构、样式。三个标签均支持lang和src属性，当src属性有效时，会忽略内联代码 脚本部分 入口 继承自wepy.app类，此处语法参见ES6实现继承 改进 小程序对组件化支持非常不友好，wepy改进了组件开发的方法。组件的所有业务和功能在本身实现，组件之间彼此隔离]]></content>
       <tags>
-        <tag>生活</tag>
-        <tag>华晨宇</tag>
-        <tag>旅游</tag>
+        <tag>前端</tag>
       </tags>
   </entry>
   <entry>
-    <title>手把手教你用Laravel-echo-server 建立广播系统</title>
-    <url>/2021/07/28/%E6%89%8B%E6%8A%8A%E6%89%8B%E6%95%99%E4%BD%A0%E7%94%A8Laravel-echo-server%20%E5%BB%BA%E7%AB%8B%E5%B9%BF%E6%92%AD%E7%B3%BB%E7%BB%9F/</url>
-    <content><![CDATA[<h1 id="开始之前"><a href="#开始之前" class="headerlink" title="开始之前"></a>开始之前</h1><ul>
-<li>Laravel并没有官方的Socket.IO 服务器，所以我们使用Laravel-echo-server 这个第三方库，只要正确配置，无缝接入Laravel</li>
-<li>需要会使用Laravel 的事件的写法</li>
-<li>确保config/broadcasting.php 中default 不为null</li>
-</ul>
-<h1 id="原理简述"><a href="#原理简述" class="headerlink" title="原理简述"></a>原理简述</h1><p>Laravel 广播系统的原理其实很简单，客户端与Socket.io服务端（Laravel-echo-server) 建立连接，服务端监听驱动器事件，当驱动器产生事件时，服务端（Laravel-echo-server）监听到事件并向指定频道发送事件消息，客户端监听指定频道，收取事件消息。</p>
-<h1 id="建立连接"><a href="#建立连接" class="headerlink" title="建立连接"></a>建立连接</h1><h2 id="驱动器"><a href="#驱动器" class="headerlink" title="驱动器"></a>驱动器</h2><p>本文使用Redis 作为驱动器, 请参考Laravel Redis 的配置项并保证正常使用。</p>
-<h2 id="服务端（发送广播）"><a href="#服务端（发送广播）" class="headerlink" title="服务端（发送广播）"></a>服务端（发送广播）</h2><h3 id="Laravel-echo-server"><a href="#Laravel-echo-server" class="headerlink" title="Laravel-echo-server"></a>Laravel-echo-server</h3><h4 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h4><p>需要全局安装Laravel-echo-server。<br><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">npm install -g laravel-echo-server</span><br></pre></td></tr></table></figure></p>
-<h4 id="初始化配置"><a href="#初始化配置" class="headerlink" title="初始化配置"></a>初始化配置</h4><p>使用包自带的init 命令可以快速初始化配置文件<br><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">laravel-echo-server init</span><br></pre></td></tr></table></figure></p>
-<p>首次使用可以一路回车，全使用默认配置，执行后路径下会生成 laravel-echo-server.json 文件，根据实际需要再修改配置信息。<br><figure class="highlight json"><table><tr><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  <span class="attr">"authHost"</span>: <span class="string">"dash.dev.car.co.uk"</span>,</span><br><span class="line">  <span class="attr">"authEndpoint"</span>: <span class="string">"/broadcasting/auth"</span>,</span><br><span class="line">  <span class="attr">"clients"</span>: [</span><br><span class="line">    &#123;</span><br><span class="line">      <span class="attr">"appId"</span>: <span class="string">""</span>,</span><br><span class="line">      <span class="attr">"key"</span>: <span class="string">""</span></span><br><span class="line">    &#125;</span><br><span class="line">  ],</span><br><span class="line">  <span class="attr">"database"</span>: <span class="string">"redis"</span>,</span><br><span class="line">  <span class="attr">"databaseConfig"</span>: &#123;</span><br><span class="line">    <span class="attr">"redis"</span>: &#123;</span><br><span class="line">      <span class="attr">"port"</span>: <span class="string">"6379"</span></span><br><span class="line">    &#125;</span><br><span class="line">  &#125;,</span><br><span class="line">  <span class="attr">"devMode"</span>: <span class="literal">false</span>,</span><br><span class="line">  <span class="attr">"host"</span>: <span class="literal">null</span>,</span><br><span class="line">  <span class="attr">"port"</span>: <span class="string">"6001"</span>,</span><br><span class="line">  <span class="attr">"protocol"</span>: <span class="string">"http"</span>,</span><br><span class="line">  <span class="attr">"socketio"</span>: &#123;&#125;,</span><br><span class="line">  <span class="attr">"secureOptions"</span>: <span class="number">67108864</span>,</span><br><span class="line">  <span class="attr">"sslCertPath"</span>: <span class="string">""</span>,</span><br><span class="line">  <span class="attr">"sslKeyPath"</span>: <span class="string">""</span>,</span><br><span class="line">  <span class="attr">"sslCertChainPath"</span>: <span class="string">""</span>,</span><br><span class="line">  <span class="attr">"sslPassphrase"</span>: <span class="string">""</span>,</span><br><span class="line">  <span class="attr">"subscribers"</span>: &#123;</span><br><span class="line">    <span class="attr">"http"</span>: <span class="literal">true</span>,</span><br><span class="line">    <span class="attr">"redis"</span>: <span class="literal">true</span></span><br><span class="line">  &#125;,</span><br><span class="line">  <span class="attr">"apiOriginAllow"</span>: &#123;</span><br><span class="line">    <span class="attr">"allowCors"</span>: <span class="literal">false</span>,</span><br><span class="line">    <span class="attr">"allowOrigin"</span>: <span class="string">""</span>,</span><br><span class="line">    <span class="attr">"allowMethods"</span>: <span class="string">""</span>,</span><br><span class="line">    <span class="attr">"allowHeaders"</span>: <span class="string">""</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<p>注意：</p>
-<ul>
-<li>appId 是使用http 请求来触发广播的，如果只需要在Laravel 中使用Redis 触发广播，可以忽略此项配置。</li>
-<li>开发时建议devMode 设为true, 可以直观的看到连接及server 运行情况。</li>
-<li>注意驱动器的配置，给驱动器配置正确的地址及端口。</li>
-<li>跨域请求对cookies 有限制，注意合适的跨域配置</li>
-</ul>
-<h4 id="启动"><a href="#启动" class="headerlink" title="启动"></a>启动</h4><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">laravel-echo-server start</span><br></pre></td></tr></table></figure>
-<p>看到”Server ready!“ 证明server 已经启动成功了。</p>
-<h3 id="Laravel"><a href="#Laravel" class="headerlink" title="Laravel"></a>Laravel</h3><h4 id="触发广播事件"><a href="#触发广播事件" class="headerlink" title="触发广播事件"></a>触发广播事件</h4><p>广播依赖于事件系统，这样设计是有原因的。<br>事件系统可以很好的解耦某个逻辑的不同响应，比如用户注册后可以短信、邮件等多种方式通知用户注册成功，并执行其他操作，使用一个事件及多个监听器就可以很好的解耦业务逻辑。</p>
-<h5 id="定义广播事件"><a href="#定义广播事件" class="headerlink" title="定义广播事件"></a>定义广播事件</h5><p>将事件实现 Illuminate\Contracts\Broadcasting\ShouldBroadcast<br><figure class="highlight php"><table><tr><td class="code"><pre><span class="line"><span class="keyword">use</span> <span class="title">Illuminate</span>\<span class="title">Broadcasting</span>\<span class="title">Channel</span>;</span><br><span class="line"><span class="keyword">use</span> <span class="title">Illuminate</span>\<span class="title">Contracts</span>\<span class="title">Broadcasting</span>\<span class="title">ShouldBroadcast</span>;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">BroadcastDemo</span> <span class="keyword">implements</span> <span class="title">ShouldBroadcast</span></span></span><br><span class="line"><span class="class"></span>&#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">broadcastOn</span><span class="params">()</span></span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        <span class="comment">// need return a channel or channels</span></span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">new</span> Channel(<span class="string">'channel-demo'</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<p>必须存在 broadcastOn方法，该方法返回一个频道或者频道数组，事件会被广播到这些频道。<br>正常触发事件就可以触发广播。</p>
-<h5 id="广播数据"><a href="#广播数据" class="headerlink" title="广播数据"></a>广播数据</h5><p>Laravel 会默认将事件中public 属性自动序列化为广播数据，即允许客户端访问事件中的公有数据。<br>但是也可以使用broadcastWith 方法更细粒度的控制广播数据。</p>
-<h5 id="广播驱动"><a href="#广播驱动" class="headerlink" title="广播驱动"></a>广播驱动</h5><p>需要配置和laravel-echo-server 相同的驱动器，驱动器来实现发布-订阅模式，laravel 使用事件系统发布消息，laravel-echo-server订阅事件，做出回调（使用socket.io 推送消息），这里我们使用的是redis作为队列驱动程序，当laravel 触发推送到指定频道时，在redis-cli 中使用SUBSCRIBE 监听对应频道或所有频道也可以看到具体信息。</p>
-<h4 id="频道"><a href="#频道" class="headerlink" title="频道"></a>频道</h4><p>依然拿现实中的广播系统做类比，公共频道就像广播电台，客户端只要能连接到指定频道就都可以收听，但很多信息是不能放在公开频道上的，所以需要授权以进入频道。</p>
-<h5 id="频道认证"><a href="#频道认证" class="headerlink" title="频道认证"></a>频道认证</h5><p>当连接私有频道时，客户端向laravel-echo-server发起请求，laravel-echo-server 将此请求转发给Laravel 以判断是否应该授权。<br>Laravel 默认授权路由为：/broadcasting/auth，通常来说使用<br><figure class="highlight php"><table><tr><td class="code"><pre><span class="line">Broadcast::routes();</span><br></pre></td></tr></table></figure></p>
-<p>就会注册授权路由，或者可以使用BroadcastManager 来更细粒化的控制。<br>在routes/channels.php 中使用Broadcast::channel 方法定义授权回调，方法返回Boolean 值，回调中当前用户被当做第一个参数，额外的通配符参数会被作为后续参数。<br>需要注意的是，由于通配符中也使用了「.」，所以参数中会只取第一个点前面的字符。实际使用中可以将「.」替换为其他字符来获取完整信息</p>
-<h5 id="仅广播给他人"><a href="#仅广播给他人" class="headerlink" title="仅广播给他人"></a>仅广播给他人</h5><p>现实中，如果边听收音机边给电台热线打电话，收音机中肯定也会出现电话对话声，离得近了甚至会产生回音。<br>网络中的广播系统自然也会有这种情况发生，但在网上是没法走开的，所以需要广播系统可以针对性的进行推送，避开触发此次广播的用户。<br>laravel 在每个请求中使用X-Socket-ID 来标识用户，客户端可以将X-Socket-ID 设为socketId，使用axios 时库会自动向header中添加，但使用其他请求库时可以在socket 连接建立后将X-Socket-ID配置如header，可以参考以下代码:<br><figure class="highlight js"><table><tr><td class="code"><pre><span class="line">echoInstance.connector.socket.on(<span class="string">'connect'</span>, () =&gt; &#123;</span><br><span class="line">  http.defaults.headers.common[<span class="string">'X-Socket-Id'</span>] = echoInstance.socketId();</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure></p>
-<p>当请求携带有X-Socket-ID时，调用broadcast函数时使用toOthers 方法，即可将指定连接从广播接收者中排除。<br><figure class="highlight php"><table><tr><td class="code"><pre><span class="line">broadcast(<span class="keyword">new</span> BroadcastDemo())-&gt;toOthers();</span><br></pre></td></tr></table></figure></p>
-<p>到目前为止，我们已经构建了一个可以适应大部分需求的广播系统的发送，接下来我们看看如何配置客户端。</p>
-<h2 id="客户端（接收广播）"><a href="#客户端（接收广播）" class="headerlink" title="客户端（接收广播）"></a>客户端（接收广播）</h2><h3 id="建立连接-1"><a href="#建立连接-1" class="headerlink" title="建立连接"></a>建立连接</h3><p>客户端需要使用 Socket.IO JavaScript库来建立文件，当启动laravel-echo-server 后，可以通过 server 地址及端口号获取Socket.IO 库，比如开发时通常使用<a href="http://localhost" target="_blank" rel="noopener">http://localhost</a> 与6001 端口，可以使用<br><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">http://localhost:6001/socket.io/socket.io.js</span><br></pre></td></tr></table></figure></p>
-<p>获取到Socket.IO 库。<br>如果需要手动在客户端添加Socket.IO 库，请注意socket.io.js 版本，目前只有2.x 版本可以正常使用。</p>
-<p>接着，我们需要在合适的时机建立实例化Echo(示例代码使用localhost 与6001端口)：<br><figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> Echo <span class="keyword">from</span> <span class="string">"laravel-echo"</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> EchoInstance = <span class="keyword">new</span> Echo(&#123;</span><br><span class="line">    broadcaster: <span class="string">'socket.io'</span>,</span><br><span class="line">    host: <span class="string">'http://localhost:6001'</span></span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure></p>
-<p>实例化Echo 时，客户端的echo 库会发送http 请求到server 端请求建立连接。</p>
-<h3 id="加入频道"><a href="#加入频道" class="headerlink" title="加入频道"></a>加入频道</h3><p>建立连接后可以使用echoInstance的channel 方法加入指定频道，使用listen 监听频道上的指定事件：<br><figure class="highlight js"><table><tr><td class="code"><pre><span class="line">echoInstance</span><br><span class="line">      .channel(<span class="string">'channelName'</span>)</span><br><span class="line">      .listen(<span class="string">'eventName'</span>, ()=&gt;&#123;</span><br><span class="line">        <span class="comment">//   callback</span></span><br><span class="line">      &#125;)</span><br></pre></td></tr></table></figure></p>
-<p>需要退出频道时，使用leave 方法即可。</p>
-]]></content>
+    <title><![CDATA[zepto源码分析——zepto对象好用的方法都是如何设计的]]></title>
+    <url>%2F2017%2F09%2F30%2Fzepto%E6%BA%90%E7%A0%81%E5%88%86%E6%9E%90%E2%80%94%E2%80%94zepto%E5%AF%B9%E8%B1%A1%E5%A5%BD%E7%94%A8%E7%9A%84%E6%96%B9%E6%B3%95%E9%83%BD%E6%98%AF%E5%A6%82%E4%BD%95%E8%AE%BE%E8%AE%A1%E7%9A%84%2F</url>
+    <content type="text"><![CDATA[zepto的核心方法一部分通过给$增加属性而给$(要知道$是一个函数，即是一个对象)，另一部分定义在$.fn这个属性上，然后将zepto.Z.prototype指向$.fn，即所有的Z对象的proto指向$.fn，于是可访问到其中的方法。]]></content>
+      <categories>
+        <category>编程</category>
+      </categories>
       <tags>
-        <tag>laravel</tag>
-        <tag>WebSockets</tag>
-        <tag>web</tag>
+        <tag>源码</tag>
+        <tag>JavaScript</tag>
+        <tag>zepto</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[zepto源码分析——设计]]></title>
+    <url>%2F2017%2F09%2F27%2Fzepto%E6%BA%90%E7%A0%81%E5%88%86%E6%9E%90%E2%80%94%E2%80%94%E8%AE%BE%E8%AE%A1%2F</url>
+    <content type="text"><![CDATA[zepto对象zepto或是jQuery的设计思想几乎是一致的，通过选择器获取一个DOM对象，然后对这个对象进行操作。我们来看zepto对象是什么样子。进入Zepto文档界面，打开控制台，使用$取一个元素，将它打印出来。1&lt;h3 id=&quot;download&quot;&gt;下载 Zepto&lt;/h3&gt; 这个元素用的是id呀，就它了 12345let ele = $(&apos;#download&apos;)ele[h3#download, selector: &quot;#download&quot;]Array.isArray(ele)true 看起来是一个数组对象，但实际上并不是,isArray()不要骗人啊~我们知道JavaScript中数组是Array对象的实例，那么ele是么？ 1234ele.__proto__.constructor === Array;falseele instanceof Arrayfalse instanceof 运算符用来测试一个对象在其原型链中是否存在一个构造函数的 prototype 属性。显而易见，ele并不是Array构建出来的，用Array构建出来也没那么多方法用啊，除非大规模重写Array的proto对象，那不是太惨了。 那么是谁构建了这个类数组对象？我们先来看看$ $ ƒ (selector, context){ return zepto.init(selector, context) $是一个函数来看看源码 var Zepto = (function() { })() window.Zepto = Zepto window.$ === undefined &amp;&amp; (window.$ = Zepto) $被挂载到window上，要知道在浏览器中所有JavaScript 全局对象、函数以及变量均自动成为window 对象的成员，所以$是全局对象，且是Zepto函数，很明显Zepto函数是一个构造函数。 源代码解析部分请配合源代码和搜索食用 zepto.init前面已经知道$是一个函数，参数为(selector,context)，返回一个函数，我们先来看看返回的函数是什么样子。搜索到zepto.init，可以看到英文注释： `$.zepto.init` is Zepto&apos;s counterpart to jQuery&apos;s `$.fn.init` and takes a CSS selector and an optional context (and handles various special cases). // This method can be overriden in plugins. 简单来说就是这个方法类似jQuery的$.fn.init方法，传入一个CSS选择器和一个上下文。这个函数还能被插件改写。显而易见，这是为了生成之前的类数组对象做准备，选取其中的dom与环境，来看看这个函数的内部。$函数的作用有以下几种： 把普通DOM对象包装成zepto对象 当页面ready时加载函数 充当选择器选择DOM并将其包装成zepto对象 生成一个dom元素 详情分析请看源代码解析部分。加载函数部分比较好理解，我们先来看看是如何构建zepto对象的。 构建zepto对象当selector是选择器时，查找dom。 zepto.qsa()方法用来选择dom，使用字符串匹配后分别使用各种get方法进行选择dom，最后特殊情况使用querySelectorAll和querySelector。因为它俩的速度要慢得多 找到dom后把dom与selector传给zepto.Z这个构造函数。 zepto.Z = function(dom, selector) { dom = dom || [] dom.__proto__ = $.fn dom.selector = selector || &apos;&apos; return dom } zepto.Z.prototype = $.fn 可以看到dom的隐式原型被指向$.fn,zepto.Z.prototype也被指向$.fn，因为隐式原型与显式原型的关系，实际上只要一个生效就生效了。$.fn中定义了zepto类数组对象所有方法，通过原型链这些方法就可以共享啦。]]></content>
+      <categories>
+        <category>编程</category>
+      </categories>
+      <tags>
+        <tag>源码</tag>
+        <tag>JavaScript</tag>
+        <tag>zepto</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[zepto源码分析——序]]></title>
+    <url>%2F2017%2F09%2F27%2Fzepto%E6%BA%90%E7%A0%81%E5%88%86%E6%9E%90%E2%80%94%E2%80%94%E5%BA%8F%2F</url>
+    <content type="text"><![CDATA[为什么17年还要读zepto的源码？问这个问题首先要清除为什么读源码。程序员阅读源码是一种什么心态？源码对编程意义何在？如何才能更好阅读代码？这个问题高票答案基本上已经解释的很好了，但我还想再补充几点。 - 向优秀的人学习，这个毫无疑问。 - 人大多是依靠模仿学习的，想要模仿，必须先了解。 - 巩固基础，而基础有多重要就不用说了吧。 确实mvvm框架极火爆，也的确好用，但是依我现在目前的水平来看（js基础不是很牢，计算机基础也跟不上），学习优秀库是一个极其方便且好用的学习以及复习策略。 为什么是zepto？zepto大家都说好。还有一点是在几个月以前我已经根据前辈的源码分析熟悉了一遍并自己仿制了一个类zepto的库，重拾起来应该更轻松。还有一点，zepto的分析已经有很多人进行了，资料也很多，基本上没什么大问题，但是大都有一点缺点，就是不够通俗易懂。依我来看前端JavaScript水平的差距是巨大的。初学者可能一点一点的啃过基础大部头，以为自己已经了解了JavaScript，却被实际的各种用法所困惑。我作为一个初学者，希望可以通过阅读和拆析zepto的源码来略微的垫高这一沟壑。 究竟怎么阅读？读之前首先一定要会用吧，如果不会用建议去看看zepto的文档，和jQuery很像。会了基本的用法之后就可以准备阅读了。首先需要源代码的源文件，其次要找好的资料。 什么才算是好的资料？在我看来至少要满足以下几点： - 语句通顺易懂 - 不办弄概念 - 最好能引导人进行主动阅读 - 对一些概念进行扩展 在zepto源码分析的诸多资料中，个人认为称的上好的资料应当是王福朋老师的zepto设计和源码分析,在慕课网上的课程讲解十分详细，但个人推荐阅读文字版.在js进阶的资料中，个人认为最好的应当是曾探老师的JavaScript设计模式与开发实践]]></content>
+      <categories>
+        <category>编程</category>
+      </categories>
+      <tags>
+        <tag>源码</tag>
+        <tag>JavaScript</tag>
+        <tag>zepto</tag>
+        <tag>自述</tag>
       </tags>
   </entry>
 </search>
