@@ -1,0 +1,1141 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="zh-Hans">
+<head><meta name="generator" content="Hexo 3.9.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+
+<link href="/css/main.css?v=5.1.2" rel="stylesheet" type="text/css">
+
+
+  <meta name="keywords" content="Hexo, NexT">
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.2">
+
+
+
+
+
+
+<meta name="description" content="前言日常 web 开发中，我们经常遇到想要滚动某元素，但却导致了其他元素发生了滚动的问题。 比如我们某元素使用了浮层，当浮层无法滑动时，我们尝试滑动浮层，会发现浮层下的元素（通常来说是页面）发生了滚动，这就是滚动穿透。 而元素滚动到底时，再尝试滚动会导致元素的可滚动父级开始滚动，这就是滚动链(Scroll Chaining)，如下 demo:   See the Pen   滚动穿透 by 不得不">
+<meta property="og:type" content="article">
+<meta property="og:title" content="别再滚了 - 现在就要解决你的滚动穿透问题">
+<meta property="og:url" content="http://yoursite.com/./2022/03/17/别再滚了-现在就要解决你的滚动穿透/index.html">
+<meta property="og:site_name" content="不得不错的博客">
+<meta property="og:description" content="前言日常 web 开发中，我们经常遇到想要滚动某元素，但却导致了其他元素发生了滚动的问题。 比如我们某元素使用了浮层，当浮层无法滑动时，我们尝试滑动浮层，会发现浮层下的元素（通常来说是页面）发生了滚动，这就是滚动穿透。 而元素滚动到底时，再尝试滚动会导致元素的可滚动父级开始滚动，这就是滚动链(Scroll Chaining)，如下 demo:   See the Pen   滚动穿透 by 不得不">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2022-03-29T11:40:09.923Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="别再滚了 - 现在就要解决你的滚动穿透问题">
+<meta name="twitter:description" content="前言日常 web 开发中，我们经常遇到想要滚动某元素，但却导致了其他元素发生了滚动的问题。 比如我们某元素使用了浮层，当浮层无法滑动时，我们尝试滑动浮层，会发现浮层下的元素（通常来说是页面）发生了滚动，这就是滚动穿透。 而元素滚动到底时，再尝试滚动会导致元素的可滚动父级开始滚动，这就是滚动链(Scroll Chaining)，如下 demo:   See the Pen   滚动穿透 by 不得不">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    version: '5.1.2',
+    sidebar: {"position":"left","display":"post","offset":12,"offset_float":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/./2022/03/17/别再滚了-现在就要解决你的滚动穿透/">
+
+
+
+
+
+  <title>别再滚了 - 现在就要解决你的滚动穿透问题 | 不得不错的博客</title>
+  
+
+
+
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+            (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+          m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+  ga('create', 'UA-107036762-1', 'auto');
+  ga('send', 'pageview');
+</script>
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">不得不错的博客</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br>
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br>
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
+            
+            归档
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br>
+            
+            搜索
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off" placeholder="搜索..." spellcheck="false" type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/./2022/03/17/别再滚了-现在就要解决你的滚动穿透/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="不得不错">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="不得不错的博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">别再滚了 - 现在就要解决你的滚动穿透问题</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2022-03-17T17:45:20+08:00">
+                2022-03-17
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>日常 web 开发中，我们经常遇到想要滚动某元素，但却导致了其他元素发生了滚动的问题。</p>
+<p>比如我们某元素使用了浮层，当浮层无法滑动时，我们尝试滑动浮层，会发现浮层下的元素（通常来说是页面）发生了滚动，这就是滚动穿透。</p>
+<p>而元素滚动到底时，再尝试滚动会导致元素的可滚动父级开始滚动，这就是滚动链(Scroll Chaining)，如下 demo:</p>
+<iframe height="300" style="width: 100%;" scrolling="no" title="滚动穿透" src="https://codepen.io/hnsxxscyx/embed/qBpbErW?default-tab=html%2Cresult" frameborder="no" loading="lazy" allowtransparency="true" allowfullscreen="true"><br>  See the Pen <a href="https://codepen.io/hnsxxscyx/pen/qBpbErW" target="_blank" rel="noopener"><br>  滚动穿透</a> by 不得不错 (<a href="https://codepen.io/hnsxxscyx" target="_blank" rel="noopener">@hnsxxscyx</a>)<br>  on <a href="https://codepen.io" target="_blank" rel="noopener">CodePen</a>.<br></iframe>
+
+<p>通常来说这并不是什么问题，尤其是在桌面端，但移动端的滚动会尤其让用户感觉奇怪。</p>
+<p>如果你也遇到了这样的问题，那不妨从下面找一下解决方案。</p>
+<h1 id="原因"><a href="#原因" class="headerlink" title="原因"></a>原因</h1><p>通常的滚动不是我们自己实现的，利用 transform 等模拟 scroll 的库也不会有滚动穿透的现象发生。</p>
+<p>是因为子元素的 scroll 事件冒泡到根节点，导致根节点进行滚动了吗？</p>
+<p>实际上并不是，在子元素上，scroll event 其实是不冒泡的，参见!(MDN)[<a href="https://developer.mozilla.org/en-US/docs/Web/API/Element/scroll_event]。而" target="_blank" rel="noopener">https://developer.mozilla.org/en-US/docs/Web/API/Element/scroll_event]。而</a> document 上 的滚动是冒泡的，这就是为什么我们监听页面滚动时可以将监听事件挂载到 document 或 window 上。</p>
+<!-- 其实这种现象虽然奇怪，但浏览器厂商的实现是没有问题的，一起来看一下[W3C 的规范](https://www.w3.org/TR/2016/WD-cssom-view-1-20160317/#scrolling-events)。
+重点放在这一段：
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><span class="line">Whenever an element gets scrolled (whether in response to user interaction or by an API), the user agent must run these steps:</span><br><span class="line"></span><br><span class="line">    Let doc be the element’s node document.</span><br><span class="line"></span><br><span class="line">    If the element is already in doc’s pending scroll event targets, abort these steps.</span><br><span class="line"></span><br><span class="line">    Append the element to doc’s pending scroll event targets.</span><br><span class="line"></span><br><span class="line">``` --&gt;</span><br><span class="line"></span><br><span class="line">那为什么会这样呢？我想滑动的明明是子元素，父级元素却滚动起来了，[W3C 的规范](https://www.w3.org/TR/2016/WD-cssom-view-1-20160317/#scrolling-events) 也没要求这样啊。</span><br><span class="line"></span><br><span class="line">换个说法来说规范可能更好理解一些，规范不是用户手册，它只会规定了你要有哪些特性以及如何实现这些特性，但它不会规定你不要实现某些特性。而各大浏览器厂商不约而同的选择了这样的模式：当尝试滚动目标元素时，如果元素不能滚动，那就去尝试让它的父级元素进行滚动，哪个能滚滚哪个。</span><br><span class="line"></span><br><span class="line">与此一致的还有滚动链(Scroll Chaining), 当滚动元素滚动到底部或顶部时，再进行滚动(PC 需要使用滚轮)，会带动外层元素或页面继续滚动。</span><br><span class="line"></span><br><span class="line">参考这个 codepen, 滚动.scroll-wrapper-2 元素到底时，继续滚动会使.scroll-wrapper-1 开始滚动，而.scroll-wrapper-1 滚动到底时，会带动页面滚动。</span><br><span class="line">了解了原因，问题就好解决了。</span><br><span class="line"></span><br><span class="line"># 如何解决</span><br><span class="line"></span><br><span class="line">## 滚动穿透</span><br><span class="line"></span><br><span class="line">当有 mask 时，我们把 document 变为不可滚动的即可。</span><br><span class="line"></span><br><span class="line">通常情况下我们都可以直接给 body 添加 overflow: hidden 属性，这样别说滚动穿透，连页面的滚动都被限制了，自然不会产生滚动了（bootstrap 也是这样做的，可以看这个[demo](https://codepen.io/hnsxxscyx/pen/jOYwLYe))。</span><br><span class="line"></span><br><span class="line">再给想要可以滚动的元素(如弹窗)添加上相应的 overflow 属性值，这样弹窗上的元素也可以滚动。</span><br><span class="line"></span><br><span class="line">通常来说滚动穿透的问题这样就可以解决了，哪怕是多层嵌套的问题，也可以套用这个模板来解决：只让允许的部分发生滚动。</span><br><span class="line"></span><br><span class="line">## 滚动链(Scroll Chaining)</span><br><span class="line"></span><br><span class="line">感谢 W3C，为我们带来了好用的[overscroll-behavior](https://developer.mozilla.org/en-US/docs/Web/CSS/overscroll-behavior) 属性，我先来简单介绍一下它。</span><br><span class="line"></span><br><span class="line">```css</span><br><span class="line">overscroll-behavior: [ contain | none | auto ]&#123;1,2&#125;;</span><br></pre></td></tr></table></figure>
+<p>auto 作为默认值没什么好说的，重点在于 contain 与 none 值。</p>
+<p><b>contain</b> 属性保留了默认的滚动行为，但它不会传递滚动行为，就像我可以在目标元素内进行下拉刷新的操作，但不论如何滚动，滚动行为始终被局限在此元素内。</p>
+<p><b>none</b> 属性移除了滚动边界的一些行为，元素始终也不能超过其滚动边界，当然，它也把滚动行为限制到了元素内。</p>
+<p>这两个属性主要在移动端的实际表现有所不同（PC 端通常没有元素需要跨越滚动边界的特性）。</p>
+<p>喜大普奔，事情完美被解决了，如果你不需要兼容 Safari 的话。</p>
+<p>连 IE 都可以使用-ms-scroll-chaining 来近似实现这一效果，但无论是桌面端还是移动端，Safari 目前都不支持这一特性，唯一让人感觉有希望的应该就是可以在 developer menu 中开启对它的支持，想必正式支持也快了吧。</p>
+<p>如果说桌面端的 Safari 还可以忽略的话，iOS 的市占率决定了必须要对这一问题进行修复。对于 iOS 系统来说，它不允许浏览器使用其他内核，所以 Chrome 更像是套了一层 Safari 内核的壳，所以不管用什么浏览器，它都没有支持这一特性。</p>
+<p>未来可能是美好的，但现在还是需要自己动手。</p>
+<p>应用元素上的滚动事件并不能使用 preventDefault 来阻止滚动行为，scroll event 的 cancelable 属性是 false。也可以这样想，scroll 的效果在先，scroll event 在后，当 listener 拿到 event 时，它已经发生滚动了，总不能让元素再滚回来吧。</p>
+<p>那我们就要从其他方向入手，比如是什么导致了滚动。</p>
+<p>在桌面端，通常是滚动滚动与拖拽滚动条，而移动端，自然是<a href="https://developer.mozilla.org/en-US/docs/Web/API/Touch_events/Using_Touch_Events">Touch</a> 相关的事件。</p>
+<p>此处仅以移动端为例，桌面端将 touch 相关的事件换为<a href="https://developer.mozilla.org/en-US/docs/Web/API/WheelEvent">Wheel</a> 事件即可（注意<a href="https://developer.mozilla.org/en-US/docs/Web/API/MouseScrollEvent">MouseScrollEvent</a> 已经逐渐被废弃）。</p>
+<p>touch 事件是可以被 preventDefault 的，所以我们阻止越界滚动的思路是这样：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">取消touch 效果，不发生滚动 &lt;-  监听touch 事件来判断滚动方向，判断元素是否要越过元素边缘滚动 &lt;- 判断touch 的对象，是否为要限制的元素</span><br></pre></td></tr></table></figure>
+<p>让我们从想到的效果开始，一步一步来看。</p>
+<h3 id="取消-touch-效果"><a href="#取消-touch-效果" class="headerlink" title="取消 touch 效果"></a>取消 touch 效果</h3><p>touch 事件有 touchstart、touchend、touchmove 等事件类型，实际导致滚动的自然是 touchmove 事件，所以我们对元素增加事件监听器，在事件回调中判断 cancelable，然后执行 preventDefault：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">targetEl.addEventListener(</span><br><span class="line">	<span class="string">'touchstart'</span>,</span><br><span class="line">	(event) =&gt; &#123;</span><br><span class="line">		<span class="keyword">if</span> (event.cancelable) &#123;</span><br><span class="line">			event.preventDefault();</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;,</span><br><span class="line">	<span class="literal">false</span></span><br><span class="line">); <span class="comment">// 注意passive 要设为false</span></span><br></pre></td></tr></table></figure>
+<h3 id="判断元素是否要越过元素边缘滚动"><a href="#判断元素是否要越过元素边缘滚动" class="headerlink" title="判断元素是否要越过元素边缘滚动"></a>判断元素是否要越过元素边缘滚动</h3><p>touch 相关的事件并没有获取滑动方向的相关属性，所以我们需要自己计算滚动的方向。<br>可以记录 touchstart 事件的坐标，以它的坐标为原点进行计算。<br>为了简化代码及更清楚的说明相关逻辑，我们以最常用的上下滑动来举例：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> touchStartY;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> recordTouchStart = <span class="function">(<span class="params">event</span>) =&gt;</span> &#123;</span><br><span class="line">	touchStartY = event.touches ? event.touches[<span class="number">0</span>].screenY : event.screenY;</span><br><span class="line">&#125;;</span><br><span class="line"><span class="keyword">const</span> preventTouchMove = <span class="function">(<span class="params">event</span>) =&gt;</span> &#123;</span><br><span class="line">	<span class="keyword">let</span> allowScroll = <span class="literal">false</span>;</span><br><span class="line"></span><br><span class="line">	<span class="keyword">const</span> el = targetEl;</span><br><span class="line">	<span class="keyword">const</span> currentTouchY = event.touches</span><br><span class="line">		? event.touches[<span class="number">0</span>].screenY</span><br><span class="line">		: event.screenY;</span><br><span class="line">	<span class="keyword">const</span> isOverTop = touchStartY &lt;= currentTouchY &amp;&amp; el.scrollTop === <span class="number">0</span>;</span><br><span class="line">	<span class="keyword">const</span> isOverBottom =</span><br><span class="line">		touchStartY &gt;= currentTouchY &amp;&amp;</span><br><span class="line">		el.scrollHeight - el.scrollTop &lt;= el.offsetHeight;</span><br><span class="line">	<span class="keyword">if</span> (!(isOverBottom || isOverTop)) &#123;</span><br><span class="line">		allowScroll = <span class="literal">true</span>;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="keyword">if</span> (!allowScroll) &#123;</span><br><span class="line">		<span class="keyword">if</span> (event.cancelable) &#123;</span><br><span class="line">			event.preventDefault();</span><br><span class="line">		&#125;</span><br><span class="line">		event.stopPropagation();</span><br><span class="line">	&#125;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> (</span><br><span class="line">	<span class="built_in">window</span> &amp;&amp;</span><br><span class="line">	<span class="built_in">window</span>.navigator &amp;&amp;</span><br><span class="line">	<span class="built_in">window</span>.navigator.userAgent.match(<span class="regexp">/iPhone|iPad/</span>)</span><br><span class="line">) &#123;</span><br><span class="line">	targetEl.addEventListener(<span class="string">'touchstart'</span>, recordTouchStart, &#123; <span class="attr">passive</span>: <span class="literal">false</span> &#125;);</span><br><span class="line">	targetEl.addEventListener(<span class="string">'touchmove'</span>, preventTouchMove, &#123; <span class="attr">passive</span>: <span class="literal">false</span> &#125;);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="判断-touch-的对象，是否为要限制的元素"><a href="#判断-touch-的对象，是否为要限制的元素" class="headerlink" title="判断 touch 的对象，是否为要限制的元素"></a>判断 touch 的对象，是否为要限制的元素</h3><p>以上的代码其实已经可以解决滚动链的问题了，但如果有多个元素需要滚动时，多个监听器不好维护。同时 touch 事件也是可以跨元素的，触摸时也有可能出现问题。<br>最好的方法还是加上事件委托，做进一步的限制。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> touchStartY;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> recordTouchStart = <span class="function">(<span class="params">event</span>) =&gt;</span> &#123;</span><br><span class="line">	<span class="keyword">if</span> (targetElWrapper.contains(event.target)) &#123;</span><br><span class="line">		touchStartY = event.touches ? event.touches[<span class="number">0</span>].screenY : event.screenY;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;;</span><br><span class="line"><span class="keyword">const</span> preventTouchMove = <span class="function">(<span class="params">event</span>) =&gt;</span> &#123;</span><br><span class="line">	<span class="keyword">let</span> allowScroll = <span class="literal">false</span>;</span><br><span class="line">	<span class="keyword">if</span> (targetElWrapper.contains(event.target)) &#123;</span><br><span class="line">		<span class="keyword">const</span> el = targetEl;</span><br><span class="line">		<span class="keyword">const</span> currentTouchY = event.touches</span><br><span class="line">			? event.touches[<span class="number">0</span>].screenY</span><br><span class="line">			: event.screenY;</span><br><span class="line">		<span class="keyword">const</span> isOverTop = touchStartY &lt;= currentTouchY &amp;&amp; el.scrollTop === <span class="number">0</span>;</span><br><span class="line">		<span class="keyword">const</span> isOverBottom =</span><br><span class="line">			touchStartY &gt;= currentTouchY &amp;&amp;</span><br><span class="line">			el.scrollHeight - el.scrollTop &lt;= el.offsetHeight;</span><br><span class="line">		<span class="keyword">if</span> (!(isOverBottom || isOverTop)) &#123;</span><br><span class="line">			allowScroll = <span class="literal">true</span>;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="keyword">if</span> (!allowScroll) &#123;</span><br><span class="line">		<span class="keyword">if</span> (event.cancelable) &#123;</span><br><span class="line">			event.preventDefault();</span><br><span class="line">		&#125;</span><br><span class="line">		event.stopPropagation();</span><br><span class="line">	&#125;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> (</span><br><span class="line">	<span class="built_in">window</span> &amp;&amp;</span><br><span class="line">	<span class="built_in">window</span>.navigator &amp;&amp;</span><br><span class="line">	<span class="built_in">window</span>.navigator.userAgent.match(<span class="regexp">/iPhone|iPad/</span>)</span><br><span class="line">) &#123;</span><br><span class="line">	<span class="built_in">document</span>.addEventListener(<span class="string">'touchstart'</span>, recordTouchStart, &#123; <span class="attr">passive</span>: <span class="literal">false</span> &#125;);</span><br><span class="line">	<span class="built_in">document</span>.addEventListener(<span class="string">'touchmove'</span>, preventTouchMove, &#123; <span class="attr">passive</span>: <span class="literal">false</span> &#125;);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+-->
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+      <div>
+        <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+  <div>坚持原创技术分享，您的支持将鼓励我继续创作！</div>
+  <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+    <span>打赏</span>
+  </button>
+  <div id="QR" style="display: none;">
+
+    
+
+    
+      <div id="alipay" style="display: inline-block">
+        <img id="alipay_qr" src="/images/alipay.jpg" alt="不得不错 支付宝">
+        <p>支付宝</p>
+      </div>
+    
+
+    
+
+  </div>
+</div>
+
+      </div>
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2021/09/16/Taro 多端统一的开发解决方案浅析/" rel="next" title="Taro 多端统一的开发解决方案浅析">
+                <i class="fa fa-chevron-left"></i> Taro 多端统一的开发解决方案浅析
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+        <!-- JiaThis Button BEGIN -->
+<div class="jiathis_style">
+<span class="jiathis_txt">分享到：</span>
+<a class="jiathis_button_fav">收藏夹</a>
+<a class="jiathis_button_copy">复制网址</a>
+<a class="jiathis_button_email">邮件</a>
+<a class="jiathis_button_weixin">微信</a>
+<a class="jiathis_button_qzone">QQ空间</a>
+<a class="jiathis_button_tqq">腾讯微博</a>
+<a class="jiathis_button_douban">豆瓣</a>
+<a class="jiathis_button_share">一键分享</a>
+
+<a href="http://www.jiathis.com/share?uid=2140465" class="jiathis jiathis_txt jiathis_separator jtico jtico_jiathis" target="_blank">更多</a>
+<a class="jiathis_counter_style"></a>
+</div>
+<script type="text/javascript">
+var jiathis_config={
+  data_track_clickback:true,
+  summary:"",
+  shortUrl:false,
+  hideMore:false
+}
+</script>
+<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js?uid=" charset="utf-8"></script>
+<!-- JiaThis Button END -->
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+      <div id="lv-container" data-id="city" data-uid="MTAyMC8zMTA1NS83NjAz"></div>
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          
+            <p class="site-author-name" itemprop="name">不得不错</p>
+            <p class="site-description motion-element" itemprop="description"></p>
+        </div>
+
+        <nav class="site-state motion-element">
+
+          
+            <div class="site-state-item site-state-posts">
+            
+              <a href="/archives/">
+            
+                <span class="site-state-item-count">11</span>
+                <span class="site-state-item-name">日志</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-categories">
+              <a href="/categories/index.html">
+                <span class="site-state-item-count">1</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-tags">
+              <a href="/tags/index.html">
+                <span class="site-state-item-count">18</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/hnsxxscyx" target="_blank" title="GitHub">
+                  GitHub</a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="https://www.douban.com/people/59995408/" target="_blank" title="豆瓣">
+                  豆瓣</a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="https://www.zhihu.com/people/budebucuo/activities" target="_blank" title="知乎">
+                  知乎</a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        
+        
+
+        
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#前言"><span class="nav-number">1.</span> <span class="nav-text">前言</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#原因"><span class="nav-number">2.</span> <span class="nav-text">原因</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2022</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">不得不错</span>
+
+  
+</div>
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+  
+  
+
+
+
+
+
+
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+  
+  <script type="text/javascript" src="/lib/three/three.min.js"></script>
+
+  
+  <script type="text/javascript" src="/lib/three/three-waves.min.js"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.2"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.2"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.2"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.2"></script>
+
+
+
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.2"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.2"></script>
+
+
+  
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.2"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+    <script type="text/javascript">
+      (function(d, s) {
+        var j, e = d.getElementsByTagName(s)[0];
+        if (typeof LivereTower === 'function') { return; }
+        j = d.createElement(s);
+        j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+        j.async = true;
+        e.parentNode.insertBefore(j, e);
+      })(document, 'script');
+    </script>
+  
+
+
+
+
+
+
+
+
+  
+
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      $.ajax({
+        url: path,
+        dataType: isXml ? "xml" : "json",
+        async: true,
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url);
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('1');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'auto') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

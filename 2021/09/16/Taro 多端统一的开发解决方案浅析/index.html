@@ -1,0 +1,1186 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="zh-Hans">
+<head><meta name="generator" content="Hexo 3.9.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+
+<link href="/css/main.css?v=5.1.2" rel="stylesheet" type="text/css">
+
+
+  <meta name="keywords" content="前端,Taro,">
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.2">
+
+
+
+
+
+
+<meta name="description" content="前言   同一个世界，同一个梦想。Write once, run everywhere 是每个开发者心中的梦。   无需特别注意端的差异，把更多的精力放在业务与coding 上，无数的框架也在这个方向上持续改进和努力着。   17年1月，微信小程序正式上线，与web 相近的开发方式与微信上亿的用户基数让小程序迅速在”前端圈“走红，无数小程序也在开发和被开发的路上。但因种种原因，原生微信小程序的开发">
+<meta name="keywords" content="前端,Taro">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Taro 多端统一的开发解决方案浅析">
+<meta property="og:url" content="http://yoursite.com/./2021/09/16/Taro 多端统一的开发解决方案浅析/index.html">
+<meta property="og:site_name" content="不得不错的博客">
+<meta property="og:description" content="前言   同一个世界，同一个梦想。Write once, run everywhere 是每个开发者心中的梦。   无需特别注意端的差异，把更多的精力放在业务与coding 上，无数的框架也在这个方向上持续改进和努力着。   17年1月，微信小程序正式上线，与web 相近的开发方式与微信上亿的用户基数让小程序迅速在”前端圈“走红，无数小程序也在开发和被开发的路上。但因种种原因，原生微信小程序的开发">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="https://static001.infoq.cn/resource/image/0e/4c/0e62251a903c2341c3a8091a4773bb4c.jpg">
+<meta property="og:image" content="https://www.osvlabs.com/blog/wp-content/uploads/2022/02/babel.png">
+<meta property="og:updated_time" content="2022-02-28T02:25:58.609Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Taro 多端统一的开发解决方案浅析">
+<meta name="twitter:description" content="前言   同一个世界，同一个梦想。Write once, run everywhere 是每个开发者心中的梦。   无需特别注意端的差异，把更多的精力放在业务与coding 上，无数的框架也在这个方向上持续改进和努力着。   17年1月，微信小程序正式上线，与web 相近的开发方式与微信上亿的用户基数让小程序迅速在”前端圈“走红，无数小程序也在开发和被开发的路上。但因种种原因，原生微信小程序的开发">
+<meta name="twitter:image" content="https://static001.infoq.cn/resource/image/0e/4c/0e62251a903c2341c3a8091a4773bb4c.jpg">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    version: '5.1.2',
+    sidebar: {"position":"left","display":"post","offset":12,"offset_float":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/./2021/09/16/Taro 多端统一的开发解决方案浅析/">
+
+
+
+
+
+  <title>Taro 多端统一的开发解决方案浅析 | 不得不错的博客</title>
+  
+
+
+
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+            (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+          m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+  ga('create', 'UA-107036762-1', 'auto');
+  ga('send', 'pageview');
+</script>
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">不得不错的博客</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br>
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br>
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
+            
+            归档
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br>
+            
+            搜索
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off" placeholder="搜索..." spellcheck="false" type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/./2021/09/16/Taro 多端统一的开发解决方案浅析/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="不得不错">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="不得不错的博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">Taro 多端统一的开发解决方案浅析</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2021-09-16T18:43:05+08:00">
+                2021-09-16
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p><img src="https://static001.infoq.cn/resource/image/0e/4c/0e62251a903c2341c3a8091a4773bb4c.jpg" alt="Taro">  </p>
+<p>同一个世界，同一个梦想。Write once, run everywhere 是每个开发者心中的梦。  </p>
+<p>无需特别注意端的差异，把更多的精力放在业务与coding 上，无数的框架也在这个方向上持续改进和努力着。  </p>
+<p>17年1月，微信小程序正式上线，与web 相近的开发方式与微信上亿的用户基数让小程序迅速在”前端圈“走红，无数小程序也在开发和被开发的路上。但因种种原因，原生微信小程序的开发方式并不尽如人意，前端生态的丰富资源及开发模式也无法直接被引入小程序的开发流程。  </p>
+<p>为了改善开发小程序的开发体验及提交开发效率，Taro应运而生，它使用了类react 的语法，并且积极引入了前端流行的开发流程，并实现了一套代码多端复用（小程序、H5、React native)，在最近的大版本更新中，更是支持了React/Vue2/Vue3，让多端开发体验更加优雅和高效。  </p>
+<p>让我们一起来看看Taro 是怎么做的。</p>
+<h1 id="尝试一下Taro-build"><a href="#尝试一下Taro-build" class="headerlink" title="尝试一下Taro build"></a>尝试一下Taro build</h1><p>我们可以新建一个空白的<a href="https://docs.taro.zone/docs/2.x/GETTING-STARTED" target="_blank" rel="noopener">Taro</a> 模板项目，然后使用taro build 命令将项目打包，我们再来一起看看Taro 做了什么。<br>我们先使用Taro 2 进行build看看。</p>
+<h2 id="小程序"><a href="#小程序" class="headerlink" title="小程序"></a>小程序</h2><p>由于小程序的原理大同小异，微信小程序几乎又是小程序的实际标准，所以build 小程序就以微信小程序来举例。</p>
+<p>忽略掉模板代码，build 完成后多出了dist 文件夹，目录下就是产出的微信小程序项目文件。<br>目录结构如下：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">|-- dist</span><br><span class="line">|   |-- app.js</span><br><span class="line">|   |-- app.json</span><br><span class="line">|   |-- app.wxss</span><br><span class="line">|   |-- project.config.json</span><br><span class="line">|   |-- npm</span><br><span class="line">|   |   |-- @tarojs</span><br><span class="line">|   |       |-- taro</span><br><span class="line">|   |       |   |-- index.js</span><br><span class="line">|   |       |   |-- dist</span><br><span class="line">|   |       |       |-- index.js</span><br><span class="line">|   |       |-- taro-weapp</span><br><span class="line">|   |           |-- index.js</span><br><span class="line">|   |           |-- dist</span><br><span class="line">|   |               |-- index.js</span><br><span class="line">|   |-- pages</span><br><span class="line">|       |-- index</span><br><span class="line">|           |-- index.js</span><br><span class="line">|           |-- index.json</span><br><span class="line">|           |-- index.wxml</span><br><span class="line">|           |-- index.wxss</span><br></pre></td></tr></table></figure></p>
+<p>从dist 文件夹可以看出，输出代码遵循了微信小程序所要求的<a href="https://developers.weixin.qq.com/miniprogram/dev/framework/structure.html" target="_blank" rel="noopener">目录结构</a>。    </p>
+<p>我们从pages 入手，看一下打包后的文件。  </p>
+<h3 id="pages-下的json-wxml-与wxss-文件"><a href="#pages-下的json-wxml-与wxss-文件" class="headerlink" title="pages 下的json, wxml 与wxss 文件"></a>pages 下的json, wxml 与wxss 文件</h3><p>json 文件中的配置想很明显是微信小程序所要求的的<a href="https://developers.weixin.qq.com/miniprogram/dev/reference/configuration/page.html" target="_blank" rel="noopener">页面配置</a>项。  </p>
+<p>再看wxml 文件，很明显可以看出它就是普通的微信小程序模板，只不过与Taro 原始项目文件相比多了一层block 标签。  </p>
+<p>而wxss 文件也是普通的微信小程序<a href="https://developers.weixin.qq.com/miniprogram/dev/framework/view/wxss.html" target="_blank" rel="noopener">wxss</a> 样式语言。  </p>
+<p>由此可以简单推测，Taro 在转换为微信小程序时几乎把原代码转成了微信小程序所支持的语法，以此来在平台上运行。  </p>
+<h3 id="pages-下的js-文件"><a href="#pages-下的js-文件" class="headerlink" title="pages 下的js 文件"></a>pages 下的js 文件</h3><p>js 文件是经过编译过的，不太方便阅读，但是某些函数基本上还是能一一对应的，比如在return 的_createClass 方法中仍然能看到react 生命周期函数，如componentWillMount、componentDidMount 等。  </p>
+<p>在文件末尾，还可以看到js 文件导出了一个变量，并将此变量传入了createComponent 方法。</p>
+<h2 id="h5"><a href="#h5" class="headerlink" title="h5"></a>h5</h2><p>执行taro build –type h5，等build 完成后多出的是.temp 与dist文件夹，目录如下：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">|-- .temp</span><br><span class="line">|   |-- app.js</span><br><span class="line">|   |-- app.scss</span><br><span class="line">|   |-- index.html</span><br><span class="line">|   |-- pages</span><br><span class="line">|       |-- index</span><br><span class="line">|           |-- index.js</span><br><span class="line">|           |-- index.scss</span><br><span class="line">|-- dist</span><br><span class="line">|   |-- index.html</span><br><span class="line">|   |-- chunk</span><br><span class="line">|   |   |-- 2.js</span><br><span class="line">|   |   |-- index_index.js</span><br><span class="line">|   |-- css</span><br><span class="line">|   |   |-- 2.css</span><br><span class="line">|   |   |-- app.css</span><br><span class="line">|   |   |-- index_index.css</span><br><span class="line">|   |-- js</span><br><span class="line">|       |-- app.js</span><br></pre></td></tr></table></figure></p>
+<p>从dist 目录下的文件来看，输出的文件似乎与普通web 应用打包后的文件没什么不同。但.temp 文件夹下就奇怪了，这个目录是干做什么用的？</p>
+<h3 id="temp-目录下的文件"><a href="#temp-目录下的文件" class="headerlink" title=".temp 目录下的文件"></a>.temp 目录下的文件</h3><p>我们先来看app.js, 除去taro 的某些api(如createHistory、initPxTransform)，它似乎与普通的React 语法没什么不同，同样的生命周期方法，同样最后使用了render方法，只不过是引入和使用了<a href="https://nerv.aotu.io/" target="_blank" rel="noopener">Nerv</a>，当然，Nerv 使用了和React 16一致的使用方式与API。  </p>
+<p>再让我们去看pages 下的文件，又是典型的React 语法，只不过jsx 中使用的标签是微信小程序标签名，如View，Text。它们又是从@tarojs/components 引入的。<br>对比源代码后就更奇怪了，似乎.temp 目录只是将Nerv 引入了项目，究竟发生了什么？  </p>
+<h1 id="基本原理分析-如何把一套代码转换为另一套代码"><a href="#基本原理分析-如何把一套代码转换为另一套代码" class="headerlink" title="基本原理分析 - 如何把一套代码转换为另一套代码"></a>基本原理分析 - 如何把一套代码转换为另一套代码</h1><p>让我们忽略其他所有的因素，回到问题最初的原点：我有一套代码，我想通过某些操作，直接让它在另一个运行环境运行，应该怎么做？  </p>
+<p>答案很简单，把这套代码转译成目标运行环境所支持的代码就好，例如<a href="https://github.com/PythonJS/PythonJS" target="_blank" rel="noopener">PythonJs</a> 或者<a href="https://www.transcrypt.org" target="_blank" rel="noopener">Transcrypt</a>。实际上，Taro 2 正是这么做的。  </p>
+<p>说起来简简单单，实际做起来可没那么容易，这样的代码转换其实就是编译原理的内容，作为计算机基础重要的专业课，涉及到语言和文法、词法分析、语法分析、中间代码生成和目标代码生成。<br>幸好，JavaScript 生态足够丰富，大量的工具可以直接使用。Taro 就在转换这个最核心的部分大量的借用了Babel 模块。  </p>
+<h2 id="编译"><a href="#编译" class="headerlink" title="编译"></a>编译</h2><h3 id="Babel"><a href="#Babel" class="headerlink" title="Babel"></a>Babel</h3><p><a href="https://babeljs.io/" target="_blank" rel="noopener">Babel</a>是JavaScript的转换编译器，日常开发中接触最多的就是使用其将ES6+ 代码转换为向后兼容的JavaScript 语法。但它能做的远不止这些。  </p>
+<p>借助于<a href="https://babeljs.io/docs/en/babel-parser.html" target="_blank" rel="noopener">@babel/parser</a>,Babel 可以解析JavaScript/TypeScript/JSX 等为AST(Abstract Syntax Tree)。当代码被转为AST 时，代码对于开发者来说只是一个遵循规则的树状数据结构，这时我们就可以对代码进行一系列的操作。比如我们常用的ESlint，就是将代码转换为了AST再对其进行语法检查、错误提示等（ESlint 使用的parser为<a href="https://github.com/eslint/espree" target="_blank" rel="noopener">espree</a>)。  </p>
+<p><img src="https://www.osvlabs.com/blog/wp-content/uploads/2022/02/babel.png" alt="Babel">  </p>
+<p>例如<code>let a = 1;</code>解析为AST 后就是：<br> <figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line"> &#123;</span><br><span class="line">  <span class="attr">"type"</span>: <span class="string">"Program"</span>,</span><br><span class="line">  <span class="attr">"start"</span>: <span class="number">0</span>,</span><br><span class="line">  <span class="attr">"end"</span>: <span class="number">10</span>,</span><br><span class="line">  <span class="attr">"body"</span>: [</span><br><span class="line">    &#123;</span><br><span class="line">      <span class="attr">"type"</span>: <span class="string">"VariableDeclaration"</span>,</span><br><span class="line">      <span class="attr">"start"</span>: <span class="number">0</span>,</span><br><span class="line">      <span class="attr">"end"</span>: <span class="number">10</span>,</span><br><span class="line">      <span class="attr">"declarations"</span>: [</span><br><span class="line">        &#123;</span><br><span class="line">          <span class="attr">"type"</span>: <span class="string">"VariableDeclarator"</span>,</span><br><span class="line">          <span class="attr">"start"</span>: <span class="number">4</span>,</span><br><span class="line">          <span class="attr">"end"</span>: <span class="number">9</span>,</span><br><span class="line">          <span class="attr">"id"</span>: &#123;</span><br><span class="line">            <span class="attr">"type"</span>: <span class="string">"Identifier"</span>,</span><br><span class="line">            <span class="attr">"start"</span>: <span class="number">4</span>,</span><br><span class="line">            <span class="attr">"end"</span>: <span class="number">5</span>,</span><br><span class="line">            <span class="attr">"name"</span>: <span class="string">"a"</span></span><br><span class="line">          &#125;,</span><br><span class="line">          <span class="attr">"init"</span>: &#123;</span><br><span class="line">            <span class="attr">"type"</span>: <span class="string">"Literal"</span>,</span><br><span class="line">            <span class="attr">"start"</span>: <span class="number">8</span>,</span><br><span class="line">            <span class="attr">"end"</span>: <span class="number">9</span>,</span><br><span class="line">            <span class="attr">"value"</span>: <span class="number">1</span>,</span><br><span class="line">            <span class="attr">"raw"</span>: <span class="string">"1"</span></span><br><span class="line">          &#125;</span><br><span class="line">        &#125;</span><br><span class="line">      ],</span><br><span class="line">      <span class="attr">"kind"</span>: <span class="string">"let"</span></span><br><span class="line">    &#125;</span><br><span class="line">  ],</span><br><span class="line">  <span class="attr">"sourceType"</span>: <span class="string">"module"</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>也可以使用<a href="https://astexplorer.net/" target="_blank" rel="noopener">AST explorer</a>来在线看一下一段代码被转换AST 的结构。  </p>
+<p>代码转换为AST 之后，还需要对节点进行处理，<a href="https://github.com/babel/babel/tree/master/packages/babel-traverse" target="_blank" rel="noopener">@babel/traverse</a>可以方便的遍历节点树，并且可以方便的对其进行删除、添加、替换。  </p>
+<p>最后，借助于<a href="https://github.com/babel/babel/tree/master/packages/babel-generator" target="_blank" rel="noopener">@babel/generator</a>, 我们可以将AST 转换为code。  </p>
+<p>借助于babel的这几个package，已经可以方便的实现将遵循规范的源代码转换为目标代码这一流程。  </p>
+<p>仅使用生态的力量是不够的，作为新兴的平台，小程序自己定义了一套DSL，所以由AST 转为小程序代码的工作只能Taro 自己来完成。  </p>
+<p>转换小程序的这一部分的核心位于<a href="https://github.com/NervJS/taro/tree/2.x/packages/taro-transformer-wx" target="_blank" rel="noopener">taro-transformer-wx</a>。 从src/index.ts 的transform方法也可以看出，taro 在转换代码时的流程依然是解析、处理、生成这一流程。</p>
+<h2 id="运行"><a href="#运行" class="headerlink" title="运行"></a>运行</h2><h3 id="小程序的运行"><a href="#小程序的运行" class="headerlink" title="小程序的运行"></a>小程序的运行</h3><p>编译让本不能运行的代码在环境中可以运行（比如ES6 被编译为ES5，就可以运行在绝大多数的浏览器环境），但并非所有的问题都需要靠编译来解决。  </p>
+<p>在微信小程序中，页面使用<a href="https://developers.weixin.qq.com/miniprogram/dev/reference/api/Page.html" target="_blank" rel="noopener">Page</a> 方法传入一个对象，如果借助编译的话，那就是需要将Class 或者 Function 都编译为对象，并将属性一一对应起来。这样做不仅让编译的工作变得复杂多变，当出现异常时出错crash 的几率也变得特别高。  </p>
+<p>Taro 使用了非常聪明的方法解决了这个问题，页面使用的是对象，那最终传给它一个对象不就完了？所以在小程序中，Taro 实现了createComponent 方法，将原本的Taro 类，转换为小程序所需要的Object。<br><a href="https://github.com/NervJS/taro/blob/master/packages/taro-weapp/src/create-component.js" target="_blank" rel="noopener">createComponent</a> 方法主要做了三件事：将state 转换为小程序的data;将Taro 的生命周期映射到小程序生命周期；将事件处理函数映射到小程序的事件处理函数。  </p>
+<p>映射生命周期与时间处理函数比较好理解，所以我们重点关注一下state 的转换。  </p>
+<p>忽略掉其他因素，可以简单的将state 直接对应为小程序的data。但jsx 的写法多变，小程序的模板却无法像jsx 那样灵活，例如在render 函数中，生成了新变量（state 的数据先经过处理，如map、filter后再使用）。Taro 使用了一个_createData 方法来处理这种情况，render return 前所有定义变量或对props、state 产生新变量的操作，都会被编译到_createData方法来执行，并且在data 中创建一个新变量，使其可以映射到小程序的模板上。 </p>
+<h3 id="h5-的运行"><a href="#h5-的运行" class="headerlink" title="h5 的运行"></a>h5 的运行</h3><p>之前在build 时已经发现，h5 的build 会多出一个.temp 文件夹，里面的代码最为明显的改动似乎只是引入了Nerv。作为纯粹的web 框架，小程序组件肯定是不存在于web端的，如何使用小程序的组件，是使用h5 的第一个问题。  </p>
+<p>首先最好想到的方法，是像小程序编译一样，将小程序的原生标签编译为对应的HTML 标签，例如使用div 直接替换view，对于没有可以直接映射的组件或标签，如swiper，就直接维护一套组件，根据小程序的表现来实现组件，这样就可以在浏览器中运行了。  </p>
+<p>维护没有的组件没有什么问题，但view 与div 这种却不能一一对应。拿view 来说，在小程序中存在一些属性，如hover-class、hover-start-time 这些，在web 端并不存在。所以Taro 直接依照小程序，维护了一个实现小程序规范的web 版<a href="https://github.com/NervJS/taro/tree/master/packages/taro-components/src/components" target="_blank" rel="noopener">组件</a>，这样，在web段的表现也能与小程序一致了。<br>其他方面，Taro 自行在web 端补足了小程序的api，由于小程序的输入输出都非常清晰，Taro 只需要使用web 端来实现这些<a href="https://github.com/NervJS/taro/tree/master/packages/taro-h5/src/api" target="_blank" rel="noopener">API</a>，同时还能方便的进行promise 的包装。  </p>
+<h1 id="Taro3-的不同解"><a href="#Taro3-的不同解" class="headerlink" title="Taro3 的不同解"></a>Taro3 的不同解</h1><p>Taro2 只支持了类react 的写法，但是<a href="https://docs.taro.zone/docs/" target="_blank" rel="noopener">Taro3</a>支持使用 React/Vue/Nerv 等框架来开发小程序、h5等应用，这又是怎么做到的？  </p>
+<p>从两个版本的简介中可以明显看出不同，Taro 2 时介绍Taro 为</p>
+<blockquote>
+<p>Taro 是一套遵循 React 语法规范的 多端开发 解决方案</p>
+</blockquote>
+<p>而Taro 3则是<strong>支持使用</strong>React/Vue/Nerv 等框架来开发，甚至明确表示<strong>可以使用完整的React/Vue/Vue3/Nerv 开发体验</strong>。如果依照Taro 2 重编译的做法，恐怕Taro 要做巨量的工作来支持新语法，并且投入巨大的人力物力来维护生态。进一步来说，也绝对不可能打出使用完整的 xx框架开发体验，那么Taro 3 是怎么解决run everywhere 的问题的呢？  </p>
+<p>在概述中，我们可以看到Taro 官方的说明：</p>
+<blockquote>
+<p>Taro 3 支持将 Web 框架直接运行在各平台，开发者使用的是真实的 React 和 Vue 等框架。</p>
+</blockquote>
+<p>这是怎么实现的呢？似乎是框架作为运行时，可以跑在各个端上。  </p>
+<p>我们将taro-cli 升级，再创建一些taro 的模板项目来看一看。  </p>
+<p>首先选取框架为vue3，模板为vue3-vuex，然后执行taro build –type weapp，执行完毕后目录如下：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><span class="line">|-- dist</span><br><span class="line">|   |-- app.js</span><br><span class="line">|   |-- app.json</span><br><span class="line">|   |-- app.wxss</span><br><span class="line">|   |-- base.wxml</span><br><span class="line">|   |-- comp.js</span><br><span class="line">|   |-- comp.json</span><br><span class="line">|   |-- comp.wxml</span><br><span class="line">|   |-- custom-wrapper.js</span><br><span class="line">|   |-- custom-wrapper.json</span><br><span class="line">|   |-- custom-wrapper.wxml</span><br><span class="line">|   |-- project.config.json</span><br><span class="line">|   |-- runtime.js</span><br><span class="line">|   |-- taro.js</span><br><span class="line">|   |-- taro.js.LICENSE.txt</span><br><span class="line">|   |-- utils.wxs</span><br><span class="line">|   |-- vendors.js</span><br><span class="line">|   |-- vendors.js.LICENSE.txt</span><br><span class="line">|   |-- pages</span><br><span class="line">|       |-- index</span><br><span class="line">|           |-- index.js</span><br><span class="line">|           |-- index.json</span><br><span class="line">|           |-- index.wxml</span><br><span class="line">|           |-- index.wxss</span><br><span class="line">|-- src</span><br><span class="line">    |-- app.config.js</span><br><span class="line">    |-- app.js</span><br><span class="line">    |-- app.scss</span><br><span class="line">    |-- index.html</span><br><span class="line">    |-- store.js</span><br><span class="line">    |-- components</span><br><span class="line">    |   |-- NumberDisplay.vue</span><br><span class="line">    |   |-- NumberSubmit.vue</span><br><span class="line">    |-- pages</span><br><span class="line">        |-- index</span><br><span class="line">            |-- index.config.js</span><br><span class="line">            |-- index.vue</span><br></pre></td></tr></table></figure></p>
+<p>可以看出，模板代码中组件与页面都是.vue文件，编译后的则是小程序文件。奇怪的是，源代码中的components 并没有被生成对应的小程序组件，但却多了comp.xxx 一众文件，由comp.json 的内容可以看出，comp 即是编译后的自定义组件。而原模板组件中的样式，被编译到了pages/index.wxss 中。  </p>
+<p>Taro 3 到底做了什么？  </p>
+<p>让我们再次回归问题的原点，<a href="https://developers.weixin.qq.com/community/develop/article/doc/000c8eba1ec3b8c7ce287954c53c13" target="_blank" rel="noopener">小程序架构</a>,Vue 虽然都借鉴了MVVM的设计，但与React 一样更类似于data =&gt; UI 的映射。如果说小程序团队有能力使用某种方式来实现数据到UI 的映射，那么React 与Vue作为浏览器层面的library，肯定是必须借助浏览器的API来实现映射的。  </p>
+<p>这些API，其实就是DOM/BOM 的相关API，简单来说，就是我只需要新建、修改、删除DOM 节点的能力，我就可以实现data =&gt; UI 的映射。  </p>
+<p>所以Taro next 改变了以往的思路，如果让操纵节点的API 跨端了，那么使用这些API 的框架也能跨端使用。更何况无论是小程序、React还是Vue都是使用Virtual Dom 的概念，并通过某些方式来使真实DOM 保持同步。  </p>
+<p>Taro 这部分的实现位于<a href="https://github.com/NervJS/taro/tree/next/packages/taro-runtime" target="_blank" rel="noopener">@tarojs/runtime</a>，从<a href="https://github.com/NervJS/taro/blob/next/packages/taro-runtime/src/dom/node.ts" target="_blank" rel="noopener">node.ts</a> 可以看出，它实现了大量的DOM 标准化方法（如insertBefore,removeChild）。  </p>
+<p>Vue 或是React 都自己维护着Virtual DOM，还需要一些操作让Virtual DOM 可以调取taro-runtime 的API，<a href="https://github.com/NervJS/taro/tree/next/packages/taro-react" target="_blank" rel="noopener">@tarojs/react</a>就是小程序专用的react 渲染器，它让React 的Virtual DOM 可以调用Taro 自实现的node API。  </p>
+<p>在小程序编译阶段，Taro会将所有组件进行模板化处理，当Taro的 DOM tree 要渲染到页面上时，Taro 会基于组件的template 去动态的递归遍历渲染整棵树，这就是为什么上面编译出来的组件不会一一对应的原因，因为它们已经被模板化成为一个个的template了。</p>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+      <div>
+        <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+  <div>坚持原创技术分享，您的支持将鼓励我继续创作！</div>
+  <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+    <span>打赏</span>
+  </button>
+  <div id="QR" style="display: none;">
+
+    
+
+    
+      <div id="alipay" style="display: inline-block">
+        <img id="alipay_qr" src="/images/alipay.jpg" alt="不得不错 支付宝">
+        <p>支付宝</p>
+      </div>
+    
+
+    
+
+  </div>
+</div>
+
+      </div>
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/前端/" rel="tag"># 前端</a>
+          
+            <a href="/tags/Taro/" rel="tag"># Taro</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2021/08/26/我们是如何在王者比赛中翻车的/" rel="next" title="我们是如何在王者比赛中翻车的">
+                <i class="fa fa-chevron-left"></i> 我们是如何在王者比赛中翻车的
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2022/03/17/别再滚了-现在就要解决你的滚动穿透/" rel="prev" title="别再滚了 - 现在就要解决你的滚动穿透问题">
+                别再滚了 - 现在就要解决你的滚动穿透问题 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+        <!-- JiaThis Button BEGIN -->
+<div class="jiathis_style">
+<span class="jiathis_txt">分享到：</span>
+<a class="jiathis_button_fav">收藏夹</a>
+<a class="jiathis_button_copy">复制网址</a>
+<a class="jiathis_button_email">邮件</a>
+<a class="jiathis_button_weixin">微信</a>
+<a class="jiathis_button_qzone">QQ空间</a>
+<a class="jiathis_button_tqq">腾讯微博</a>
+<a class="jiathis_button_douban">豆瓣</a>
+<a class="jiathis_button_share">一键分享</a>
+
+<a href="http://www.jiathis.com/share?uid=2140465" class="jiathis jiathis_txt jiathis_separator jtico jtico_jiathis" target="_blank">更多</a>
+<a class="jiathis_counter_style"></a>
+</div>
+<script type="text/javascript">
+var jiathis_config={
+  data_track_clickback:true,
+  summary:"",
+  shortUrl:false,
+  hideMore:false
+}
+</script>
+<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js?uid=" charset="utf-8"></script>
+<!-- JiaThis Button END -->
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+      <div id="lv-container" data-id="city" data-uid="MTAyMC8zMTA1NS83NjAz"></div>
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          
+            <p class="site-author-name" itemprop="name">不得不错</p>
+            <p class="site-description motion-element" itemprop="description"></p>
+        </div>
+
+        <nav class="site-state motion-element">
+
+          
+            <div class="site-state-item site-state-posts">
+            
+              <a href="/archives/">
+            
+                <span class="site-state-item-count">11</span>
+                <span class="site-state-item-name">日志</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-categories">
+              <a href="/categories/index.html">
+                <span class="site-state-item-count">1</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-tags">
+              <a href="/tags/index.html">
+                <span class="site-state-item-count">18</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/hnsxxscyx" target="_blank" title="GitHub">
+                  GitHub</a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="https://www.douban.com/people/59995408/" target="_blank" title="豆瓣">
+                  豆瓣</a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="https://www.zhihu.com/people/budebucuo/activities" target="_blank" title="知乎">
+                  知乎</a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        
+        
+
+        
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#前言"><span class="nav-number">1.</span> <span class="nav-text">前言</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#尝试一下Taro-build"><span class="nav-number">2.</span> <span class="nav-text">尝试一下Taro build</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#小程序"><span class="nav-number">2.1.</span> <span class="nav-text">小程序</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#pages-下的json-wxml-与wxss-文件"><span class="nav-number">2.1.1.</span> <span class="nav-text">pages 下的json, wxml 与wxss 文件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#pages-下的js-文件"><span class="nav-number">2.1.2.</span> <span class="nav-text">pages 下的js 文件</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#h5"><span class="nav-number">2.2.</span> <span class="nav-text">h5</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#temp-目录下的文件"><span class="nav-number">2.2.1.</span> <span class="nav-text">.temp 目录下的文件</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#基本原理分析-如何把一套代码转换为另一套代码"><span class="nav-number">3.</span> <span class="nav-text">基本原理分析 - 如何把一套代码转换为另一套代码</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#编译"><span class="nav-number">3.1.</span> <span class="nav-text">编译</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Babel"><span class="nav-number">3.1.1.</span> <span class="nav-text">Babel</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#运行"><span class="nav-number">3.2.</span> <span class="nav-text">运行</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#小程序的运行"><span class="nav-number">3.2.1.</span> <span class="nav-text">小程序的运行</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#h5-的运行"><span class="nav-number">3.2.2.</span> <span class="nav-text">h5 的运行</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Taro3-的不同解"><span class="nav-number">4.</span> <span class="nav-text">Taro3 的不同解</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2022</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">不得不错</span>
+
+  
+</div>
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+  
+  
+
+
+
+
+
+
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+  
+  <script type="text/javascript" src="/lib/three/three.min.js"></script>
+
+  
+  <script type="text/javascript" src="/lib/three/three-waves.min.js"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.2"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.2"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.2"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.2"></script>
+
+
+
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.2"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.2"></script>
+
+
+  
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.2"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+    <script type="text/javascript">
+      (function(d, s) {
+        var j, e = d.getElementsByTagName(s)[0];
+        if (typeof LivereTower === 'function') { return; }
+        j = d.createElement(s);
+        j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+        j.async = true;
+        e.parentNode.insertBefore(j, e);
+      })(document, 'script');
+    </script>
+  
+
+
+
+
+
+
+
+
+  
+
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      $.ajax({
+        url: path,
+        dataType: isXml ? "xml" : "json",
+        async: true,
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url);
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('1');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'auto') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
